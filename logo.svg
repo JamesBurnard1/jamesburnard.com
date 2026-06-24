@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 512" role="img" aria-labelledby="title">
+  <title id="title">James Burnard logo</title>
+  <g transform="translate(48 48) scale(.40625)">
+    <path d="M80 128h400v496c0 176-104 288-264 288-88 0-160-32-208-88l88-88c32 36 68 56 120 56 88 0 136-64 136-168V248H80V128Z"/>
+    <path fill-rule="evenodd" d="M528 128h216c136 0 216 68 216 184 0 76-36 132-100 160 84 24 132 92 132 188 0 156-100 236-260 236H528V128Zm128 112v180h72c68 0 104-32 104-92 0-56-36-88-104-88h-72Zm0 292v252h84c80 0 124-44 124-128 0-80-44-124-124-124h-84Z"/>
+  </g>
+  <text x="520" y="264" font-family="Inter, Arial, sans-serif" font-size="112" font-weight="800" letter-spacing="3">JAMES BURNARD</text>
+  <text x="526" y="350" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="700" letter-spacing="12">DATA / ANALYTICS</text>
+  <path d="M520 400h1016v12H520z"/>
+</svg>
