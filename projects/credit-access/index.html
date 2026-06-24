@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>County-Level Credit Access | James Burnard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="project-detail-page">
+    <header class="site-header detail-header">
+      <a class="brand" href="../../index.html" aria-label="Home">JB</a>
+      <nav class="detail-nav" aria-label="Project navigation">
+        <a href="../../index.html#projects-panel">Back to Projects</a>
+      </nav>
+    </header>
+    <main class="detail-shell">
+      <section class="detail-hero">
+        <p class="eyebrow">Class Project · 2025</p>
+        <h1>Exploring County-Level Access to Credit in the United States</h1>
+        <p>
+          A county-level exploratory analysis of credit score, credit card
+          balance, and 90-day delinquency data from Opportunity Insights.
+        </p>
+        <div class="project-tags detail-tags">
+          <span>Jupyter Notebook</span>
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>Seaborn</span>
+          <span>SciPy</span>
+          <span>Decision Trees</span>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <img class="detail-wide-image" src="../../assets/ed546491-bbbc-4cb4-82a2-c8ed2f3c8c8d.png" alt="Credit access project plot preview" />
+      </section>
+
+      <section class="detail-section writeup">
+        <h2>Portfolio Summary</h2>
+        <p>
+          This project, created with Peter Koumpikov, explores trends in credit
+          scores, credit balances, and debt delinquency across United States
+          counties. We were interested in whether county-level credit outcomes
+          could reveal geographic and demographic disparities that matter for
+          policy, regulation, and financial inclusion.
+        </p>
+
+        <h2>Data Preparation</h2>
+        <p>
+          We combined three Opportunity Insights datasets: average credit score,
+          average credit card balance, and 90-day delinquency rate. Each dataset
+          included parent state, parent county, child race, parent income
+          percentile, the credit variable of interest, and county name. We
+          averaged key features across counties, joined the datasets, renamed
+          columns for readability, and built an analysis-ready county-level
+          table.
+        </p>
+
+        <h2>Exploratory Analysis</h2>
+        <p>
+          The statistical summary compared means, medians, ranges, and
+          interquartile ranges for credit score, credit balance, and delinquency
+          rate. Credit scores were relatively tightly distributed across
+          counties, while credit card balances and delinquency rates showed more
+          spread. That variation suggested that debt burden and delinquency were
+          worth studying more closely.
+        </p>
+        <p>
+          We created density plots and scatter plots to compare credit score,
+          credit balance, and delinquency. The strongest visible relationship
+          was between credit score and delinquency rate: counties and
+          county-race subgroups with higher credit scores tended to have lower
+          delinquency rates.
+        </p>
+
+        <h2>Association Analysis</h2>
+        <p>
+          I focused on the association analysis and predictive modeling portions
+          of the project. We created a correlation matrix, then visualized the
+          three most important relationships: credit score and delinquency rate,
+          credit balance and credit score, and credit balance and delinquency
+          rate. Adding race as a dimension revealed notable differences across
+          county-race subgroups.
+        </p>
+        <p>
+          In the scatter plots, observations labeled Black appeared more often
+          in areas with higher delinquency and lower credit scores, while
+          observations labeled Asian more often appeared in areas with lower
+          delinquency and higher credit scores. These patterns do not prove
+          causality, but they do motivate further study of systemic inequities in
+          access to credit.
+        </p>
+
+        <h2>Predictive Modeling</h2>
+        <p>
+          For modeling, I built a decision tree classifier to classify counties
+          as high or low delinquency using a median split. The first model
+          included delinquency rate itself and performed strongly, but it was
+          too easy because the target label came directly from that variable.
+        </p>
+        <p>
+          The stronger version removed raw delinquency rate and relied on
+          remaining predictors like credit score, credit balance, and county
+          identifier. Accuracy declined to 0.92, but the model became more
+          meaningful because it inferred delinquency class from related
+          financial characteristics rather than from the answer itself.
+        </p>
+
+        <h2>Key Takeaway</h2>
+        <p>
+          The project found a strong negative relationship between credit score
+          and delinquency rate, visible both statistically and visually. It also
+          showed that adding race as a dimension can uncover patterns that a
+          county-only average may hide.
+        </p>
+        <div class="callout-note">
+          Future work could connect county-level credit access to quality of
+          life, health, crime, and broader socioeconomic outcomes.
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 James Burnard. Built as a personal portfolio.</p>
+    </footer>
+  </body>
+</html>

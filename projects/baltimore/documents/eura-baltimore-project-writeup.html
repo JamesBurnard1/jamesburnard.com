@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Baltimore Elite Network Writeup</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="word-page.css" />
+</head>
+<body>
+<p><strong>Baltimore's Elite Network: Mapping Social Connections Through
+Urban Decline (1967–1989)</strong></p>
+<p><strong>James Burnard</strong></p>
+<p>CONTEXT AND MOTIVATION</p>
+<p>Back in 2024, my sophomore year at UMass, an esteemed Economics
+professor agreed to let me assist him in his research endeavors. He was
+working on a massive social network analysis project which had led him
+to amass an enormous amount of Social Register books which he was aiming
+to digitize and eventually turn into clean data. I was specifically
+tasked with digitizing a variety of books from Baltimore, called
+Baltimore Blue Books using OCR technology. </p>
+<p>The work itself was taking a picture of each individual page of a
+given book from front to back. As you might imagine, this was a
+mind-numbing task, and it took roughly 1-2 hours a day for two and a
+half months to complete scanning all 10 or so of my books. .</p>
+<p>INTRODUCTION</p>
+<p><em>“Voting with their feet, Baltimoreans continue to flee these
+problems by the thousands.”</em><br />
+— Walters &amp; Miserendino (2008)</p>
+<p>Baltimore’s decline was far from inevitable, people at the time
+however couldn’t have disagreed more. In 1958, planners projected that
+the city’s population would grow steadily from 950,000 residents in 1950
+to 1.2 million by 1980. Instead, Baltimore reached its population peak
+in 1950 and entered decades of decline driven by deindustrialization and
+broader economic change (Boone et al., 2014).</p>
+<p>This transformation has been extensively studied from economic and
+demographic perspectives, but far less attention has been given to how
+it affected the city’s social and institutional networks. This project
+reconstructs Baltimore’s elite organizational landscape using the
+<em>Baltimore Blue Books</em> and <em>Society Visiting Lists</em> from
+1967 to 1989, converting thousands of historical directory entries into
+a network of thousands of households, clubs, societies and civic
+organizations.</p>
+<p>By examining how these connections evolved over time, the project
+provides a new perspective on whether Baltimore's elite institutions
+merely survived the city's decline or whether the relationships linking
+them together also changed.</p>
+<p>THE DATA</p>
+<p>As previously explained, all my data was taken from <em>Baltimore
+Blue Books</em> which contain <em>Society Visiting Lists</em>—social
+directories used by the upper-class families to navigate various social
+circles. The way I like to explain these books to people is by calling
+them a very early version of LinkedIn. The books contain tens of
+thousands of households of which contain the household-member names,
+each name lists the clubs/organizations they were a part of. Now unlike
+LinkedIn, the books are not constantly updating databases and for this
+reason, a new book would be published each year to accommodate any
+changes.</p>
+<p>The professor had collected books from the following eight years:</p>
+<p><strong>1967, 1977, 1979, 1981, 1982, 1983, 1986, 1989.</strong></p>
+<p>These years are a solid spread of time, covering a near decade of the
+initial stages of Baltimore’s decline. I’ve included a graph to
+illustrate these years in the scope of Baltimore’s population
+statistics.</p>
+<p><img src="./media/image1.png"
+style="width:4.59211in;height:3.06598in" /></p>
+<p><strong>Figure 1.</strong> Historical population of Baltimore,
+Maryland (1790–2025). The shaded region highlights the period analyzed
+in this project (1967–1989), corresponding to the available
+<em>Baltimore Blue Books and Society Visiting Lists</em>.
+<strong>Source:</strong> Macrotrends (2025), based on U.S. Census Bureau
+data.</p>
+<p>FROM BLUE BOOK TO DATA</p>
+<p>The <em>Baltimore Blue Books and Society Visiting Lists</em> were
+never intended to be analyzed computationally. They exist only as
+scanned documents containing thousands of names, addresses, educational
+affiliations, and more. Before any analysis could begin, this
+information had to be transformed into a structured, research-ready
+dataset.</p>
+<p>The pipeline began with approximately 4,500 scanned pages spanning
+eight editions of the Blue Book between 1967 and 1989. Each page was
+processed using Optical Character Recognition (OCR) to convert the
+printed text into a series of PDFs. From there, I built a custom parsing
+system to identify extracted key fields.</p>
+<p>The fancy thing about the membership codes is that each code maps
+back to the membership key in the back of each volume. It essentially
+translated the numerical identifiers into over 230 distinct clubs and
+societies.</p>
+<p>Finally, each household was converted into a set of
+person-to-organization relationships. Repeating this process across more
+than 53,000 household listings produced over 42,000 person-organization
+relationships, my data was analysis-ready.</p>
+<p><img src="./media/image2.png"
+style="width:5.90789in;height:3.9386in" /></p>
+<p><strong>Figure 2.</strong> Pipeline for converting a scanned
+<em>Baltimore Blue Book</em> entry into structured network data. The
+process moves from the original page image to OCR text, parsed JSON
+fields, normalized CSV rows, membership-code lookup, and final
+person-organization edges used for network visualization.</p>
+<p>BUILDING THE NETWORK</p>
+<p>I now had a structured dataset in place; the next step was to
+transform individual directory entries into a network that could be
+analyzed over time.</p>
+<p>Each person in the dataset was treated as a connection point between
+organizations. If an individual belonged to multiple clubs or societies,
+those organizations were linked through a shared membership. When this
+process is repeated across thousands of entries, a graph is produced
+where <strong>nodes represent organizations</strong> and <strong>edges
+represent shared members.</strong></p>
+<p><img src="./media/image3.png"
+style="width:6.87292in;height:4.58125in" />Allow us to continue with our
+example entry from Figure 2, Miss Anne Toy. <strong>Miss Anne Toy is not
+a node</strong>, rather a connecting line between the two organizations
+she belongs to. Ideally, I’d make each person a node, but it would be
+impossible to plot in an organized manor.</p>
+<p><strong>Figure 3.</strong> A single individual's memberships create
+connections between organizations. Repeating this process across
+thousands of directory entries produces the organization network
+analyzed in this project.</p>
+<p>FINDINGS</p>
+<p>The results of this project reveal information from the exact
+clubs/societies that are the most prevalent to the overall social
+landscape of these various periods of time. For brevity reasons, I’d
+like to focus on the latter. So, while Baltimore’s overall population is
+declining, the elite network appears to <strong>tighten through the late
+1970’s and early 1980s, then loosen again by the late
+1980’s.</strong></p>
+<p>The two key statistics to pay attention to here are <strong>average
+degree</strong> and <strong>network density</strong></p>
+<p>.</p>
+<p><img src="./media/image4.png"
+style="width:6.5in;height:3.75972in" /></p>
+<p><strong>Figure 4.</strong> <em>Despite Baltimore's steady population
+decline, organization network density increased through the late 1970s
+and early 1980s before declining by 1989, indicating that social
+connectivity did not mirror demographic change.</em></p>
+<p>Network density asks: Of all the lines that <em>could</em> exist
+between organizations, what fraction exists? This figure is then
+displayed as a decimal, a density of .01 means that about 1% of possible
+organization pairs are connected. In figure 4 you can see that density
+is the inverse of Baltimore’s overall population, but it eventually ends
+up parallelling the decreasing population line.</p>
+<p>. <img src="./media/image5.png"
+style="width:6.32292in;height:3.6573in" /></p>
+<p><strong>Figure 5.</strong> <em>Despite Baltimore's steady population
+decline, organization network density increased through the late 1970s
+and early 1980s before declining by 1989, indicating that social
+connectivity did not mirror demographic change.</em></p>
+<p>Average degree is a lot easier to grasp conceptually. Degree is the
+number of organizations that one organization is connected to. So
+average degree is simply the average of that number with all
+organizations considered. You can see that this statistic follows an
+incredibly similar pattern to network density.</p>
+<p>The results suggest that Baltimore's elite organizational landscape
+did not simply decline alongside the city's population. While Baltimore
+experienced sustained demographic and economic challenges, the network
+of clubs, societies, and civic organizations initially became more
+interconnected during the late 1970s and early 1980s before weakening by
+the end of the decade. This indicates that institutional persistence and
+social connectivity followed a more complex trajectory than population
+decline alone would suggest.</p>
+<p>More broadly, this project demonstrates the value of combining OCR,
+data engineering, and network analysis to unlock insights from
+historical documents. What once existed only as thousands of printed
+directory pages can now be explored as an interactive network, offering
+a new perspective on how Baltimore's social fabric evolved during a
+period of significant urban transformation.</p>
+<p>REFERENCES</p>
+<p>Boone, C. G., Fragkias, M., Buckley, G. L., &amp; Grove, J. M.
+(2014). <em>A long view of polluting industry and environmental justice
+in Baltimore</em>. <em>Cities, 36</em>, 41–49. <a
+href="https://doi.org/10.1016/j.cities.2013.09.004">https://doi.org/10.1016/j.cities.2013.09.004</a></p>
+<p>Macrotrends. (2025). <em>Baltimore Population 1790–2025</em>.
+Retrieved from <a
+href="https://www.macrotrends.net/global-metrics/cities/22956/baltimore/population">https://www.macrotrends.net/global-metrics/cities/22956/baltimore/population</a></p>
+<p>Walters, P., &amp; Miserendino, D. (2008). <em>Why Baltimore
+Burns</em>. <em>The Nation</em>. Retrieved from <a
+href="https://www.thenation.com/article/archive/why-baltimore-burns/">https://www.thenation.com/article/archive/why-baltimore-burns/</a></p>
+<p><em>Baltimore Blue Book and Society Visiting Lists</em> (1967, 1977,
+1979, 1981, 1982, 1983, 1986, 1989). Baltimore, MD.</p>
+</body>
+</html>

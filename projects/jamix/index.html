@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Higher Education Market Intelligence Dashboard | James Burnard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="project-detail-page">
+    <header class="site-header detail-header">
+      <a class="brand" href="../../index.html" aria-label="Home">JB</a>
+      <nav class="detail-nav" aria-label="Project navigation">
+        <a href="../../index.html#projects-panel">Back to Projects</a>
+        <a href="#scope">Scope</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#details">Details</a>
+      </nav>
+    </header>
+    <main class="detail-shell wide-detail">
+      <section class="detail-hero">
+        <p class="eyebrow">DataSci Internship @ Jamix · 2026</p>
+        <h1>Higher Education Market Intelligence Dashboard</h1>
+        <p>
+          A portfolio-safe case study from my Data Science Internship at Jamix,
+          using Python and Tableau to segment higher-education institutions by
+          enrollment, financial capacity, and student demographics.
+        </p>
+        <div class="project-tags detail-tags">
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>NumPy</span>
+          <span>Tableau</span>
+          <span>Excel</span>
+          <span>CRM Management</span>
+        </div>
+        <a class="project-scroll-indicator" href="#scope" aria-label="Scroll to project scope">
+          <span aria-hidden="true"></span>
+          Project scope
+        </a>
+      </section>
+
+      <section class="detail-section" id="scope">
+        <div class="project-metrics four-metrics">
+          <div class="project-metric">
+            <strong>280</strong>
+            <span>synthetic institution records in the public-safe version</span>
+          </div>
+          <div class="project-metric">
+            <strong>6</strong>
+            <span>segmentation dimensions used for market comparison</span>
+          </div>
+          <div class="project-metric">
+            <strong>4</strong>
+            <span>K-Means clusters used to group similar institutions</span>
+          </div>
+          <div class="project-metric">
+            <strong>0</strong>
+            <span>real clients, leads, or internal recommendations exposed</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section detail-grid" id="pipeline">
+        <article>
+          <h2>Data Pipeline</h2>
+          <p>
+            The original workflow combined public institutional data from the
+            College Scorecard API, foodservice context from NACUFS, and
+            operational records exported from HubSpot.
+          </p>
+          <p>
+            I cleaned and joined the sources in Python, standardized school
+            names and comparable fields, validated missing or inconsistent
+            records, and prepared analysis-ready tables for Tableau.
+          </p>
+        </article>
+        <article>
+          <h2>Analytical Goal</h2>
+          <p>
+            The project identified which current Jamix clients were most similar
+            to potential new clients, giving the company a more evidence-based
+            way to prioritize outreach and focus on stronger-fit opportunities.
+          </p>
+        </article>
+      </section>
+
+      <section class="detail-section" id="dashboard">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Dashboard Preview</p>
+          <h2>Portfolio-safe visuals recreated with synthetic data.</h2>
+        </div>
+        <div class="detail-image-grid jamix-preview-grid">
+          <figure>
+            <img src="portfolio_safe/assets/enrollment_distribution.png" alt="Synthetic enrollment distribution bar chart" />
+            <figcaption>Enrollment distribution with a mock reference subset.</figcaption>
+          </figure>
+          <figure>
+            <img src="portfolio_safe/assets/institution_type_coverage.png" alt="Synthetic institution type coverage chart" />
+            <figcaption>Institution type coverage across Carnegie-style profiles.</figcaption>
+          </figure>
+          <figure>
+            <img src="portfolio_safe/assets/endowment_curve.png" alt="Synthetic financial capacity curve" />
+            <figcaption>Financial capacity curve with the long-tail pattern preserved.</figcaption>
+          </figure>
+          <figure>
+            <img src="portfolio_safe/assets/market_clusters_3d.png" alt="Synthetic 3D market cluster plot" />
+            <figcaption>3D clusters using enrollment, endowment, and tuition revenue per FTE.</figcaption>
+          </figure>
+          <figure>
+            <img src="portfolio_safe/assets/opportunity_network.png" alt="Synthetic opportunity network graph" />
+            <figcaption>Network view of mock institutions across analytical methods.</figcaption>
+          </figure>
+        </div>
+        <div class="callout-note">
+          Confidentiality note: this page is reconstructed for portfolio use.
+          It does not include real company data, real client names,
+          sales-qualified leads, exact counts, internal recommendations, or
+          original report screenshots.
+        </div>
+      </section>
+
+      <section class="detail-section detail-grid" id="details">
+        <article>
+          <h2>What I Built</h2>
+          <p>
+            The project transformed messy institutional and customer records
+            into decision-ready market segments for comparison, filtering, and
+            strategic analysis.
+          </p>
+        </article>
+        <article>
+          <h2>Skills Used</h2>
+          <p>
+            College Scorecard API integration, NACUFS data preparation, HubSpot
+            export cleaning, Python joins, feature standardization, K-Means
+            clustering, similarity scoring, Tableau dashboarding, and network
+            visualization.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 James Burnard. Built as a personal portfolio.</p>
+    </footer>
+  </body>
+</html>

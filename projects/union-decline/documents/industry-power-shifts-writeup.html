@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Industry Power Shifts Writeup</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="word-page.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Industry Power Shifts Writeup</h1>
+</header>
+<p><strong>Industry Power Shifts: A 3D Clustering Analysis of Union
+Decline, Dividends, and Taxes</strong></p>
+<p><strong>James Burnard</strong></p>
+<p>CONTEXT AND MOTIVATION</p>
+<p>In 2025, I took a class called Survey Design and Analysis with
+Professor Nathan Meyers, who I really bonded with. I would frequently
+talk to him after class about Economics and his dissertation that was in
+progress. Eventually he offered an opportunity to explore some of the
+data he was working with.</p>
+<p>We met weekly over Zoom and shared conversations about the state of
+his work, any interesting articles he would recommend, as well as any
+updates on the exploratory analysis I was doing. Overall, this
+experience was fantastic. I was able to work with one of the largest
+datasets I’ve ever worked with and have frequent conversations with a
+very kind professor whom I learned a lot from.</p>
+<p>The final output is an interactive HTML report that includes a
+WebGL-powered 3D animation, hoverable industry points, rotatable axes,
+playback controls, a year timeline, speed control, cluster legend, and a
+cluster membership table.</p>
+<p>INTRODUCTION</p>
+<p>Nathan Meyer’s study, <em>The Effect of Privatization on U.S.
+Employment and Industry Earnings Distributions, 2000-2018,</em> argues
+that privatization should be understood as a structural shift in
+employment from the public sector toward the private sector. This shift
+has consequences for worker earnings across industries and income
+levels. The project builds on this by visualizing how industries move
+through a related economic space defined by three key variables: union
+decline, shareholder dividends, and taxes paid. I used 3D clustering as
+my visualization to explore whether industries with different labor,
+capital, and tax profiles separate into distinct patterns over time.</p>
+<p>Inspired by Meyers’s industry-level approach to employment
+privatization, this project asks how broader transformations in labor
+power and firm behavior can be made visible. While Meyers focuses on
+public-private employment composition and earnings effects, this
+visualization examines adjacent indicators of institutional change:
+declining union density, shareholder dividend distributions, and taxes
+paid. By animating industry clusters over time, the project turns a
+static clustering analysis into an interactive map of changing industry
+power.</p>
+<p>THE DATA</p>
+<p>This project starts with the numeric union decline dataset, which
+Meyers shared with me. I developed a Python script to load the dataset,
+filter it to the relevant year range, and keep the variables needed for
+clustering and visualization.</p>
+<p>The following key variables were extracted for analysis:
+_________________________________________________________________________</p>
+<p><strong>Year:</strong><br />
+The observation year for each industry row. In the visualization, this
+is what drives the animation over time.</p>
+<p><strong>Uniondens:</strong><br />
+Union density. This measures the share or proportion of workers in an
+industry who are union members or covered by unions, depending on the
+dataset definition. In your project, it is used to calculate union
+decline.</p>
+<p><strong>Dividendsdom:</strong><br />
+Domestic dividends. This represents shareholder dividend payments
+associated with domestic activity. In the project, it acts as a proxy
+for shareholder payouts / capital returns by industry.</p>
+<p><strong>Taxespaid:</strong><br />
+Taxes paid by the industry. In the visualization, this is one of the
+three standardized clustering dimensions and represents the tax-payment
+side of the industry profile.</p>
+<p><strong>Indcat</strong>:<br />
+Industry category code. This is the numeric industry identifier used to
+group observations by industry. The script maps these codes to readable
+names like mining, utilities, construction, retail, health care,
+etc.</p>
+<p><strong>____________________________________________________________________________</strong></p>
+<p>Industry codes are mapped to readable industry names using a custom
+lookup dictionary. Union decline is calculated by taking each industry’s
+baseline union density and subtracting its union density in each year.
+This produces a time-varying union decline measure for each
+industry.</p>
+<p>The three clustering variables are then standardized: union decline
+domestic shareholder dividends taxes paid. Standardization was important
+because the variables operate on very different scales. Without scaling,
+larger numeric variables like dividends or taxes could dominate the
+clustering model.</p>
+<p>The final visualization dataset contains <strong>886 industry-year
+observations</strong>, covering <strong>44 industries</strong> across
+<strong>27 years (1982-2008)</strong> and grouped into <strong>3 K-Means
+clusters</strong>.</p>
+<p>CLUSTERING</p>
+<p>I used K-Means clustering on the standardized variables. Rather than
+hard coding a cluster count immediately, the script tests multiple
+values of k, from 3 to 8, and evaluates each one using silhouette score.
+The best silhouette score selected k = 3. The resulting clusters were
+then described based on the strongest standardized features in each
+cluster center. This produced readable cluster labels such as:</p>
+<ul>
+<li><p>High Taxes Paid / High Dividends</p></li>
+<li><p>Low Union Decline / Low Taxes Paid</p></li>
+<li><p>High Union Decline / Low Taxes Paid</p></li>
+</ul>
+<p>Each industry-year observation was assigned to one of these
+clusters.</p>
+<p>INITIAL PLOTLY VERSION</p>
+<p>The first version of the visualization used Plotly’s Scatter3d and
+animation frames. This produced a working interactive 3D plot with:</p>
+<ul>
+<li><p>colored cluster points</p></li>
+<li><p>industry path lines</p></li>
+<li><p>hover labels</p></li>
+<li><p>a year slider</p></li>
+<li><p>play/pause controls</p></li>
+<li><p>basic camera rotation</p></li>
+</ul>
+<p>However, Plotly’s 3D animation system still behaved like frame
+playback. Even with more frames, the motion felt slightly like
+stop-motion because Plotly was swapping between discrete animation
+frames.</p>
+<p>SWITCH TO THREE.js</p>
+<p>To make the animation genuinely smoother, I replaced the Plotly
+animation layer with a custom Three.js/WebGL visualization. This was the
+biggest architectural change in the project. Instead of pre-generating
+hundreds of Plotly frames, the Python script now exports compact
+structured data into the HTML page. Three.js then renders the 3D scene
+in the browser using a continuous requestAnimationFrame loop.</p>
+<p>This means point positions are recalculated every rendered frame,
+producing much smoother animation.</p>
+<p><strong>Three.js Scene Construction</strong><br />
+The Three.js version creates a full 3D scene with:</p>
+<ul>
+<li><p>a WebGL renderer</p></li>
+<li><p>perspective camera</p></li>
+<li><p>orbit controls</p></li>
+<li><p>lighting</p></li>
+<li><p>3D point meshes</p></li>
+<li><p>historical industry path lines</p></li>
+<li><p>grid lines</p></li>
+<li><p>colored axis lines</p></li>
+<li><p>hover detection with recasting</p></li>
+</ul>
+<p>Each industry is represented as a sphere. Each sphere moves through
+the standardized 3D feature space over time.</p>
+<p>The axes represent:</p>
+<ul>
+<li><p>X: Union Decline</p></li>
+<li><p>Y: Shareholder Dividends</p></li>
+<li><p>Z: Taxes Paid</p></li>
+</ul>
+<p>The industry path lines show each industry’s trajectory through the
+clustering space across years.</p>
+<p><strong>Smooth Animation</strong><br />
+The animation is driven by browser time rather than fixed pre-rendered
+frames.</p>
+<p>For each animation frame:</p>
+<ol type="1">
+<li><p>The current year advances based on elapsed time and playback
+speed.</p></li>
+<li><p>The script finds the two real data years surrounding the current
+animated year.</p></li>
+<li><p>It interpolates between those two observations.</p></li>
+<li><p>It applies cubic easing for smoother movement.</p></li>
+<li><p>It updates every industry sphere’s position.</p></li>
+<li><p>It updates cluster color transitions.</p></li>
+<li><p>It renders the scene.</p></li>
+</ol>
+<p>This creates fluid, continuous movement instead of stepping from
+frame to frame.</p>
+<p>FINDINGS</p>
+<p>The resulting animated plot is very much telling of the economic
+space. Cluster two represents the high union decline/ low taxes paid
+category, any industry in this cluster is colored red. In the early
+years, there are hardly any industries that fall within this category.
+In the last year that is modeled however, multiple industries turn red,
+and if you rotate the plot to only pay attention to the union decline
+axis, you’ll notice there is a steady progression of dots moving left
+along that axis. The dots moving left means that union decline is
+increasing steadily as the years progress.</p>
+<p>This all suggests that declining union density is not confined to a
+few sectors but is a broader structural trend. In this visualization,
+that movement represents a weakening or organized labor’s institutional
+presence across industries. By plotting union decline alongside
+shareholder dividends and taxes paid, the project situates labor decline
+within a much wider economic transformation.</p>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OnlyUp Goal Tracker App | James Burnard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="project-detail-page">
+    <header class="site-header detail-header">
+      <a class="brand" href="../../index.html" aria-label="Home">JB</a>
+      <nav class="detail-nav" aria-label="Project navigation">
+        <a href="../../index.html?return=onlyup#projects-panel">Back to Projects</a>
+      </nav>
+    </header>
+    <main class="detail-shell">
+      <section class="detail-hero">
+        <p class="eyebrow">Personal Project · 2026</p>
+        <h1>OnlyUp: A Goal Tracker App</h1>
+        <p>
+          A Python/Tkinter desktop app for adding goals, tracking progress,
+          logging work sessions, and writing active recall notes after focused
+          study sessions.
+        </p>
+        <div class="project-tags detail-tags">
+          <span>Python</span>
+          <span>Tkinter</span>
+          <span>CSV Data Storage</span>
+          <span>Desktop App</span>
+          <span>Static Web Demo</span>
+          <span>Active Recall</span>
+        </div>
+      </section>
+
+      <section class="detail-section">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Live Demo</p>
+          <h2>OnlyUp browser version with sample data.</h2>
+        </div>
+        <div class="onlyup-demo" data-onlyup-demo>
+          <aside class="onlyup-sidebar">
+            <div>
+              <p class="onlyup-label">Demo Data</p>
+              <h3>Goals</h3>
+            </div>
+            <div class="onlyup-goal-list" data-goal-list></div>
+            <button class="onlyup-reset" type="button" data-reset-demo>Reset Demo Data</button>
+          </aside>
+
+          <section class="onlyup-workspace">
+            <div class="onlyup-toolbar">
+              <button class="is-active" type="button" data-demo-tab="dashboard">Dashboard</button>
+              <button type="button" data-demo-tab="add">Add Goal</button>
+              <button type="button" data-demo-tab="session">Work Session</button>
+              <button type="button" data-demo-tab="recall">Recall Notes</button>
+            </div>
+
+            <article class="onlyup-panel is-active" data-demo-panel="dashboard">
+              <div class="onlyup-dashboard-head">
+                <div>
+                  <p class="onlyup-label" data-goal-category></p>
+                  <h3 data-goal-name></h3>
+                </div>
+                <span class="onlyup-status" data-goal-status></span>
+              </div>
+              <div class="onlyup-dashboard-grid">
+                <div class="onlyup-progress-ring" data-progress-ring>
+                  <span data-goal-percent></span>
+                </div>
+                <div class="onlyup-metrics">
+                  <div>
+                    <strong data-hours-spent></strong>
+                    <span>hours spent</span>
+                  </div>
+                  <div>
+                    <strong data-hours-left></strong>
+                    <span>hours remaining</span>
+                  </div>
+                  <div>
+                    <strong data-streak></strong>
+                    <span>day streak</span>
+                  </div>
+                </div>
+              </div>
+              <dl class="onlyup-details" data-goal-details></dl>
+            </article>
+
+            <article class="onlyup-panel" data-demo-panel="add">
+              <h3>Add a demo goal</h3>
+              <form class="onlyup-form" data-add-goal-form>
+                <label>
+                  Goal name
+                  <input name="name" value="Read forecasting chapter" required>
+                </label>
+                <label>
+                  Category
+                  <select name="category">
+                    <option>Learning</option>
+                    <option>Project</option>
+                    <option>Academic</option>
+                    <option>Health & Fitness</option>
+                  </select>
+                </label>
+                <label>
+                  Estimated hours
+                  <input name="hours" type="number" min="1" value="8" required>
+                </label>
+                <button class="button primary" type="submit">Add Goal</button>
+              </form>
+            </article>
+
+            <article class="onlyup-panel" data-demo-panel="session">
+              <h3>Work session</h3>
+              <p class="onlyup-muted">Log focused work against the selected goal and write a short active recall note.</p>
+              <div class="onlyup-timer" data-demo-timer>25:00</div>
+              <div class="onlyup-session-actions">
+                <button type="button" data-timer-toggle>Start</button>
+                <button type="button" data-timer-add-minute>Add 1 Min</button>
+                <button type="button" data-timer-subtract-minute>Subtract 1 Min</button>
+                <button type="button" data-timer-reset>Reset</button>
+                <button type="button" data-log-half-hour>Log 30 Minutes</button>
+              </div>
+              <label class="onlyup-note-label">
+                Active recall note
+                <textarea data-recall-input rows="5">Summarized the next step, checked progress, and wrote down what I remembered without looking.</textarea>
+              </label>
+              <button class="button primary" type="button" data-save-note>Save Note</button>
+            </article>
+
+            <article class="onlyup-panel" data-demo-panel="recall">
+              <h3>Recall notes</h3>
+              <div class="onlyup-notes" data-recall-notes></div>
+            </article>
+          </section>
+        </div>
+        <p class="server-note">
+        </p>
+      </section>
+
+      <section class="detail-section detail-grid">
+        <article>
+          <h2>What I Built</h2>
+          <p>
+            The app stores goal records in CSV format and supports adding,
+            viewing, updating, and deleting goals. It calculates completion
+            percentage from estimated hours and hours spent, then displays each
+            goal's status and category.
+          </p>
+        </article>
+        <article>
+          <h2>Work Sessions</h2>
+          <p>
+            I also built session-tracking features around the goal data,
+            including time logging and active recall prompts so the app supports
+            both progress tracking and retention.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 James Burnard. Built as a personal portfolio.</p>
+    </footer>
+    <script src="static-demo.js"></script>
+  </body>
+</html>

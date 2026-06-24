@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>James Burnard | Personal Website</title>
+    <meta
+      name="description"
+      content="A personal website with coursework, interests, and selected projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260618-projects-return" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-left">
+        <a class="brand" href="#" aria-label="Home">JB</a>
+        <div class="header-socials" aria-label="Contact links">
+          <a class="email-link" href="mailto:burnardj10@gmail.com" aria-label="Email James Burnard">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16v12H4z" />
+              <path d="m4 7 8 6 8-6" />
+            </svg>
+          </a>
+          <a class="linkedin-link" href="https://www.linkedin.com/in/james-burnard/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.5 10v8" />
+              <path d="M6.5 6v.01" />
+              <path d="M11 18v-8" />
+              <path d="M11 13.5c0-2 1.2-3.5 3.3-3.5 1.9 0 3.2 1.3 3.2 3.8V18" />
+              <path d="M3 3h18v18H3z" />
+            </svg>
+          </a>
+          <a class="github-link" href="https://github.com/JamesBurnard1" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 19c-4 1.5-4-2-5-2.5" />
+              <path d="M15 22v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.2-3.3.1-.3.5-1.7-.1-3.2 0 0-1-.3-3.4 1.3A11.5 11.5 0 0 0 12 5c-1.1 0-2.2.1-3.3.4C6.3 3.8 5.3 4.1 5.3 4.1c-.6 1.5-.2 2.9-.1 3.2A5 5 0 0 0 4 10.6c0 4.6 2.7 5.7 5.5 6.1-.4.4-.6.9-.6 1.8V22" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <nav class="tabs" aria-label="Primary" role="tablist">
+        <button
+          class="tab-button is-active"
+          id="about-tab"
+          type="button"
+          data-tab="about"
+          role="tab"
+          aria-controls="about-panel"
+          aria-selected="true"
+        >
+          About
+        </button>
+        <button
+          class="tab-button"
+          id="projects-tab"
+          type="button"
+          data-tab="projects"
+          role="tab"
+          aria-controls="projects-panel"
+          aria-selected="false"
+        >
+          Projects
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <canvas
+          class="hero-network"
+          aria-hidden="true"
+          data-network-canvas
+        ></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          
+          <h1 id="page-title" data-hero-title>James Burnard</h1>
+          <div class="hero-socials" aria-label="Contact links">
+            <a class="email-link" href="mailto:burnardj10@gmail.com" aria-label="Email James Burnard">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h16v12H4z" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+            </a>
+            <a class="linkedin-link" href="https://www.linkedin.com/in/james-burnard/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.5 10v8" />
+                <path d="M6.5 6v.01" />
+                <path d="M11 18v-8" />
+                <path d="M11 13.5c0-2 1.2-3.5 3.3-3.5 1.9 0 3.2 1.3 3.2 3.8V18" />
+                <path d="M3 3h18v18H3z" />
+              </svg>
+            </a>
+            <a class="github-link" href="https://github.com/JamesBurnard1" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 19c-4 1.5-4-2-5-2.5" />
+                <path d="M15 22v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.2-3.3.1-.3.5-1.7-.1-3.2 0 0-1-.3-3.4 1.3A11.5 11.5 0 0 0 12 5c-1.1 0-2.2.1-3.3.4C6.3 3.8 5.3 4.1 5.3 4.1c-.6 1.5-.2 2.9-.1 3.2A5 5 0 0 0 4 10.6c0 4.6 2.7 5.7 5.5 6.1-.4.4-.6.9-.6 1.8V22" />
+              </svg>
+            </a>
+          </div>
+          <p class="hero-copy" data-hero-copy>
+            Hi there! Welcome to my personal website. Here you'll find any projects I've done/am doing,
+            and a collection of my coursework/skills. Take a peek at some pictures I've taken by clicking the moving bubbles on the screen.
+          </p>
+          <div class="hero-actions" data-hero-actions>
+            <a class="button primary" href="mailto:burnardj10@gmail.com">
+              Contact Me
+            </a>
+            <a class="button secondary" href="#content">Explore</a>
+            <a class="button secondary" href="#projects-panel" data-hero-projects-link>Projects</a>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#content" aria-label="Scroll to content">
+          <span aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <section class="content-shell" id="content">
+        <section
+          class="tab-panel is-active"
+          id="about-panel"
+          data-panel="about"
+          role="tabpanel"
+          aria-labelledby="about-tab"
+        >
+          <div class="section-heading">
+            <p class="eyebrow">About</p>
+            <h2>Personal info, coursework, and other stuff.</h2>
+          </div>
+
+          <div class="about-card-grid">
+            <article class="intro-block">
+              <h3>About Me</h3>
+              <p>
+                I am a (very) recent graduate of the University of Massachusetts Amherst, receiving both a BS in Informatics (data science track) and a BA in Economics.
+              </p>
+              <p>
+                I’m fascinated by the power of data and the various methods that, when applied to it, allow for incredible explanations of various phenomena.
+              </p>
+              <p>
+                Most of my experience comes from internships as a data scientist or research in Economics. Within each experience, the projects have required me to build intricate data pipelines that feed machine learning models and visualizations. This includes time-series, forecasting and clustering algorithms, as well as animated node graphs. You can see some of this work in my projects section, have a look!
+              </p>
+            </article>
+
+            <article class="current-panel">
+              <h3>Currently</h3>
+              <p>
+                #OpenToWork! Looking for data science, data analytics, business analytics, data operations roles
+                or anywhere else I can apply my skills, feel free to reach out.
+              </p>
+              <p>
+                I'm using <a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a>
+                and some academic publications to try to most accurately predict FIFA World Cup games.
+              </p>
+            </article>
+
+            <article class="skills-panel">
+              <h3>Skills</h3>
+              <div class="skill-cloud" aria-label="Technical skills">
+                <span class="skill-chip python"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt=""></b>Python</span>
+                <span class="skill-chip r-lang"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" alt=""></b>R</span>
+                <span class="skill-chip sql"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt=""></b>SQL</span>
+                <span class="skill-chip excel"><b>X</b>Excel</span>
+                <span class="skill-chip tableau"><b>BI</b>Tableau / Power BI</span>
+                <span class="skill-chip js"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt=""></b>JavaScript</span>
+                <span class="skill-chip pandas"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt=""></b>Pandas</span>
+                <span class="skill-chip numpy"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt=""></b>NumPy</span>
+                <span class="skill-chip sklearn"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt=""></b>Scikit-learn</span>
+                <span class="skill-chip torch"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt=""></b>PyTorch</span>
+                <span class="skill-chip xgb"><b>XG</b>XGBoost</span>
+                <span class="skill-chip stats"><b>σ</b>Statistics & Probability</span>
+                <span class="skill-chip wrangle"><b>ETL</b>Data Wrangling</span>
+                <span class="skill-chip forecast"><b>ts</b>Forecasting</span>
+                <span class="skill-chip cluster"><b>k</b>Clustering</span>
+                <span class="skill-chip ocr"><b>OCR</b>Text Recognition</span>
+                <span class="skill-chip git"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt=""></b>Git / GitHub</span>
+                <span class="skill-chip gis"><b>GIS</b>GIS</span>
+              </div>
+            </article>
+
+            <article class="coursework-card">
+              <h3>Noteable Coursework</h3>
+              <p>
+                Here are some of the classes I took as an undergrad that I found really interesting.
+                I'd say these are the classes that had the biggest impact on how I think about technology, data, and problem solving. 
+              </p>
+              <div class="coursework-groups">
+                <section class="coursework-group">
+                  <h4>
+                    <span class="coursework-icon cs-data-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M7 8 3.5 12 7 16" />
+                        <path d="m17 8 3.5 4L17 16" />
+                        <path d="m14 5-4 14" />
+                      </svg>
+                    </span>
+                    Computer Science & Data Science
+                  </h4>
+                  <ul class="tag-list">
+                    <li>Harnessing DataSci For Social Good</li>
+                    <li>Graduate Math Applied Statistics</li>
+                    <li>Predictive Analytics In Python</li>
+                    <li>Database Management</li>
+                    <li>Data Structures</li>
+                    <li>Data Science Algorithms</li>
+                    <li>Object-Oriented-Programming</li>
+                    <li>Mathematical Foundation For Data Science</li>
+                    <li>calculus II</li>
+                    <li>Calculus I</li>
+                  </ul>
+                </section>
+
+                <section class="coursework-group">
+                  <h4>
+                    <span class="coursework-icon econ-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M4 18h16" />
+                        <path d="M7 15V9" />
+                        <path d="M12 15V5" />
+                        <path d="M17 15v-7" />
+                        <path d="m5 10 5-4 4 3 5-5" />
+                      </svg>
+                    </span>
+                    Economics
+                  </h4>
+                  <ul class="tag-list">
+                    <li>Microeconomics I & II</li>
+                    <li>Macroeconomics I & II</li>
+                    <li>Econ In The Age Of Big Data</li>
+                    <li>Financial Economics</li>
+                    <li>Behavioral Economics</li>
+                    <li>Research Methods Design & Analysis</li>
+                  </ul>
+                </section>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="tab-panel"
+          id="projects-panel"
+          data-panel="projects"
+          role="tabpanel"
+          aria-labelledby="projects-tab"
+          hidden
+        >
+          <div class="section-heading">
+            <p class="eyebrow">Projects</p>
+            <h2>Selected work and things in progress.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Undergraduate Economics Research Assistant</span>
+                <span class="project-badge">Interactive</span>
+              </div>
+              <h3>The Social Geography of Baltimore's Elite, 1967–1989</h3>
+              <img
+                class="project-image"
+                src="assets/baltimore-project-cover.png"
+                alt="Node graph visualization for the Baltimore elite social geography project"
+              />
+              <p>
+                After 1950, Baltimore experienced a significant decline in its elite population, with the number of elite individuals dropping significantly. This project explores the social geography of Baltimore's elite during this period.
+              </p>
+              <div class="project-tags">
+                <span>CSV/JSON Processing</span>
+                <span>pytesseract</span>
+                <span>pdf2image</span>
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>Time Series</span>
+                <span>Text Recognition</span>
+              </div>
+              <a href="projects/baltimore/index.html">View project</a>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>
+                  DataSci Internship @
+                  <a href="https://www.jamix.com/" target="_blank" rel="noopener noreferrer">Jamix</a>
+                </span>
+                <span>2026</span>
+              </div>
+              <h3>Higher Education Market Intelligence Dashboard</h3>
+              <img
+                class="project-image"
+                src="assets/jamix-project-cover.png"
+                alt="Screenshot of the Higher Education Market Intelligence Dashboard"
+              />
+              <p>
+                I had the opportunity to work on a project for Jamix, a company that provides software solutions for the food service industry. I built a market intelligence dashboard that aggregates and visualizes data on higher education institutions.
+              </p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Tableau</span>
+                <span>Excel</span>
+                <span>Writing</span>
+                <span>CRM Management</span>
+                <span>Scikit-learn</span>
+                <span>Pandas</span>
+                <span>Numpy</span>
+              </div>
+              <a href="projects/jamix/index.html">View project</a>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Undergraduate Economics Research Assistant</span>
+                <span class="project-badge">Interactive</span>
+              </div>
+              <h3>Industry Clustering and Union Decline Analysis</h3>
+              <img
+                class="project-image"
+                src="assets/industry-clustering-cover.png"
+                alt="3D plot for the industry clustering and union decline analysis"
+              />
+              <p>
+                This project investigates the relationship between industry clustering and the decline of labor unions in the United States using data from the Bureau of Labor Statistics.
+              </p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Scikit-learn</span>
+                <span>Plotly</span>
+                <span>Time Series</span>
+                <span>Excel</span>
+                <span>PowerPoint</span>
+                
+              </div>
+              <a href="projects/union-decline/index.html">View project</a>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Personal Project</span>
+                <span>2026</span>
+              </div>
+              <h3>OnlyUp: A Goal Tracker App</h3>
+              <img
+                class="project-image"
+                src="assets/only_up_icon.png"
+                alt="OnlyUp app icon"
+              />
+              <p>
+                OnlyUp is a goal tracking app that I built to help myself stay motivated and accountable. The app allows users to set goals, track their progress, and perform the information retention technique known as "active recall".
+              </p>
+              <div class="project-tags">
+                <span>Python</span>
+                <span>Tkinter</span>
+                <span>CSV Data Storage</span>
+                <span>Desktop App Development</span>
+
+              </div>
+              <a href="projects/onlyup/index.html">View project</a>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Class Project</span>
+                <span>2025</span>
+              </div>
+              <h3>Exploring County Level access to Credit in the United States</h3>
+              <img
+                class="project-image"
+                src="assets/ed546491-bbbc-4cb4-82a2-c8ed2f3c8c8d.png"
+                alt="plot preview"
+              />
+              <p>
+                In this project, I analyzed county-level data on credit access in the United States to identify patterns and disparities in financial inclusion. The analysis included data cleaning, exploratory data analysis, and visualization to uncover insights about credit access across different regions.
+              </p>
+              <div class="project-tags">
+                <span>Jupyter Notebook</span>
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>Seaborn</span>
+                <span>SciPy</span>
+                <span>Scikit-learn</span>
+              </div>
+              <a href="projects/credit-access/credit_access_project_mockup.html">View project</a>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Experiment</span>
+                <span>In Progress</span>
+              </div>
+              <h3>Predicting The FIFA World Cup</h3>
+              <img
+                class="project-image"
+                src="assets/world-cup-haaland-cover.jpg"
+                alt="Erling Haaland playing for Norway in the rain"
+              />
+              <p>
+                I've always been a huge soccer fan, and I've been heavily invested in the World Cup.
+                For this project, I'm using machine learning techniques to predict the outcomes of World Cup matches.
+                Stay tuned for this one, I'm really excited about it!
+              </p>
+              <div class="project-tags">
+                <span>Machine Learning</span>
+                <span>Python</span>
+                <span>Scikit-learn</span>
+              </div>
+              <a href="projects/aston-martin/index.html">View project</a>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 James Burnard. Built as a personal portfolio.</p>
+    </footer>
+
+    <script src="script.js?v=20260618-projects-return"></script>
+  </body>
+</html>

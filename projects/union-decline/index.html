@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Industry Power Shifts | James Burnard</title>
+    <meta
+      name="description"
+      content="An interactive 3D clustering project on union decline, dividends, and taxes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="project-detail-page">
+    <header class="site-header detail-header">
+      <a class="brand" href="../../index.html" aria-label="Home">JB</a>
+      <nav class="detail-nav" aria-label="Project navigation">
+        <a href="../../index.html#projects-panel">Back to Projects</a>
+        <a href="#plot">3D Plot</a>
+        <a href="#writeup">Writeup</a>
+      </nav>
+    </header>
+
+    <main class="detail-shell wide-detail">
+      <section class="detail-hero" aria-labelledby="project-title">
+        <p class="eyebrow">Undergraduate Economics Research Assistant · 2025</p>
+        <h1 id="project-title">Industry Power Shifts</h1>
+        <p>
+          A WebGL-powered 3D clustering analysis of union decline, domestic
+          shareholder dividends, and taxes paid across industries over time.
+        </p>
+        <div class="project-tags detail-tags">
+          <span>Python</span>
+          <span>Pandas</span>
+          <span>Scikit-learn</span>
+          <span>K-Means</span>
+          <span>Three.js</span>
+          <span>Time Series</span>
+          <span>WebGL</span>
+        </div>
+        <a class="project-scroll-indicator" href="#plot" aria-label="Scroll to 3D plot">
+          <span aria-hidden="true"></span>
+          Explore the plot
+        </a>
+      </section>
+
+      <section class="detail-section full-screen-panel" id="plot">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Interactive Plot</p>
+          <h2>3D K-Means industry clusters over time.</h2>
+        </div>
+        <div class="interaction-hint" aria-hidden="true">
+          <span class="rotate-mark">⟳</span>
+          <span>Click + drag to rotate</span>
+        </div>
+        <div class="interactive-frame tall-frame">
+          <iframe
+            src="3d_dividends_clusters.html"
+            title="Interactive 3D industry cluster analysis"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="detail-section full-screen-panel" id="writeup">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Project Writeup</p>
+          <h2>Industry Power Shifts: Union Decline, Dividends, and Taxes.</h2>
+        </div>
+        <div class="interactive-frame document-frame">
+          <iframe
+            src="documents/industry-power-shifts-writeup.html"
+            title="Industry Power Shifts writeup"
+          ></iframe>
+        </div>
+        <div class="document-actions">
+          <a href="documents/industry-power-shifts-writeup.docx">Open original .docx file</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 James Burnard. Built as a personal portfolio.</p>
+    </footer>
+  </body>
+</html>

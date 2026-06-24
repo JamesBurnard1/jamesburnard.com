@@ -1,0 +1,281 @@
+Institution,Enrollment,Carnegie_Profile,Pell_Grant_Rate,International_Rate,Endowment,Tuition_Revenue_per_FTE,Reference_Group
+Harbor University 001,16090,Research University,0.2903,0.2067,3561816414,30878,False
+Redwood College 002,4690,Medium Residential,0.3257,0.0944,758370610,20828,True
+Evergreen College 003,2144,Small Residential,0.17,0.1106,148175173,46491,False
+Harbor Liberal Arts College 004,15368,Research University,0.2846,0.148,774529090,29116,False
+Ridgeline Technical University 005,7017,Commuter Four-Year,0.3902,0.0143,49666519,11383,False
+Fairmont University 006,13064,Large Residential,0.5264,0.04,320016586,20058,False
+Northlake University 007,10461,Large Residential,0.3672,0.0341,367262758,26879,False
+Westbridge College 008,10931,Commuter Four-Year,0.4852,0.0491,58382472,13056,False
+Northlake Technical University 009,1942,Special Focus,0.2722,0.013,76523302,32637,False
+Westbridge Liberal Arts College 010,6385,Commuter Four-Year,0.6723,0.0936,81522458,14547,False
+Fairmont College 011,1362,Small Residential,0.182,0.019,90399821,27021,False
+Oak Valley Technical University 012,11441,Large Residential,0.3457,0.0837,71211034,15573,False
+Redwood University 013,1658,Small Residential,0.3342,0.0233,1169139000,31123,False
+Prairie Liberal Arts College 014,5490,Medium Residential,0.2337,0.1065,314614232,31579,False
+Fairmont Institute 015,4498,Medium Residential,0.313,0.0154,920424379,25212,False
+Redwood College 016,6717,Large Residential,0.233,0.1994,865652499,16236,False
+Westbridge Institute 017,4682,Commuter Four-Year,0.471,0.1491,62420694,9548,False
+Harbor University 018,14791,Commuter Four-Year,0.3101,0.0581,47585708,12804,False
+Alta University 019,13874,Research University,0.5009,0.1333,1967097127,19478,False
+Brookhaven Institute 020,9575,Large Residential,0.6584,0.34,129560599,10195,False
+Redwood University 021,16392,Research University,0.3421,0.1107,3050192978,22415,False
+Oak Valley Technical University 022,8690,Commuter Four-Year,0.3278,0.2949,83459038,15082,True
+Harbor State University 023,4551,Medium Residential,0.4983,0.1512,989263722,19600,False
+Ridgeline Technical University 024,7104,Commuter Four-Year,0.6776,0.1221,66387342,13034,False
+Stonefield Liberal Arts College 025,6861,Medium Residential,0.3208,0.1504,749003198,16229,False
+Brookhaven Technical University 026,27001,Research University,0.2112,0.1972,1099649790,31537,False
+Westbridge Liberal Arts College 027,11258,Commuter Four-Year,0.1599,0.052,76269609,6425,False
+Ridgeline University 028,2074,Small Residential,0.0416,0.2852,388701944,39587,False
+Evergreen Institute 029,2107,Small Residential,0.3588,0.1232,126734324,37426,False
+Ridgeline College 030,15986,Research University,0.1673,0.1146,5954319564,23437,False
+Harbor State University 031,21551,Research University,0.1425,0.0699,6691083415,7470,False
+Redwood State University 032,25506,Research University,0.2442,0.1371,162372191,12491,False
+Brookhaven College 033,2008,Small Residential,0.3523,0.0134,149970008,37243,True
+Brookhaven Institute 034,20958,Research University,0.5296,0.1231,4102066146,26181,False
+Westbridge Liberal Arts College 035,1255,Small Residential,0.532,0.0375,155147082,25283,False
+Redwood Liberal Arts College 036,1604,Small Residential,0.2016,0.1378,78903426,27762,False
+Ridgeline Technical University 037,13380,Commuter Four-Year,0.2618,0.1365,72685091,15225,False
+Prairie Technical University 038,3349,Medium Residential,0.1524,0.1824,61710464,15783,False
+Evergreen College 039,10706,Commuter Four-Year,0.1394,0.2046,178105859,11973,False
+Oak Valley State University 040,7533,Large Residential,0.328,0.1078,225451705,25512,True
+Redwood Liberal Arts College 041,13721,Research University,0.0867,0.1283,3411526673,36092,False
+Evergreen Liberal Arts College 042,2371,Small Residential,0.1112,0.0453,411331376,33912,False
+Lakeshore University 043,1972,Small Residential,0.2598,0.0209,963884585,33307,False
+Evergreen University 044,1185,Small Residential,0.261,0.0315,275826500,25716,False
+Lakeshore State University 045,10979,Large Residential,0.3221,0.0393,448587917,36745,False
+Redwood University 046,5203,Medium Residential,0.5034,0.1127,206336992,27222,False
+Westbridge Technical University 047,15317,Large Residential,0.188,0.0288,672901087,20732,False
+Lakeshore College 048,7044,Medium Residential,0.169,0.0151,120974601,15285,False
+Pinecrest State University 049,27984,Research University,0.1264,0.0628,2230952353,30984,False
+Oak Valley College 050,1600,Small Residential,0.3317,0.0439,143433231,41658,False
+Redwood College 051,8637,Medium Residential,0.246,0.2116,69281444,25257,False
+Evergreen Liberal Arts College 052,3848,Medium Residential,0.0935,0.1138,606350192,27363,True
+Redwood Liberal Arts College 053,10531,Large Residential,0.119,0.1412,362519007,30987,False
+Fairmont Technical University 054,11535,Commuter Four-Year,0.1837,0.117,46950005,14725,False
+Alta Institute 055,15338,Large Residential,0.133,0.0728,327871812,18850,False
+Evergreen College 056,1526,Small Residential,0.1106,0.0279,87272282,15257,False
+Pinecrest University 057,3975,Medium Residential,0.3667,0.0244,355274123,33679,False
+Cedar University 058,5801,Medium Residential,0.144,0.0285,100720218,10254,False
+Summit Liberal Arts College 059,1803,Small Residential,0.5584,0.2366,253332428,33447,False
+Prairie Liberal Arts College 060,2466,Small Residential,0.2233,0.0238,356014740,44083,False
+Fairmont Technical University 061,5059,Medium Residential,0.302,0.0148,1039718122,32040,False
+Ridgeline State University 062,14937,Commuter Four-Year,0.4585,0.1033,220844378,14648,False
+Alta Technical University 063,9936,Large Residential,0.2572,0.0252,504859706,24241,True
+Oak Valley Technical University 064,14338,Large Residential,0.149,0.2225,502457635,29680,False
+Redwood Technical University 065,9221,Large Residential,0.188,0.1563,609162934,18454,False
+Northlake Liberal Arts College 066,25883,Research University,0.0697,0.2259,195130334,14622,False
+Harbor Liberal Arts College 067,17791,Research University,0.4947,0.1375,1069065880,16898,False
+Redwood Liberal Arts College 068,10301,Medium Residential,0.4512,0.0994,197021841,35310,False
+Lakeshore University 069,5098,Medium Residential,0.3257,0.0292,105481457,20643,True
+Stonefield State University 070,12752,Large Residential,0.0692,0.0755,88388141,22941,False
+Prairie State University 071,2060,Small Residential,0.1938,0.0903,144707863,40214,False
+Northlake Liberal Arts College 072,4717,Medium Residential,0.3061,0.0368,317082922,29320,False
+Redwood Technical University 073,7960,Large Residential,0.3398,0.0728,1375051445,29411,False
+Prairie Technical University 074,9326,Large Residential,0.2476,0.2257,393644038,25396,False
+Harbor Liberal Arts College 075,2422,Small Residential,0.3121,0.1133,506013679,32981,False
+Stonefield Liberal Arts College 076,2172,Small Residential,0.272,0.1264,110829446,23362,False
+Westbridge College 077,1297,Small Residential,0.4234,0.1485,107706178,29709,False
+Brookhaven College 078,4283,Commuter Four-Year,0.1551,0.1393,113524287,15497,False
+Northlake Technical University 079,8358,Large Residential,0.516,0.1584,1836903406,28593,False
+Lakeshore State University 080,5836,Commuter Four-Year,0.3039,0.2189,129014167,11634,False
+Northlake University 081,12974,Research University,0.3079,0.1478,552523816,15617,False
+Brookhaven Institute 082,780,Special Focus,0.3915,0.1373,160900001,26324,False
+Evergreen University 083,13121,Large Residential,0.3918,0.0385,205444681,27241,False
+Evergreen Technical University 084,7392,Commuter Four-Year,0.1856,0.1107,501867956,13993,False
+Ridgeline University 085,18480,Research University,0.3396,0.0877,526433499,23987,False
+Pinecrest University 086,26455,Large Residential,0.2694,0.1528,1765624238,18393,False
+Summit College 087,8033,Large Residential,0.2095,0.1033,992203740,22559,False
+Pinecrest Technical University 088,2198,Small Residential,0.0729,0.305,424187867,23818,False
+Prairie Institute 089,34433,Research University,0.151,0.1214,2036366131,21429,False
+Fairmont College 090,1056,Small Residential,0.1961,0.1044,169791241,25240,False
+Westbridge Liberal Arts College 091,4394,Large Residential,0.2385,0.1805,297565894,8489,False
+Stonefield State University 092,1624,Small Residential,0.5561,0.0325,242153520,36384,False
+Brookhaven State University 093,7322,Large Residential,0.3177,0.0908,2455430042,39701,False
+Oak Valley University 094,4686,Medium Residential,0.3294,0.0214,116988285,31839,False
+Evergreen College 095,14081,Large Residential,0.6525,0.3163,952984913,20703,False
+Ridgeline Institute 096,1847,Small Residential,0.0906,0.1828,114891430,26946,False
+Northlake Technical University 097,1144,Small Residential,0.3328,0.146,70028227,15751,False
+Evergreen Technical University 098,3071,Special Focus,0.1328,0.041,104047481,31095,False
+Evergreen University 099,16310,Research University,0.4531,0.1018,880123081,38810,False
+Ridgeline Liberal Arts College 100,5846,Commuter Four-Year,0.3884,0.1175,143360218,10671,False
+Cedar College 101,3347,Medium Residential,0.2402,0.1268,624655999,33796,False
+Ridgeline University 102,9169,Large Residential,0.0584,0.0152,68781552,30855,False
+Lakeshore University 103,1701,Small Residential,0.453,0.073,278452598,16595,False
+Evergreen Institute 104,4153,Large Residential,0.04,0.0464,1471593612,15525,True
+Pinecrest College 105,5885,Large Residential,0.3387,0.2665,244699634,30832,False
+Summit Liberal Arts College 106,3130,Medium Residential,0.2876,0.34,452175582,35512,True
+Pinecrest College 107,6895,Large Residential,0.1869,0.1326,651090445,38668,False
+Pinecrest State University 108,8287,Large Residential,0.3906,0.0966,386033067,19627,False
+Westbridge University 109,4098,Commuter Four-Year,0.1597,0.0782,108649896,17231,False
+Harbor Liberal Arts College 110,9342,Large Residential,0.4047,0.0625,528083383,10235,False
+Fairmont Institute 111,7125,Medium Residential,0.2554,0.0963,307773639,33321,False
+Fairmont State University 112,9866,Large Residential,0.437,0.0346,332794629,26092,False
+Oak Valley Liberal Arts College 113,21519,Research University,0.2344,0.198,5517148354,27819,False
+Cedar Liberal Arts College 114,10752,Large Residential,0.04,0.0901,326523038,21915,True
+Harbor University 115,4955,Special Focus,0.2376,0.1464,100475437,23240,False
+Alta Liberal Arts College 116,12498,Commuter Four-Year,0.4096,0.0409,42273906,10239,False
+Lakeshore University 117,4214,Medium Residential,0.3928,0.2329,305620168,10416,False
+Evergreen College 118,11497,Commuter Four-Year,0.185,0.1269,154939292,9857,False
+Westbridge Technical University 119,11080,Large Residential,0.1639,0.1097,920823853,14449,False
+Oak Valley College 120,4389,Medium Residential,0.5825,0.0562,572720929,29043,False
+Fairmont College 121,587,Special Focus,0.1504,0.0055,138903874,23892,False
+Redwood State University 122,6583,Large Residential,0.4699,0.0742,204589281,36561,False
+Evergreen University 123,12416,Research University,0.3958,0.1201,2460504241,17672,False
+Oak Valley Technical University 124,22003,Research University,0.236,0.0607,1664728853,21167,False
+Harbor University 125,26095,Research University,0.0864,0.165,366343026,24390,True
+Northlake University 126,2686,Medium Residential,0.2499,0.077,800983520,9745,False
+Evergreen College 127,4522,Medium Residential,0.1832,0.0662,145043650,41122,False
+Fairmont State University 128,25613,Research University,0.2421,0.0509,1399737155,22354,False
+Pinecrest College 129,34941,Research University,0.04,0.0629,4272434635,26135,False
+Alta University 130,12483,Research University,0.2107,0.135,1469029498,32777,False
+Prairie State University 131,9297,Large Residential,0.4803,0.0304,307522118,17641,False
+Northlake State University 132,53392,Research University,0.1843,0.1177,1322078575,15148,False
+Redwood State University 133,3969,Medium Residential,0.3463,0.0268,832756702,15579,False
+Stonefield State University 134,25255,Research University,0.2144,0.0906,3340558247,23298,False
+Pinecrest College 135,4478,Medium Residential,0.2716,0.0513,236299082,19476,False
+Westbridge Institute 136,5061,Medium Residential,0.3365,0.0374,151973804,27594,False
+Westbridge University 137,1953,Small Residential,0.2892,0.0939,131852088,24916,False
+Cedar Liberal Arts College 138,1510,Small Residential,0.6108,0.0447,150699519,32279,False
+Lakeshore University 139,3405,Medium Residential,0.1637,0.3208,205731965,23548,False
+Cedar Technical University 140,5035,Commuter Four-Year,0.2583,0.0952,71971928,8766,False
+Pinecrest Technical University 141,10980,Large Residential,0.1041,0.1207,586451301,13072,False
+Prairie University 142,2658,Medium Residential,0.2581,0.0972,453618021,28436,False
+Ridgeline College 143,6738,Commuter Four-Year,0.412,0.0086,18987910,13915,False
+Ridgeline Technical University 144,12488,Large Residential,0.1885,0.1297,750000225,29028,False
+Ridgeline Liberal Arts College 145,2073,Special Focus,0.1127,0.0807,169087697,32725,False
+Evergreen State University 146,2431,Small Residential,0.0918,0.1452,62784456,21018,True
+Harbor Technical University 147,1565,Small Residential,0.2711,0.2156,587599544,30319,False
+Evergreen Technical University 148,20337,Research University,0.2986,0.0423,3336998703,26502,False
+Cedar Technical University 149,2830,Small Residential,0.0926,0.0138,240054144,28302,False
+Ridgeline State University 150,3926,Medium Residential,0.4438,0.1994,96170527,23847,False
+Lakeshore Institute 151,1980,Small Residential,0.1456,0.2366,329697267,28211,False
+Westbridge Liberal Arts College 152,4953,Commuter Four-Year,0.633,0.0307,18979530,18121,False
+Lakeshore College 153,7316,Large Residential,0.6084,0.046,143940531,31554,False
+Redwood State University 154,1920,Special Focus,0.0849,0.1377,88478602,9774,False
+Summit Liberal Arts College 155,31819,Research University,0.2443,0.1062,1110362272,14277,False
+Stonefield State University 156,13079,Large Residential,0.4218,0.0069,368139478,20849,False
+Lakeshore University 157,23408,Research University,0.2985,0.0559,690773279,22357,False
+Northlake State University 158,9666,Commuter Four-Year,0.3168,0.1895,74876076,14867,True
+Harbor University 159,15004,Large Residential,0.5038,0.1299,155462049,26879,False
+Westbridge Technical University 160,23275,Research University,0.4098,0.0371,1648997495,17785,False
+Redwood College 161,3785,Medium Residential,0.2941,0.117,672364425,29409,False
+Brookhaven University 162,29177,Research University,0.2144,0.34,1606211000,28732,False
+Evergreen Institute 163,8014,Large Residential,0.4587,0.0856,131918633,14849,False
+Stonefield College 164,1281,Small Residential,0.2823,0.0055,170035227,17655,False
+Oak Valley Technical University 165,12836,Commuter Four-Year,0.2629,0.1242,74666019,16996,False
+Stonefield Technical University 166,3376,Medium Residential,0.3743,0.0549,1334695386,14034,False
+Northlake Liberal Arts College 167,4718,Medium Residential,0.3212,0.0874,779803355,32470,False
+Stonefield Liberal Arts College 168,4311,Medium Residential,0.5105,0.1155,423559408,28275,False
+Harbor College 169,20475,Research University,0.3228,0.34,3256728038,26615,False
+Redwood University 170,20383,Research University,0.4844,0.2151,1372180283,25582,False
+Harbor Liberal Arts College 171,8245,Large Residential,0.2576,0.0768,1564829194,15892,False
+Summit Institute 172,23578,Research University,0.2033,0.0491,2360978595,28588,False
+Stonefield Technical University 173,12760,Large Residential,0.477,0.1217,197405312,15982,False
+Westbridge Liberal Arts College 174,5010,Medium Residential,0.1762,0.1235,279861231,37146,False
+Lakeshore College 175,1906,Small Residential,0.1357,0.0447,117647123,30813,False
+Redwood Technical University 176,25515,Research University,0.1694,0.1547,523640918,28623,False
+Pinecrest Institute 177,4327,Commuter Four-Year,0.328,0.2072,116014145,17741,False
+Cedar University 178,6542,Large Residential,0.6955,0.096,605772362,24823,False
+Fairmont Institute 179,1790,Small Residential,0.2757,0.1496,141426798,18575,False
+Cedar University 180,15250,Large Residential,0.2789,0.34,1311511912,22593,True
+Lakeshore College 181,6687,Commuter Four-Year,0.72,0.1443,160821690,18742,False
+Redwood College 182,8327,Large Residential,0.3663,0.2019,491041022,36047,False
+Oak Valley Technical University 183,7907,Medium Residential,0.4373,0.0996,513389389,26336,False
+Fairmont Technical University 184,13448,Research University,0.0924,0.1732,1411722930,26716,False
+Northlake University 185,2385,Small Residential,0.1452,0.1428,184369480,24711,False
+Ridgeline Liberal Arts College 186,11085,Large Residential,0.5143,0.29,1995583317,30964,False
+Summit Technical University 187,2370,Small Residential,0.2862,0.1376,173812113,23795,False
+Cedar Institute 188,4065,Commuter Four-Year,0.2367,0.0789,133956869,11173,False
+Summit State University 189,7254,Large Residential,0.2077,0.2168,325958615,14381,False
+Summit University 190,5560,Large Residential,0.0558,0.0108,352609301,24535,False
+Stonefield Institute 191,5026,Medium Residential,0.27,0.228,73882412,9883,False
+Cedar Institute 192,2762,Medium Residential,0.3774,0.1232,151248055,36720,False
+Westbridge Liberal Arts College 193,12821,Large Residential,0.1762,0.0536,5053079361,28235,False
+Evergreen Liberal Arts College 194,12684,Commuter Four-Year,0.1936,0.0376,20139863,10779,False
+Harbor Institute 195,12477,Large Residential,0.1802,0.095,320398582,22612,True
+Fairmont Technical University 196,1494,Special Focus,0.2507,0.2148,156934676,27956,False
+Summit College 197,2355,Small Residential,0.72,0.199,614381690,26166,False
+Prairie College 198,2673,Small Residential,0.348,0.2218,925287844,37935,False
+Fairmont University 199,15462,Commuter Four-Year,0.3406,0.2866,22217595,15998,False
+Prairie Liberal Arts College 200,2621,Small Residential,0.2165,0.0139,275045701,35295,False
+Lakeshore State University 201,11549,Commuter Four-Year,0.4822,0.017,55654017,13294,False
+Evergreen Institute 202,20271,Research University,0.4258,0.2078,3235954211,6656,False
+Prairie Liberal Arts College 203,11542,Large Residential,0.4238,0.1139,740195274,9832,False
+Harbor State University 204,6212,Medium Residential,0.2272,0.096,818348615,20571,False
+Cedar State University 205,2936,Special Focus,0.1542,0.1393,44609230,32416,False
+Evergreen College 206,3290,Medium Residential,0.5714,0.098,304133206,20557,False
+Oak Valley Institute 207,13706,Large Residential,0.1146,0.0432,2156254462,17101,False
+Stonefield College 208,4338,Medium Residential,0.1923,0.0957,342803414,20610,False
+Evergreen University 209,16565,Research University,0.4574,0.0689,1256253347,36799,False
+Westbridge State University 210,8062,Large Residential,0.3393,0.0818,206233053,24377,False
+Lakeshore Institute 211,22995,Research University,0.4141,0.1472,2810166124,18926,False
+Ridgeline Institute 212,1786,Small Residential,0.2031,0.2878,113168705,38469,False
+Brookhaven Liberal Arts College 213,37786,Research University,0.3735,0.0594,2333206406,32611,False
+Alta Liberal Arts College 214,9702,Commuter Four-Year,0.2884,0.0315,100603103,4000,False
+Lakeshore University 215,2542,Small Residential,0.4248,0.0749,257599196,23897,True
+Harbor Institute 216,4510,Commuter Four-Year,0.4363,0.34,56697757,21273,False
+Prairie Technical University 217,5627,Medium Residential,0.1674,0.0681,874483875,37780,False
+Redwood University 218,26004,Research University,0.2209,0.1376,3337129104,30876,False
+Harbor Technical University 219,13886,Large Residential,0.1181,0.0868,389394696,26536,False
+Fairmont Institute 220,14372,Large Residential,0.3244,0.2806,528219773,25193,False
+Lakeshore State University 221,6261,Commuter Four-Year,0.4532,0.2128,66111885,16021,False
+Harbor State University 222,10909,Large Residential,0.2666,0.0505,274127012,12867,False
+Westbridge Institute 223,4599,Medium Residential,0.1616,0.0325,149600391,33907,False
+Cedar Liberal Arts College 224,4940,Medium Residential,0.2059,0.206,993643017,30345,False
+Fairmont University 225,12571,Commuter Four-Year,0.5387,0.1102,234552327,12801,False
+Westbridge Institute 226,28878,Large Residential,0.3341,0.0156,156467013,14897,True
+Fairmont University 227,1198,Special Focus,0.2545,0.1876,83051489,21165,False
+Lakeshore Technical University 228,1700,Small Residential,0.393,0.0288,100264226,29172,False
+Lakeshore Liberal Arts College 229,2853,Medium Residential,0.1544,0.0341,227683612,36669,False
+Harbor Liberal Arts College 230,11215,Large Residential,0.4224,0.1354,2003834154,36112,False
+Stonefield Technical University 231,10904,Large Residential,0.1224,0.0823,366505655,13047,False
+Stonefield Liberal Arts College 232,17587,Large Residential,0.2181,0.1,495959014,31356,False
+Fairmont Institute 233,3858,Medium Residential,0.1423,0.2907,58882582,8371,False
+Alta Liberal Arts College 234,1915,Small Residential,0.1882,0.1087,832056501,20300,False
+Stonefield Technical University 235,4424,Commuter Four-Year,0.2805,0.1189,73018010,9970,False
+Summit College 236,10653,Large Residential,0.3143,0.34,592454420,33602,False
+Fairmont Liberal Arts College 237,8804,Large Residential,0.5521,0.0096,900916346,31243,False
+Alta Liberal Arts College 238,1721,Small Residential,0.4691,0.1461,244012731,28551,False
+Prairie Technical University 239,11392,Large Residential,0.4094,0.1036,416181203,17164,False
+Stonefield State University 240,4847,Medium Residential,0.1121,0.0407,331288096,29612,False
+Northlake Institute 241,5425,Medium Residential,0.1613,0.0367,837959154,39888,True
+Stonefield College 242,8863,Commuter Four-Year,0.2965,0.2566,91137611,24623,False
+Fairmont Technical University 243,14334,Commuter Four-Year,0.1359,0.0386,79661709,9642,False
+Lakeshore State University 244,3055,Medium Residential,0.4705,0.066,409713213,21257,False
+Oak Valley State University 245,10573,Commuter Four-Year,0.4629,0.2224,54207028,8927,False
+Westbridge Technical University 246,2671,Small Residential,0.3738,0.0422,457164092,42811,False
+Pinecrest Liberal Arts College 247,2034,Small Residential,0.2956,0.0641,209335975,35396,False
+Prairie Liberal Arts College 248,5700,Medium Residential,0.3159,0.1073,1921489606,32799,False
+Ridgeline Institute 249,9023,Commuter Four-Year,0.4668,0.34,40558329,14717,False
+Lakeshore University 250,3063,Special Focus,0.3767,0.0252,96409157,32089,False
+Evergreen Liberal Arts College 251,5343,Large Residential,0.459,0.0433,569009590,28541,False
+Stonefield College 252,1719,Small Residential,0.2564,0.2015,56460442,21965,False
+Westbridge College 253,34794,Research University,0.2888,0.2217,4162036247,21897,False
+Northlake University 254,2526,Small Residential,0.3419,0.17,62390350,34764,False
+Evergreen State University 255,4156,Medium Residential,0.3043,0.049,104547919,33424,True
+Ridgeline State University 256,13375,Commuter Four-Year,0.3586,0.0233,97431129,9662,False
+Fairmont Liberal Arts College 257,6052,Large Residential,0.2029,0.0992,347635978,29262,False
+Westbridge Liberal Arts College 258,26590,Research University,0.1666,0.1782,1404598395,4000,False
+Alta State University 259,2343,Medium Residential,0.5573,0.0738,255884813,22369,False
+Alta College 260,3171,Medium Residential,0.2524,0.1488,454970232,26762,False
+Summit Liberal Arts College 261,13750,Large Residential,0.2823,0.0568,7817737093,29331,False
+Northlake University 262,11949,Commuter Four-Year,0.6843,0.0884,48520826,12772,False
+Fairmont College 263,23681,Research University,0.478,0.1433,1137158937,18772,False
+Prairie Liberal Arts College 264,8761,Large Residential,0.399,0.1408,2215619168,27848,False
+Oak Valley University 265,17465,Research University,0.2723,0.1233,111705131,21566,True
+Evergreen University 266,4265,Medium Residential,0.4493,0.0693,465041218,26234,False
+Oak Valley College 267,21008,Research University,0.5222,0.1797,1984515186,26419,False
+Oak Valley Liberal Arts College 268,2608,Medium Residential,0.4431,0.155,147593441,22134,False
+Lakeshore State University 269,12687,Large Residential,0.487,0.0712,756405971,34197,False
+Fairmont Technical University 270,24289,Research University,0.3462,0.1475,1468627793,34941,False
+Oak Valley College 271,4683,Special Focus,0.1536,0.0478,175952399,22931,False
+Pinecrest State University 272,14575,Large Residential,0.4059,0.1331,332050111,20197,False
+Redwood College 273,1459,Small Residential,0.4183,0.1003,453996888,29905,False
+Redwood Technical University 274,5762,Large Residential,0.2936,0.081,1300442164,20377,False
+Pinecrest Liberal Arts College 275,4469,Special Focus,0.3614,0.0317,383595755,33869,False
+Evergreen Institute 276,5602,Medium Residential,0.2484,0.0198,295231461,37134,False
+Oak Valley University 277,16109,Research University,0.1718,0.1685,387744279,28841,False
+Stonefield College 278,1741,Small Residential,0.6229,0.0935,90926953,20400,False
+Redwood Institute 279,2168,Small Residential,0.2962,0.1139,531198735,22149,False
+Lakeshore Technical University 280,2549,Small Residential,0.1283,0.188,374095657,26173,False

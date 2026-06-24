@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Baltimore Elite Social Geography | James Burnard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="project-detail-page">
+    <header class="site-header detail-header">
+      <a class="brand" href="../../index.html" aria-label="Home">JB</a>
+      <nav class="detail-nav" aria-label="Project navigation">
+        <a href="../../index.html#projects-panel">Back to Projects</a>
+        <a href="#scale">Scale</a>
+        <a href="#network">Network</a>
+        <a href="#writeup">Writeup</a>
+      </nav>
+    </header>
+    <main class="detail-shell wide-detail">
+      <section class="detail-hero">
+        <p class="eyebrow">Undergraduate Economics Research Assistant · 2024</p>
+        <h1>The Social Geography of Baltimore's Elite, 1967-1989</h1>
+        <p>
+          An interactive organization network built from OCR, cleaned directory
+          data, and membership relationships in Baltimore Blue Books and Society
+          Visiting Lists.
+        </p>
+        <div class="project-tags detail-tags">
+          <span>Python</span>
+          <span>JavaScript</span>
+          <span>Network Analysis</span>
+          <span>Time Series</span>
+          <span>OCR</span>
+          <span>CSV/JSON Processing</span>
+          <span>Historical Data</span>
+        </div>
+        <a class="project-scroll-indicator" href="#scale" aria-label="Scroll to project scale">
+          <span aria-hidden="true"></span>
+          Project scale
+        </a>
+      </section>
+
+      <section class="detail-section" id="scale">
+        <div class="project-metrics">
+          <div class="project-metric">
+            <strong>4,500</strong>
+            <span>scanned Blue Book pages processed with OCR</span>
+          </div>
+          <div class="project-metric">
+            <strong>53,000+</strong>
+            <span>household listings converted into structured records</span>
+          </div>
+          <div class="project-metric">
+            <strong>42,000+</strong>
+            <span>person-organization relationships built for analysis</span>
+          </div>
+          <div class="project-metric">
+            <strong>230+</strong>
+            <span>clubs, societies, and civic organizations identified</span>
+          </div>
+          <div class="project-metric">
+            <strong>8</strong>
+            <span>Blue Book years compared from 1967 through 1989</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="detail-section full-screen-panel" id="network">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Interactive Explorer</p>
+          <h2>Organization network by year.</h2>
+        </div>
+        <div class="interactive-frame tall-frame">
+          <iframe
+            src="interactive_network_by_year.html"
+            title="Interactive Baltimore organization network by year"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="detail-section full-screen-panel" id="writeup">
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">Project Writeup</p>
+          <h2>Baltimore's Elite Network: Mapping Social Connections Through Urban Decline.</h2>
+        </div>
+        <div class="interactive-frame document-frame">
+          <iframe
+            src="documents/eura-baltimore-project-writeup.html"
+            title="EURA Baltimore project writeup"
+          ></iframe>
+        </div>
+        <div class="document-actions">
+          <a href="documents/eura-baltimore-project-writeup.docx">Open original .docx file</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 James Burnard. Built as a personal portfolio.</p>
+    </footer>
+  </body>
+</html>

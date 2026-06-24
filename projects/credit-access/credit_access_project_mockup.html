@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Case Study - County Level Access to Credit</title>
+  <style>
+    :root {
+      --ink: #17201c;
+      --muted: #63706b;
+      --line: #d9dfda;
+      --paper: #f7f6f1;
+      --panel: #ffffff;
+      --mint: #dcebdd;
+      --sage: #557d66;
+      --coral: #c65f4a;
+      --gold: #c49a38;
+      --charcoal: #26302b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px clamp(18px, 4vw, 56px);
+      background: rgba(247, 246, 241, 0.88);
+      border-bottom: 1px solid rgba(23, 32, 28, 0.1);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 750;
+    }
+
+    .mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--charcoal);
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: 7px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(85, 125, 102, 0.12);
+      color: var(--ink);
+    }
+
+    .nav-links .back-projects-link {
+      border: 1px solid rgba(23, 32, 28, 0.14);
+      border-radius: 999px;
+      padding: 9px 15px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--ink);
+      font-weight: 800;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-links .back-projects-link:hover {
+      background: var(--panel);
+      color: var(--sage);
+    }
+
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
+      gap: clamp(26px, 5vw, 72px);
+      align-items: end;
+      padding: clamp(52px, 9vw, 104px) clamp(18px, 4vw, 56px) 44px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 22px;
+      color: var(--sage);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--sage);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 0.95;
+      font-weight: 820;
+    }
+
+    .lede {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: #39443f;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border: 1px solid var(--ink);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 750;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .scroll-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 18px;
+      color: var(--sage);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .scroll-indicator span {
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      animation: scroll-nudge 1.4s ease-in-out infinite;
+    }
+
+    @keyframes scroll-nudge {
+      0%,
+      100% {
+        transform: translateY(-3px) rotate(45deg);
+      }
+
+      50% {
+        transform: translateY(2px) rotate(45deg);
+      }
+    }
+
+    .hero-visual {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(23, 32, 28, 0.12);
+    }
+
+    .hero-visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .stats-band {
+      background: var(--charcoal);
+      color: #fff;
+      padding: 26px clamp(18px, 4vw, 56px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .stat {
+      min-height: 88px;
+      padding: 4px 0;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: #c7d4cc;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    section {
+      padding: 72px clamp(18px, 4vw, 56px);
+    }
+
+    .inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
+      gap: 30px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--coral);
+      font-size: 13px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      max-width: 840px;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
+    }
+
+    .body-copy {
+      max-width: 820px;
+      color: #3e4944;
+      font-size: 17px;
+      line-height: 1.68;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.65fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .panel-pad {
+      padding: 24px;
+    }
+
+    .role-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .role-list li {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      color: #39443f;
+      line-height: 1.5;
+    }
+
+    .role-list b {
+      color: var(--ink);
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      margin-top: 6px;
+      border-radius: 99px;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(196, 154, 56, 0.16);
+    }
+
+    .dot.coral {
+      background: var(--coral);
+      box-shadow: 0 0 0 6px rgba(198, 95, 74, 0.16);
+    }
+
+    .dot.sage {
+      background: var(--sage);
+      box-shadow: 0 0 0 6px rgba(85, 125, 102, 0.16);
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .method {
+      min-height: 172px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .method .num {
+      color: var(--coral);
+      font-weight: 850;
+      font-size: 13px;
+    }
+
+    .method h3 {
+      margin: 18px 0 8px;
+      font-size: 18px;
+    }
+
+    .method p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .chart-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .chart-card.featured {
+      grid-column: 1 / -1;
+    }
+
+    .chart-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+      background: #fff;
+    }
+
+    .chart-card.tall img {
+      aspect-ratio: 1.45 / 1;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .chart-note {
+      padding: 16px 18px 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .chart-note h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .chart-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .findings {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .finding {
+      min-height: 210px;
+      padding: 22px;
+      border-top: 4px solid var(--sage);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .finding:nth-child(2) {
+      border-color: var(--coral);
+    }
+
+    .finding:nth-child(3) {
+      border-color: var(--gold);
+    }
+
+    .finding h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .finding p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+
+    .artifact-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .artifact {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 142px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .artifact small {
+      color: var(--coral);
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .artifact strong {
+      margin-top: 12px;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .artifact span {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .closing {
+      background: var(--mint);
+    }
+
+    .closing .inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+    }
+
+    .closing p {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: #39443f;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .two-col,
+      .section-head,
+      .closing .inner {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .method-grid,
+      .findings,
+      .artifact-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .stats,
+      .method-grid,
+      .chart-grid,
+      .findings,
+      .artifact-row {
+        grid-template-columns: 1fr;
+      }
+
+      .caption {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="nav" aria-label="Portfolio navigation">
+      <a class="brand" href="#top" aria-label="James Burnard portfolio home">
+        <span class="mark">JB</span>
+        <span>James Burnard</span>
+      </a>
+      <div class="nav-links">
+        <a class="back-projects-link" href="../../index.html#projects-panel">Back to Projects</a>
+        <a href="#overview">Overview</a>
+        <a href="#methods">Methods</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#artifacts">Artifacts</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div>
+        <div class="eyebrow">Data analysis case study</div>
+        <h1>County Level Access to Credit in the United States</h1>
+        <p class="lede">
+          An exploratory data science project using Opportunity Insights data to study how credit scores,
+          credit card balances, and delinquency rates vary across county-race subgroups.
+        </p>
+        <div class="actions">
+          <a class="button" href="#evidence">View Findings</a>
+          <a class="button secondary" href="artifacts/Koumpikov_Burnard_writeup.pdf">Open Writeup</a>
+          <a class="button secondary" href="artifacts/koumpikov_burnard_code.ipynb">Open Notebook</a>
+        </div>
+        <a class="scroll-indicator" href="#overview" aria-label="Scroll to project overview">
+          <span aria-hidden="true"></span>
+          Scroll for project details
+        </a>
+      </div>
+
+      <figure class="hero-visual">
+        <img src="credit-access-portfolio-assets/project-chart-07.png" alt="Scatter plot of credit score versus delinquency by race">
+        <figcaption class="caption">
+          <span>Credit score and delinquency showed the clearest negative association.</span>
+          <span>Python, pandas, matplotlib, seaborn</span>
+        </figcaption>
+      </figure>
+    </header>
+
+    <div class="stats-band" aria-label="Project statistics">
+      <div class="stats">
+        <div class="stat">
+          <strong>3</strong>
+          <span>Opportunity Insights datasets joined for county-level analysis</span>
+        </div>
+        <div class="stat">
+          <strong>3,225+</strong>
+          <span>county identifiers represented in the source CSVs</span>
+        </div>
+        <div class="stat">
+          <strong>6</strong>
+          <span>race group labels used to compare subgroup-level patterns</span>
+        </div>
+        <div class="stat">
+          <strong>92%</strong>
+          <span>accuracy from the harder delinquency classification model</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="overview">
+      <div class="inner two-col">
+        <div>
+          <div class="section-head">
+            <div class="section-kicker">Overview</div>
+            <h2>County-level credit outcomes, modeled across geography and race.</h2>
+          </div>
+          <p class="body-copy">
+            The project asks whether county-level credit outcomes reveal meaningful patterns across
+            geography, income background, and race.
+          </p>
+        </div>
+
+        <aside class="panel panel-pad">
+          <ul class="role-list">
+            <li><span class="dot sage"></span><span><b>My role:</b> association analysis and predictive modeling, including the more realistic classifier that removed raw delinquency from the predictors.</span></li>
+            <li><span class="dot coral"></span><span><b>Technical focus:</b> data preprocessing, statistical summaries, visual analysis, association testing, and model interpretation.</span></li>
+            <li><span class="dot"></span><span><b>Output:</b> notebook, written report, cleaned county-level CSVs, visual analysis, and model evaluation.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="methods">
+      <div class="inner">
+        <div class="section-head">
+          <div class="section-kicker">Methods</div>
+          <h2>From raw Opportunity Insights files to interpretable models.</h2>
+        </div>
+
+        <div class="method-grid">
+          <article class="method">
+            <div class="num">01</div>
+            <h3>Cleaned and joined data</h3>
+            <p>Averaged and combined credit score, balance, and delinquency CSVs into county-level analysis tables.</p>
+          </article>
+          <article class="method">
+            <div class="num">02</div>
+            <h3>Summarized distributions</h3>
+            <p>Compared means, medians, ranges, and IQRs to understand spread and skew across counties.</p>
+          </article>
+          <article class="method">
+            <div class="num">03</div>
+            <h3>Mapped associations</h3>
+            <p>Used scatter plots and correlations to evaluate relationships across score, balance, and delinquency.</p>
+          </article>
+          <article class="method">
+            <div class="num">04</div>
+            <h3>Built classifiers</h3>
+            <p>Created decision tree models to classify high versus low delinquency and tested a harder predictor set.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidence">
+      <div class="inner">
+        <div class="section-head">
+          <div class="section-kicker">Evidence</div>
+          <h2>Visual evidence linking credit scores, delinquency, balances, and subgroup patterns.</h2>
+        </div>
+
+        <div class="chart-grid">
+          <article class="chart-card featured">
+            <img src="credit-access-portfolio-assets/project-chart-07.png" alt="Credit score versus delinquency scatter plot">
+            <div class="chart-note">
+              <h3>Credit score and delinquency had the strongest relationship.</h3>
+              <p>The main visual shows a clear downward slope: higher average credit score is associated with lower average delinquency rate.</p>
+            </div>
+          </article>
+
+          <article class="chart-card">
+            <img src="credit-access-portfolio-assets/project-chart-08.png" alt="Credit balance versus credit score scatter plot">
+            <div class="chart-note">
+              <h3>Balance and score moved together.</h3>
+              <p>The association was positive, suggesting higher credit balances often appeared alongside higher average credit scores.</p>
+            </div>
+          </article>
+
+          <article class="chart-card">
+            <img src="credit-access-portfolio-assets/project-chart-09.png" alt="Credit balance versus delinquency scatter plot">
+            <div class="chart-note">
+              <h3>Balance and delinquency were weaker but still patterned.</h3>
+              <p>The relationship was less linear, but the direction helped motivate the later classification model.</p>
+            </div>
+          </article>
+
+          <article class="chart-card tall">
+            <img src="credit-access-portfolio-assets/project-chart-11.png" alt="Small decision tree using delinquency rate as a direct split">
+            <div class="chart-note">
+              <h3>The first tree was intentionally simple.</h3>
+              <p>This baseline model split directly on delinquency rate, making it useful for explaining the mechanics of a decision tree but less useful as a real predictor.</p>
+            </div>
+          </article>
+
+          <article class="chart-card tall">
+            <img src="credit-access-portfolio-assets/project-chart-12.png" alt="More detailed decision tree using credit score, credit balance, and county">
+            <div class="chart-note">
+              <h3>The second tree made the task more realistic.</h3>
+              <p>After removing raw delinquency from the inputs, the model had to infer high or low delinquency from credit score, credit balance, and county features.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="findings">
+          <article class="finding">
+            <h3>Delinquency was tightly linked to score.</h3>
+            <p>Across county-race subgroups, higher delinquency was strongly associated with lower credit scores.</p>
+          </article>
+          <article class="finding">
+            <h3>Race added context to the scatter plots.</h3>
+            <p>Subgroup coloring revealed visible clustering patterns that could motivate deeper work on systemic credit access disparities.</p>
+          </article>
+          <article class="finding">
+            <h3>The model still worked without the target leak.</h3>
+            <p>After removing raw delinquency from the predictors, the classifier reached 92% accuracy using score, balance, and county features.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="artifacts">
+      <div class="inner">
+        <div class="section-head">
+          <div class="section-kicker">Artifacts</div>
+          <h2>Source materials and reproducible analysis artifacts.</h2>
+        </div>
+
+        <div class="artifact-row">
+          <a class="artifact" href="artifacts/Koumpikov_Burnard_writeup.pdf">
+            <small>PDF</small>
+            <strong>Final project writeup</strong>
+            <span>Research framing, methods, findings, and reflection</span>
+          </a>
+          <a class="artifact" href="artifacts/koumpikov_burnard_code.ipynb">
+            <small>Notebook</small>
+            <strong>Analysis code</strong>
+            <span>pandas workflow, charts, and decision tree model</span>
+          </a>
+          <a class="artifact" href="artifacts/avg_credit_score_2020_cty.csv">
+            <small>CSV</small>
+            <strong>Credit score data</strong>
+            <span>County-race subgroup score observations</span>
+          </a>
+          <a class="artifact" href="artifacts/avg_delinq_rate_2020_cty.csv">
+            <small>CSV</small>
+            <strong>Delinquency data</strong>
+            <span>County-race subgroup delinquency observations</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="inner">
+        <div>
+          <div class="section-kicker">Reflection</div>
+          <h2>What this project taught me about data, credit access, and model design.</h2>
+          <p>
+            The analysis showed how financial outcomes can look different once data is grouped by place
+            and race. It also reinforced an important modeling lesson: a high accuracy score only matters
+            when the features are chosen carefully and the model is not simply learning the answer directly.
+          </p>
+        </div>
+        <a class="button" href="#top">Back to Top</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
