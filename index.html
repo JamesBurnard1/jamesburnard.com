@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260618-projects-return" />
+    <link rel="stylesheet" href="styles.css?v=20260630-experience-mobile-measure" />
   </head>
   <body>
     <header class="site-header">
@@ -59,6 +59,17 @@
           aria-selected="true"
         >
           About
+        </button>
+        <button
+          class="tab-button"
+          id="experience-tab"
+          type="button"
+          data-tab="experience"
+          role="tab"
+          aria-controls="experience-panel"
+          aria-selected="false"
+        >
+          Experience
         </button>
         <button
           class="tab-button"
@@ -133,14 +144,11 @@
           role="tabpanel"
           aria-labelledby="about-tab"
         >
-          <div class="section-heading">
-            <p class="eyebrow">About</p>
-            <h2>Personal info, coursework, and other stuff.</h2>
           </div>
 
-          <div class="about-card-grid">
+          <div class="about-text">
             <article class="intro-block">
-              <h3>About Me</h3>
+              <h3>About</h3>
               <p>
                 I am a (very) recent graduate of the University of Massachusetts Amherst, receiving both a BS in Informatics (data science track) and a BA in Economics.
               </p>
@@ -151,99 +159,324 @@
                 Most of my experience comes from internships as a data scientist or research in Economics. Within each experience, the projects have required me to build intricate data pipelines that feed machine learning models and visualizations. This includes time-series, forecasting and clustering algorithms, as well as animated node graphs. You can see some of this work in my projects section, have a look!
               </p>
             </article>
+          </div>
+        </section>
 
-            <article class="current-panel">
-              <h3>Currently</h3>
-              <p>
-                #OpenToWork! Looking for data science, data analytics, business analytics, data operations roles
-                or anywhere else I can apply my skills, feel free to reach out.
-              </p>
-              <p>
-                I'm using <a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a>
-                and some academic publications to try to most accurately predict FIFA World Cup games.
-              </p>
-            </article>
+        <section
+          class="tab-panel"
+          id="experience-panel"
+          data-panel="experience"
+          role="tabpanel"
+          aria-labelledby="experience-tab"
+          hidden
+        >
+          <div class="section-heading">
+            <h2>Skills, tools, and applied work.</h2>
+            <p class="section-note">
+              Resume available upon request at
+              <a href="mailto:burnardj10@gmail.com?subject=Resume%20request">burnardj10@gmail.com</a>.
+            </p>
+          </div>
 
-            <article class="skills-panel">
-              <h3>Skills</h3>
-              <div class="skill-cloud" aria-label="Technical skills">
-                <span class="skill-chip python"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt=""></b>Python</span>
-                <span class="skill-chip r-lang"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" alt=""></b>R</span>
-                <span class="skill-chip sql"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt=""></b>SQL</span>
-                <span class="skill-chip excel"><b>X</b>Excel</span>
-                <span class="skill-chip tableau"><b>BI</b>Tableau / Power BI</span>
-                <span class="skill-chip js"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt=""></b>JavaScript</span>
-                <span class="skill-chip pandas"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt=""></b>Pandas</span>
-                <span class="skill-chip numpy"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt=""></b>NumPy</span>
-                <span class="skill-chip sklearn"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt=""></b>Scikit-learn</span>
-                <span class="skill-chip torch"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt=""></b>PyTorch</span>
-                <span class="skill-chip xgb"><b>XG</b>XGBoost</span>
-                <span class="skill-chip stats"><b>σ</b>Statistics & Probability</span>
-                <span class="skill-chip wrangle"><b>ETL</b>Data Wrangling</span>
-                <span class="skill-chip forecast"><b>ts</b>Forecasting</span>
-                <span class="skill-chip cluster"><b>k</b>Clustering</span>
-                <span class="skill-chip ocr"><b>OCR</b>Text Recognition</span>
-                <span class="skill-chip git"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt=""></b>Git / GitHub</span>
-                <span class="skill-chip gis"><b>GIS</b>GIS</span>
+          <div class="experience-layout">
+            <section class="education-section" aria-labelledby="education-heading">
+              <h3 id="education-heading">Education</h3>
+              <article class="experience-card education-card">
+                <a class="experience-logo" href="https://www.umass.edu/" target="_blank" rel="noopener noreferrer" aria-label="UMass Amherst">
+                  <img src="assets/experience-umass.png" alt="UMass Amherst logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.umass.edu/" target="_blank" rel="noopener noreferrer">University of Massachusetts Amherst</a>
+                    </h4>
+                    <span>Recent Graduate</span>
+                  </header>
+                  <p class="experience-tools">BS Informatics, data science track | BA Economics</p>
+                  <p>
+                    Coursework focused on data science, economics, statistics, databases, predictive analytics, and applied research methods.
+                  </p>
+                </div>
+              </article>
+
+              <article class="coursework-card">
+                <h3>Noteable Coursework</h3>
+                <p>
+                  Here are some of the classes I took as an undergrad that I found interesting. I'd say these are the classes that had the biggest impact on how I think about technology, data, and problem solving.
+                </p>
+                <div class="coursework-groups">
+                  <section class="coursework-group cs-data">
+                    <h4>Computer Science &amp; Data Science</h4>
+                    <ul class="tag-list">
+                      <li>Harnessing DataSci For Social Good</li>
+                      <li>Graduate Math Applied Statistics</li>
+                      <li>Predictive Analytics In Python</li>
+                      <li>Database Management</li>
+                      <li>Data Structures</li>
+                      <li>Data Science Algorithms</li>
+                      <li>Object-Oriented-Programming</li>
+                      <li>Mathematical Foundation For Data Science</li>
+                      <li>calculus II</li>
+                      <li>Calculus I</li>
+                    </ul>
+                  </section>
+
+                  <section class="coursework-group econ">
+                    <h4>Economics</h4>
+                    <ul class="tag-list">
+                      <li>Microeconomics I &amp; II</li>
+                      <li>Macroeconomics I &amp; II</li>
+                      <li>Econ In The Age Of Big Data</li>
+                      <li>Financial Economics</li>
+                      <li>Behavioral Economics</li>
+                      <li>Research Methods Design &amp; Analysis</li>
+                    </ul>
+                  </section>
+                </div>
+              </article>
+            </section>
+
+            <section class="skills-directory" aria-labelledby="technical-skills-heading">
+              <h3 id="technical-skills-heading">Technical Skills</h3>
+
+              <div class="skill-category">
+                <h4>Languages</h4>
+                <div class="skill-row">
+                  <span class="skill-chip python"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt=""></b>Python</span>
+                  <span class="skill-chip r-lang"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" alt=""></b>R</span>
+                  <span class="skill-chip sql"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt=""></b>SQL</span>
+                  <span class="skill-chip js"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt=""></b>JavaScript</span>
+                </div>
               </div>
-            </article>
 
-            <article class="coursework-card">
-              <h3>Noteable Coursework</h3>
-              <p>
-                Here are some of the classes I took as an undergrad that I found really interesting.
-                I'd say these are the classes that had the biggest impact on how I think about technology, data, and problem solving. 
-              </p>
-              <div class="coursework-groups">
-                <section class="coursework-group">
-                  <h4>
-                    <span class="coursework-icon cs-data-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24">
-                        <path d="M7 8 3.5 12 7 16" />
-                        <path d="m17 8 3.5 4L17 16" />
-                        <path d="m14 5-4 14" />
-                      </svg>
-                    </span>
-                    Computer Science & Data Science
-                  </h4>
-                  <ul class="tag-list">
-                    <li>Harnessing DataSci For Social Good</li>
-                    <li>Graduate Math Applied Statistics</li>
-                    <li>Predictive Analytics In Python</li>
-                    <li>Database Management</li>
-                    <li>Data Structures</li>
-                    <li>Data Science Algorithms</li>
-                    <li>Object-Oriented-Programming</li>
-                    <li>Mathematical Foundation For Data Science</li>
-                    <li>calculus II</li>
-                    <li>Calculus I</li>
-                  </ul>
-                </section>
-
-                <section class="coursework-group">
-                  <h4>
-                    <span class="coursework-icon econ-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24">
-                        <path d="M4 18h16" />
-                        <path d="M7 15V9" />
-                        <path d="M12 15V5" />
-                        <path d="M17 15v-7" />
-                        <path d="m5 10 5-4 4 3 5-5" />
-                      </svg>
-                    </span>
-                    Economics
-                  </h4>
-                  <ul class="tag-list">
-                    <li>Microeconomics I & II</li>
-                    <li>Macroeconomics I & II</li>
-                    <li>Econ In The Age Of Big Data</li>
-                    <li>Financial Economics</li>
-                    <li>Behavioral Economics</li>
-                    <li>Research Methods Design & Analysis</li>
-                  </ul>
-                </section>
+              <div class="skill-category">
+                <h4>Analytics + Visualization</h4>
+                <div class="skill-row">
+                  <span class="skill-chip excel"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Excel">
+                      <rect x="4" y="3" width="16" height="18" rx="2.5" fill="#217346"></rect>
+                      <path d="M8 7h8v10H8z" fill="#fff" opacity="0.9"></path>
+                      <path d="M9.4 9.1 11 12l-1.6 2.9h1.7L12 13.2l.9 1.7h1.7L13 12l1.6-2.9h-1.7L12 10.8l-.9-1.7H9.4Z" fill="#217346"></path>
+                    </svg>
+                  </b>Excel</span>
+                  <span class="skill-chip tableau"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Tableau">
+                      <g fill="#4E79A7">
+                        <rect x="11" y="3" width="2" height="7" rx="1"></rect>
+                        <rect x="11" y="14" width="2" height="7" rx="1"></rect>
+                        <rect x="3" y="11" width="7" height="2" rx="1"></rect>
+                        <rect x="14" y="11" width="7" height="2" rx="1"></rect>
+                      </g>
+                      <g fill="#F28E2B">
+                        <rect x="6.7" y="5.1" width="1.6" height="4.8" rx="0.8" transform="rotate(-45 7.5 7.5)"></rect>
+                        <rect x="15.7" y="5.1" width="1.6" height="4.8" rx="0.8" transform="rotate(45 16.5 7.5)"></rect>
+                        <rect x="6.7" y="14.1" width="1.6" height="4.8" rx="0.8" transform="rotate(45 7.5 16.5)"></rect>
+                        <rect x="15.7" y="14.1" width="1.6" height="4.8" rx="0.8" transform="rotate(-45 16.5 16.5)"></rect>
+                      </g>
+                    </svg>
+                  </b>Tableau</span>
+                  <span class="skill-chip powerbi"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Power BI">
+                      <rect x="3" y="3" width="18" height="18" rx="4" fill="#F2C811"></rect>
+                      <rect x="7" y="11" width="2" height="6" rx="1" fill="#fff" opacity="0.95"></rect>
+                      <rect x="11" y="8" width="2" height="9" rx="1" fill="#fff" opacity="0.95"></rect>
+                      <rect x="15" y="6" width="2" height="11" rx="1" fill="#fff" opacity="0.95"></rect>
+                    </svg>
+                  </b>Power BI</span>
+                </div>
               </div>
-            </article>
+
+              <div class="skill-category">
+                <h4>Data Science + Machine Learning</h4>
+                <div class="skill-row">
+                  <span class="skill-chip pandas"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt=""></b>Pandas</span>
+                  <span class="skill-chip numpy"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt=""></b>NumPy</span>
+                  <span class="skill-chip sklearn"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" alt=""></b>Scikit-learn</span>
+                  <span class="skill-chip torch"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt=""></b>PyTorch</span>
+                  <span class="skill-chip xgb"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M5 17h14" />
+                      <path d="M7 15V5" />
+                      <path d="M12 15V9" />
+                      <path d="M17 15V7" />
+                      <path d="M7 15l3-3 2 2 4-5" />
+                    </svg>
+                  </b>XGBoost</span>
+                  <span class="skill-chip stats"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M6 18h12" />
+                      <path d="M8 16h8" />
+                      <path d="M11 4 7 20" />
+                      <path d="M10 10h7" />
+                      <path d="M13 4h4" />
+                    </svg>
+                  </b>Statistics &amp; Probability</span>
+                  <span class="skill-chip wrangle"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M6 5h12v6H6z" />
+                      <path d="M6 13h12v6H6z" />
+                      <path d="M9 8h6" />
+                      <path d="M12 2v3" />
+                      <path d="M12 21v-3" />
+                      <path d="M5 9l-2-2" />
+                      <path d="M19 9l2-2" />
+                      <path d="M5 15l-2 2" />
+                      <path d="M19 15l2 2" />
+                    </svg>
+                  </b>ETL / Data Wrangling</span>
+                  <span class="skill-chip forecast"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M4 19h16" />
+                      <path d="M5 16l4-4 3 2 6-7" />
+                      <path d="M14 7h4v4" />
+                    </svg>
+                  </b>Forecasting</span>
+                  <span class="skill-chip cluster"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M6 7a2 2 0 1 0 0.01 0Z" />
+                      <path d="M18 7a2 2 0 1 0 0.01 0Z" />
+                      <path d="M12 17a2 2 0 1 0 0.01 0Z" />
+                      <path d="M7.5 8.5 10.5 15" />
+                      <path d="M16.5 8.5 13.5 15" />
+                    </svg>
+                  </b>Clustering</span>
+                  <span class="skill-chip ocr"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M6 5h12v14H6z" />
+                      <path d="M9 9h6" />
+                      <path d="M9 12h6" />
+                      <path d="M9 15h4" />
+                      <path d="M8 3h8" />
+                    </svg>
+                  </b>OCR / Text Recognition</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <h4>Tools + Platforms</h4>
+                <div class="skill-row">
+                  <span class="skill-chip git"><b><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt=""></b>Git / GitHub</span>
+                  <span class="skill-chip gis"><b class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" />
+                      <circle cx="12" cy="11" r="2.5" />
+                    </svg>
+                  </b>GIS</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="experience-list" aria-labelledby="industry-heading">
+              <h3 id="industry-heading">Experience</h3>
+
+              <article class="experience-card">
+                <a class="experience-logo" href="https://www.jamix.com/" target="_blank" rel="noopener noreferrer" aria-label="Jamix">
+                  <img src="assets/JamixLogo_www2025_retina.png" alt="Jamix logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.jamix.com/" target="_blank" rel="noopener noreferrer">Jamix</a>
+                    </h4>
+                    <span>Remote | May 2025 - September 2025</span>
+                  </header>
+                  <p class="experience-tools">Data Science Intern</p>
+                  <p>
+                    At Jamix Inc., I worked remotely as a Data Science Intern from May 2025 to September 2025, where I developed a data-driven sales prospecting workflow for the higher education market. I built a Python ETL pipeline using pandas, requests, and fuzzywuzzy to integrate HubSpot CRM data, College Scorecard API data from 6,429+ institutions, and institutional datasets into a cleaned and filtered dataset of approximately 1,000 relevant schools. I then used this dataset to create Tableau dashboards that analyzed selected institutional variables and combined those findings with Euclidean distance scoring and network analysis to identify 75 high-fit sales prospects. Alongside this project, I managed daily HubSpot data operations by importing and updating institutional records to support cross-functional requests.
+                  </p>
+                </div>
+              </article>
+
+              <article class="experience-card">
+                <a class="experience-logo" href="https://www.umass.edu/labor/about/directory/nate-meyers" target="_blank" rel="noopener noreferrer" aria-label="UMass Amherst Labor Center">
+                  <img src="assets/experience-umass.png" alt="UMass Amherst logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.umass.edu/labor/about/directory/nate-meyers" target="_blank" rel="noopener noreferrer">Quantitative Research Assistant in Economics</a>
+                    </h4>
+                    <span>Amherst, MA | January 2025 - April 2025</span>
+                  </header>
+                  <p class="experience-tools">Assisted Professor <a href="https://www.umass.edu/labor/about/directory/nate-meyers" target="_blank" rel="noopener noreferrer">Nathan Meyers</a></p>
+                  <p>
+                    As a Quantitative Research Assistant in Economics from January 2025 to April 2025, I assisted Professor Nathan Meyers with an economic research project analyzing the relationship between union decline and financial outcomes across U.S. industries. I built a research pipeline using Python, R, SQL, Excel, and scikit-learn to analyze 1,174 industry-year observations across 710 variables, focusing on shareholder dividends, taxation, and labor compensation. I also developed an interactive 3D Plotly visualization of 886 industry-year observations across 44 industries and 27 years, allowing users to explore industry clustering and structural economic change over time. In addition, I applied econometric techniques including Difference-in-Differences analysis, regression modeling, and correlation analysis to evaluate the effects of union decline across multiple economic outcomes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="experience-card">
+                <a class="experience-logo" href="https://www.avcreators.co/" target="_blank" rel="noopener noreferrer" aria-label="Audio Video Creators">
+                  <img src="assets/experience-avc-logo.svg" alt="Audio Video Creators logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.avcreators.co/" target="_blank" rel="noopener noreferrer">Audio Video Creators</a>
+                    </h4>
+                    <span>London | December 2024 - March 2025</span>
+                  </header>
+                  <p class="experience-tools">Business Development and Market Insights Intern</p>
+                  <p>
+                    At AVC (Audio Video Creators), I worked in London as a Business Development and Market Insights Intern from December 2024 to March 2025, focusing on market research within the podcast and digital audio advertising industry. I analyzed podcast advertising performance, audience, and market data in Excel using XLOOKUPs, VLOOKUPs, PivotTables, and conditional formulas to identify trends across advertisers, shows, and audience segments. I also supported podcast advertising partnerships by coordinating campaign timelines, deliverables, and stakeholder communication for brand campaigns involving NordVPN and shows produced by Sky Sports and the BBC.
+                  </p>
+                </div>
+              </article>
+
+              <article class="experience-card">
+                <a class="experience-logo" href="https://www.umass.edu/economics/about/directory/kevin-young" target="_blank" rel="noopener noreferrer" aria-label="UMass Amherst Economics">
+                  <img src="assets/experience-umass.png" alt="UMass Amherst logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.umass.edu/economics/about/directory/kevin-young" target="_blank" rel="noopener noreferrer">Undergraduate Economics Research Assistant for EURA</a>
+                    </h4>
+                    <span>Amherst, MA | February 2024 - May 2024</span>
+                  </header>
+                  <p class="experience-tools">Assisted Professor <a href="https://www.umass.edu/economics/about/directory/kevin-young" target="_blank" rel="noopener noreferrer">Kevin Young</a></p>
+                  <p>
+                    As an Undergraduate Economics Research Assistant for EURA from February 2024 to May 2024, I assisted Professor Kevin Young with a historical data digitization and social network analysis project. I built a Python OCR pipeline using Tesseract, pdf2image, pandas, and regex parsing to digitize more than 4,500 physical book pages into structured CSV and JSON files containing 53,131 research-grade records across eight historical book editions. I then transformed historical membership data into social network models using HTML and JavaScript, spanning 218 organizations and 42,700 membership links to uncover patterns of organizational connectivity and continuity from 1967 to 1989. I also developed validation workflows to identify OCR errors, duplicate entries, missing fields, and unknown organization codes, improving the reliability of the research dataset.
+                  </p>
+                </div>
+              </article>
+
+              <article class="experience-card">
+                <a class="experience-logo" href="https://www.undergraduation.com/" target="_blank" rel="noopener noreferrer" aria-label="Undergraduation">
+                  <img src="assets/experience-undergraduation.webp" alt="Undergraduation logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.undergraduation.com/" target="_blank" rel="noopener noreferrer">Undergraduation.com</a>
+                    </h4>
+                    <span>Remote | June 2024 - August 2024</span>
+                  </header>
+                  <p class="experience-tools">Data Science Intern</p>
+                  <p>
+                    At Undergraduation.com, I worked remotely as a Data Science Intern from June 2024 to August 2024, contributing to the early development of an AI assistant designed to improve customer support on the company website. My work focused on building Python scripts that converted company documents into embeddings, organized the resulting vectors, and stored them in a PostgreSQL database to support semantic search and AI-powered responses to customer inquiries.
+                  </p>
+                </div>
+              </article>
+
+              <article class="experience-card">
+                <a class="experience-logo" href="https://www.tcc1882.org/Club/Scripts/Home/home.asp" target="_blank" rel="noopener noreferrer" aria-label="The Country Club">
+                  <img src="assets/experience-tcc-logo.png" alt="The Country Club logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.tcc1882.org/Club/Scripts/Home/home.asp" target="_blank" rel="noopener noreferrer">The Country Club</a>
+                    </h4>
+                    <span>Brookline, MA | July 2021 - August 2023</span>
+                  </header>
+                  <p class="experience-tools">Line Cook</p>
+                  <p>
+                    At The Country Club in Brookline, MA, I worked as a Line Cook from July 2021 to August 2023 in a fast-paced, high-standard kitchen environment. I prepared more than 150 dishes per shift while maintaining consistency, speed, and attention to presentation. This role strengthened my ability to work under pressure, manage competing priorities, and collaborate effectively with a team while meeting strict quality expectations.
+                  </p>
+                </div>
+              </article>
+            </section>
           </div>
         </section>
 
@@ -257,7 +490,7 @@
         >
           <div class="section-heading">
             <p class="eyebrow">Projects</p>
-            <h2>Selected work and things in progress.</h2>
+            <h2>Selected work and projects in progress.</h2>
           </div>
 
           <div class="project-grid">
@@ -273,7 +506,7 @@
                 alt="Node graph visualization for the Baltimore elite social geography project"
               />
               <p>
-                After 1950, Baltimore experienced a significant decline in its elite population, with the number of elite individuals dropping significantly. This project explores the social geography of Baltimore's elite during this period.
+                After 1950, Baltimore experienced a significant decline in its elite population, with the number of elite individuals dropping significantly. 
               </p>
               <div class="project-tags">
                 <span>CSV/JSON Processing</span>
@@ -284,7 +517,13 @@
                 <span>Time Series</span>
                 <span>Text Recognition</span>
               </div>
-              <a href="projects/baltimore/index.html">View project</a>
+              <a class="project-link" href="projects/baltimore/index.html">
+                <span>Open project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </a>
             </article>
 
             <article class="project-card">
@@ -314,7 +553,13 @@
                 <span>Pandas</span>
                 <span>Numpy</span>
               </div>
-              <a href="projects/jamix/index.html">View project</a>
+              <a class="project-link" href="projects/jamix/index.html">
+                <span>Open project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </a>
             </article>
 
             <article class="project-card">
@@ -342,7 +587,13 @@
                 <span>PowerPoint</span>
                 
               </div>
-              <a href="projects/union-decline/index.html">View project</a>
+              <a class="project-link" href="projects/union-decline/index.html">
+                <span>Open project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </a>
             </article>
 
             <article class="project-card">
@@ -366,7 +617,13 @@
                 <span>Desktop App Development</span>
 
               </div>
-              <a href="projects/onlyup/index.html">View project</a>
+              <a class="project-link" href="projects/onlyup/index.html">
+                <span>Open project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </a>
             </article>
 
             <article class="project-card">
@@ -381,7 +638,7 @@
                 alt="plot preview"
               />
               <p>
-                In this project, I analyzed county-level data on credit access in the United States to identify patterns and disparities in financial inclusion. The analysis included data cleaning, exploratory data analysis, and visualization to uncover insights about credit access across different regions.
+                In this project, I analyzed county-level data on credit access in the United States to identify patterns and disparities in financial inclusion.
               </p>
               <div class="project-tags">
                 <span>Jupyter Notebook</span>
@@ -391,7 +648,13 @@
                 <span>SciPy</span>
                 <span>Scikit-learn</span>
               </div>
-              <a href="projects/credit-access/credit_access_project_mockup.html">View project</a>
+              <a class="project-link" href="projects/credit-access/credit_access_project_mockup.html">
+                <span>Open project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </a>
             </article>
 
             <article class="project-card">
@@ -415,7 +678,13 @@
                 <span>Python</span>
                 <span>Scikit-learn</span>
               </div>
-              <a href="projects/aston-martin/index.html">View project</a>
+              <a class="project-link" href="projects/aston-martin/index.html">
+                <span>Open project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </a>
             </article>
           </div>
         </section>
@@ -426,6 +695,6 @@
       <p>© 2026 James Burnard. Built as a personal portfolio.</p>
     </footer>
 
-    <script src="script.js?v=20260618-projects-return"></script>
+    <script src="script.js?v=20260630-experience-mobile-measure"></script>
   </body>
 </html>

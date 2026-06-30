@@ -3,6 +3,7 @@ const panels = document.querySelectorAll(".tab-panel");
 const networkCanvas = document.querySelector("[data-network-canvas]");
 const projectLinks = document.querySelectorAll(".project-card > a[href]");
 const heroSection = document.querySelector(".hero");
+const scrollCue = document.querySelector(".scroll-cue");
 const heroEyebrow = document.querySelector("[data-hero-eyebrow]");
 const heroTitle = document.querySelector("[data-hero-title]");
 const heroCopy = document.querySelector("[data-hero-copy]");
@@ -16,6 +17,16 @@ const initialHeroContent = {
 
 const heroContent = {
   about: initialHeroContent,
+  experience: {
+    eyebrow: "Technical Skills · Data Science · Research",
+    title: "Experience",
+    copy:
+      "A focused view of my data science toolkit, research background, and applied project experience.",
+    actions: `
+      <a class="button primary" href="#experience-panel">View Experience</a>
+      <a class="button secondary" href="mailto:burnardj10@gmail.com?subject=Resume%20request">Request Resume</a>
+    `,
+  },
   projects: {
     eyebrow: "Selected Work · Data Systems · Interactive Analysis",
     title: "Projects",
@@ -48,6 +59,27 @@ function updateHero(tabName) {
   }
 }
 
+function updateScrollCue(tabName) {
+  if (!scrollCue) {
+    return;
+  }
+
+  if (tabName === "projects") {
+    scrollCue.href = "#projects-panel";
+    scrollCue.setAttribute("aria-label", "Scroll to projects");
+    return;
+  }
+
+  if (tabName === "experience") {
+    scrollCue.href = "#experience-panel";
+    scrollCue.setAttribute("aria-label", "Scroll to experience");
+    return;
+  }
+
+  scrollCue.href = "#content";
+  scrollCue.setAttribute("aria-label", "Scroll to content");
+}
+
 function activateTab(tabName) {
   document.body.dataset.activeTab = tabName;
 
@@ -64,19 +96,35 @@ function activateTab(tabName) {
   });
 
   updateHero(tabName);
+  updateScrollCue(tabName);
 }
 
 function activateTabFromHash() {
   const requestedTab = window.location.hash.replace("#", "");
-  const tabName = requestedTab === "projects-panel" ? "projects" : requestedTab;
+  const panelMap = {
+    "projects-panel": "projects",
+    "experience-panel": "experience",
+  };
+  const tabName = panelMap[requestedTab] || requestedTab;
 
-  if (tabName === "projects" || tabName === "about") {
+  if (tabName === "projects" || tabName === "about" || tabName === "experience") {
     activateTab(tabName);
 
-    if (requestedTab === "projects-panel") {
+    if (tabName === "experience") {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      });
+    }
+
+    if (requestedTab === "projects-panel" || requestedTab === "experience-panel") {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          document.getElementById("projects-panel")?.scrollIntoView();
+          if (requestedTab === "experience-panel") {
+            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+            return;
+          }
+
+          document.getElementById(requestedTab)?.scrollIntoView();
         });
       });
     }
@@ -93,12 +141,32 @@ tabButtons.forEach((button) => {
     const hash = button.dataset.tab;
     window.history.replaceState(null, "", `#${hash}`);
 
+    if (button.dataset.tab === "experience") {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      });
+      return;
+    }
+
     if (button.dataset.tab === "projects") {
       requestAnimationFrame(() => {
         heroSection?.scrollIntoView();
       });
     }
   });
+});
+
+scrollCue?.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const activeTab = document.body.dataset.activeTab || "about";
+  const targetId = activeTab === "projects"
+    ? "projects-panel"
+    : activeTab === "experience"
+      ? "experience-panel"
+      : "content";
+
+  document.getElementById(targetId)?.scrollIntoView({ behavior: "auto", block: "start" });
 });
 
 document.addEventListener("click", (event) => {
