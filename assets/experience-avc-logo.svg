@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" role="img" aria-labelledby="title">
+  <title id="title">AVC Audio Video Creators</title>
+  <rect width="520" height="160" fill="#ffffff"/>
+  <circle cx="80" cy="80" r="76" fill="#6f35c9"/>
+  <text x="80" y="96" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="800">AVC</text>
+  <g fill="#6f35c9" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="600" letter-spacing="8">
+    <text x="174" y="50">AUDIO</text>
+    <text x="174" y="100">VIDEO</text>
+    <text x="174" y="150">CREATORS</text>
+  </g>
+</svg>
