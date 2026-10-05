@@ -8,46 +8,17 @@
       name="description"
       content="A personal website with coursework, interests, and selected projects."
     />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260630-experience-mobile-measure" />
+    <link rel="stylesheet" href="styles.css?v=20261005-centered-projects" />
   </head>
-  <body>
+  <body class="editorial-home">
     <header class="site-header">
-      <div class="site-header-left">
-        <a class="brand" href="#" aria-label="James Burnard home">
-          <img src="favicon.svg" alt="" />
-        </a>
-        <div class="header-socials" aria-label="Contact links">
-          <a class="email-link" href="mailto:burnardj10@gmail.com" aria-label="Email James Burnard">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 6h16v12H4z" />
-              <path d="m4 7 8 6 8-6" />
-            </svg>
-          </a>
-          <a class="linkedin-link" href="https://www.linkedin.com/in/james-burnard/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6.5 10v8" />
-              <path d="M6.5 6v.01" />
-              <path d="M11 18v-8" />
-              <path d="M11 13.5c0-2 1.2-3.5 3.3-3.5 1.9 0 3.2 1.3 3.2 3.8V18" />
-              <path d="M3 3h18v18H3z" />
-            </svg>
-          </a>
-          <a class="github-link" href="https://github.com/JamesBurnard1" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 19c-4 1.5-4-2-5-2.5" />
-              <path d="M15 22v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.2-3.3.1-.3.5-1.7-.1-3.2 0 0-1-.3-3.4 1.3A11.5 11.5 0 0 0 12 5c-1.1 0-2.2.1-3.3.4C6.3 3.8 5.3 4.1 5.3 4.1c-.6 1.5-.2 2.9-.1 3.2A5 5 0 0 0 4 10.6c0 4.6 2.7 5.7 5.5 6.1-.4.4-.6.9-.6 1.8V22" />
-            </svg>
-          </a>
-        </div>
-      </div>
       <nav class="tabs" aria-label="Primary" role="tablist">
         <button
           class="tab-button is-active"
@@ -86,54 +57,64 @@
     </header>
 
     <main>
-      <section class="hero" aria-labelledby="page-title">
-        <canvas
-          class="hero-network"
-          aria-hidden="true"
-          data-network-canvas
-        ></canvas>
-        <div class="hero-overlay"></div>
+      <section class="hero portrait-intro" aria-labelledby="page-title">
         <div class="hero-content">
-          
           <h1 id="page-title" data-hero-title>James Burnard</h1>
-          <div class="hero-socials" aria-label="Contact links">
-            <a class="email-link" href="mailto:burnardj10@gmail.com" aria-label="Email James Burnard">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 6h16v12H4z" />
-                <path d="m4 7 8 6 8-6" />
-              </svg>
-            </a>
-            <a class="linkedin-link" href="https://www.linkedin.com/in/james-burnard/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6.5 10v8" />
-                <path d="M6.5 6v.01" />
-                <path d="M11 18v-8" />
-                <path d="M11 13.5c0-2 1.2-3.5 3.3-3.5 1.9 0 3.2 1.3 3.2 3.8V18" />
-                <path d="M3 3h18v18H3z" />
-              </svg>
-            </a>
-            <a class="github-link" href="https://github.com/JamesBurnard1" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 19c-4 1.5-4-2-5-2.5" />
-                <path d="M15 22v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.2-3.3.1-.3.5-1.7-.1-3.2 0 0-1-.3-3.4 1.3A11.5 11.5 0 0 0 12 5c-1.1 0-2.2.1-3.3.4C6.3 3.8 5.3 4.1 5.3 4.1c-.6 1.5-.2 2.9-.1 3.2A5 5 0 0 0 4 10.6c0 4.6 2.7 5.7 5.5 6.1-.4.4-.6.9-.6 1.8V22" />
-              </svg>
-            </a>
-          </div>
-          <p class="hero-copy" data-hero-copy>
-            Hi there! Welcome to my personal website. Here you'll find any projects I've done/am doing,
-            and a collection of my coursework/skills. Take a peek at some pictures I've taken by clicking the moving bubbles on the screen.
-          </p>
-          <div class="hero-actions" data-hero-actions>
-            <a class="button primary" href="mailto:burnardj10@gmail.com">
-              Contact Me
-            </a>
-            <a class="button secondary" href="#content">Explore</a>
-            <a class="button secondary" href="#projects-panel" data-hero-projects-link>Projects</a>
+          <div class="intro-links" aria-label="Contact links">
+            <a href="mailto:burnardj10@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/james-burnard/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/JamesBurnard1" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
-        <a class="scroll-cue" href="#content" aria-label="Scroll to content">
-          <span aria-hidden="true"></span>
-        </a>
+        <figure class="photography" aria-label="Personal photography">
+          <div class="photo-grid" aria-label="Personal photography gallery" aria-describedby="photo-gallery-hint">
+            <button class="photo-tile" type="button" data-photo-index="0" aria-label="Enlarge photograph 1">
+              <img src="assets/hero-photo-nodes/node-01.jpg" alt="Photograph 1 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="1" aria-label="Enlarge photograph 2">
+              <img src="assets/hero-photo-nodes/node-02.jpg" alt="Photograph 2 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="2" aria-label="Enlarge photograph 3">
+              <img src="assets/hero-photo-nodes/node-03.jpg" alt="Photograph 3 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="3" aria-label="Enlarge photograph 4">
+              <img src="assets/hero-photo-nodes/node-04.jpg" alt="Photograph 4 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="4" aria-label="Enlarge photograph 5">
+              <img src="assets/hero-photo-nodes/node-05.jpg" alt="Photograph 5 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="5" aria-label="Enlarge photograph 6">
+              <img src="assets/hero-photo-nodes/node-06.jpg" alt="Photograph 6 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="6" aria-label="Enlarge photograph 7">
+              <img src="assets/hero-photo-nodes/node-07.jpg" alt="Photograph 7 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="7" aria-label="Enlarge photograph 8">
+              <img src="assets/hero-photo-nodes/node-08.jpg" alt="Photograph 8 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="8" aria-label="Enlarge photograph 9">
+              <img src="assets/hero-photo-nodes/node-09.jpg" alt="Photograph 9 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="9" aria-label="Enlarge photograph 10">
+              <img src="assets/hero-photo-nodes/node-10.jpg" alt="Photograph 10 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="10" aria-label="Enlarge photograph 11">
+              <img src="assets/hero-photo-nodes/node-11.jpg" alt="Photograph 11 from James Burnard’s personal collection" decoding="async" />
+            </button>
+            <button class="photo-tile" type="button" data-photo-index="11" aria-label="Enlarge photograph 12">
+              <img src="assets/hero-photo-nodes/node-12.jpg" alt="Photograph 12 from James Burnard’s personal collection" decoding="async" />
+            </button>
+          </div>
+          <figcaption>
+            <span class="photography-label">Photography · 37 images<br /><span id="photo-gallery-hint">Click a photo to view full size</span></span>
+            <div class="photography-controls" aria-label="Browse photographs">
+              <button type="button" data-photo-previous aria-label="Previous photographs">Previous</button>
+              <span data-photo-counter role="status" aria-live="polite" aria-atomic="true">01–12 / 37</span>
+              <button type="button" data-photo-next aria-label="Next photographs">Next</button>
+            </div>
+            <a class="photo-full-size" href="assets/hero-photo-nodes/node-01.jpg" target="_blank" rel="noopener noreferrer">View full size</a>
+          </figcaption>
+        </figure>
       </section>
 
       <section class="content-shell" id="content">
@@ -144,19 +125,26 @@
           role="tabpanel"
           aria-labelledby="about-tab"
         >
-          </div>
-
           <div class="about-text">
             <article class="intro-block">
               <h3>About</h3>
               <p>
-                I am a (very) recent graduate of the University of Massachusetts Amherst, receiving both a BS in Informatics (data science track) and a BA in Economics.
+                I am currently a Data Science Consultant at
+                <a class="company-highlight" href="https://www.managementsolutions.com/en" target="_blank" rel="noopener noreferrer">Management Solutions</a>.
+                I was recently hired and am being assigned to client projects focused on data lineage and data governance optimization.
+                I’m incredibly excited to dive headfirst into my first postgraduate professional experience, learning new tools while applying them to real business problems!
               </p>
               <p>
-                I’m fascinated by the power of data and the various methods that, when applied to it, allow for incredible explanations of various phenomena.
+                Before beginning this new chapter in my career, I graduated from the University of Massachusetts Amherst in May 2026 with a Bachelor of Arts in Economics and a Bachelor of Science in Informatics.
               </p>
               <p>
-                Most of my experience comes from internships as a data scientist or research in Economics. Within each experience, the projects have required me to build intricate data pipelines that feed machine learning models and visualizations. This includes time-series, forecasting and clustering algorithms, as well as animated node graphs. You can see some of this work in my projects section, have a look!
+                I am committed to applying robust analytical methods to find answers in chaotic, unstructured data and inform decisions that advance social good.
+                Driven by this purpose, I am actively expanding my expertise in statistics to deepen my analyses.
+              </p>
+              <p>
+                Most of my experience comes from data science internships and economics research.
+                These projects have required me to build intricate data pipelines that feed machine learning models and visualizations, including time-series analysis, forecasting, clustering algorithms, and animated node graphs.
+                You can see some of this work in my <a href="#projects-panel">projects section</a>.
               </p>
             </article>
           </div>
@@ -370,6 +358,24 @@
               <h3 id="industry-heading">Experience</h3>
 
               <article class="experience-card">
+                <a class="experience-logo" href="https://www.managementsolutions.com/en" target="_blank" rel="noopener noreferrer" aria-label="Management Solutions">
+                  <img src="assets/experience-management-solutions.jpg" alt="Management Solutions logo" />
+                </a>
+                <div>
+                  <header class="experience-card-header">
+                    <h4>
+                      <a href="https://www.managementsolutions.com/en" target="_blank" rel="noopener noreferrer">Management Solutions</a>
+                    </h4>
+                    <span>October 2026 – Present</span>
+                  </header>
+                  <p class="experience-tools">Data Science Consultant</p>
+                  <p>
+                    Supporting client projects focused on data lineage and data governance optimization.
+                  </p>
+                </div>
+              </article>
+
+              <article class="experience-card">
                 <a class="experience-logo" href="https://www.jamix.com/" target="_blank" rel="noopener noreferrer" aria-label="Jamix">
                   <img src="assets/JamixLogo_www2025_retina.png" alt="Jamix logo" />
                 </a>
@@ -490,7 +496,7 @@
         >
           <div class="section-heading">
             <p class="eyebrow">Projects</p>
-            <h2>Selected work and projects in progress.</h2>
+            <h2>Selected projects</h2>
           </div>
 
           <div class="project-grid">
@@ -518,6 +524,34 @@
                 <span>Text Recognition</span>
               </div>
               <a class="project-link" href="projects/baltimore/index.html">
+                <span>Open project</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M9 7h8v8" />
+                </svg>
+              </a>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Experiment</span>
+                <span>In Progress</span>
+              </div>
+              <h3>Pitwall F1</h3>
+              <img
+                class="project-image"
+                src="assets/pitwall-f1-cover.jpg"
+                alt="Painting of a red Formula 1 race car"
+              />
+              <p>
+                Given the state of a race, can we evaluate whether a driver should stay out or pit, and which strategy offers the best expected outcome? This project is in progress.
+              </p>
+              <div class="project-tags">
+                <span>Machine Learning</span>
+                <span>Python</span>
+                <span>Scikit-learn</span>
+              </div>
+              <a class="project-link" href="projects/aston-martin/index.html">
                 <span>Open project</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M7 17 17 7" />
@@ -604,8 +638,8 @@
               <h3>OnlyUp: A Goal Tracker App</h3>
               <img
                 class="project-image"
-                src="assets/only_up_icon.png"
-                alt="OnlyUp app icon"
+                src="assets/onlyup-project-cover.png"
+                alt="Screenshot of the OnlyUp goal tracker app"
               />
               <p>
                 OnlyUp is a goal tracking app that I built to help myself stay motivated and accountable. The app allows users to set goals, track their progress, and perform the information retention technique known as "active recall".
@@ -657,44 +691,24 @@
               </a>
             </article>
 
-            <article class="project-card">
-              <div class="project-meta">
-                <span>Experiment</span>
-                <span>In Progress</span>
-              </div>
-              <h3>Predicting The FIFA World Cup</h3>
-              <img
-                class="project-image"
-                src="assets/world-cup-haaland-cover.jpg"
-                alt="Erling Haaland playing for Norway in the rain"
-              />
-              <p>
-                I've always been a huge soccer fan, and I've been heavily invested in the World Cup.
-                For this project, I'm using machine learning techniques to predict the outcomes of World Cup matches.
-                Stay tuned for this one, I'm really excited about it!
-              </p>
-              <div class="project-tags">
-                <span>Machine Learning</span>
-                <span>Python</span>
-                <span>Scikit-learn</span>
-              </div>
-              <a class="project-link" href="projects/aston-martin/index.html">
-                <span>Open project</span>
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7 17 17 7" />
-                  <path d="M9 7h8v8" />
-                </svg>
-              </a>
-            </article>
+
           </div>
         </section>
       </section>
     </main>
 
+    <dialog class="photo-dialog" aria-label="Enlarged photograph">
+      <div class="photo-dialog-toolbar">
+        <span data-enlarged-caption>Personal photography</span>
+        <button type="button" data-close-photo aria-label="Close enlarged photograph">Close ×</button>
+      </div>
+      <img class="enlarged-photo" alt="" />
+    </dialog>
+
     <footer class="site-footer">
       <p>© 2026 James Burnard. Built as a personal portfolio.</p>
     </footer>
 
-    <script src="script.js?v=20260630-experience-mobile-measure"></script>
+    <script src="script.js?v=20261005-centered-projects"></script>
   </body>
 </html>

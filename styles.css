@@ -1641,53 +1641,64 @@ dd {
   padding: 72px 0 34px;
 }
 
-body[data-active-tab="experience"] .hero {
+body[data-active-tab="experience"] .hero ,
+body[data-active-tab="projects"] .hero {
   display: none;
 }
 
-body[data-active-tab="experience"] .content-shell {
+body[data-active-tab="experience"] .content-shell ,
+body[data-active-tab="projects"] .content-shell {
   padding-top: 132px;
 }
 
-body[data-active-tab="experience"] .site-header {
+body[data-active-tab="experience"] .site-header ,
+body[data-active-tab="projects"] .site-header {
   color: var(--ink);
 }
 
-body[data-active-tab="experience"] .brand img {
+body[data-active-tab="experience"] .brand img ,
+body[data-active-tab="projects"] .brand img {
   filter: none;
 }
 
-body[data-active-tab="experience"] .tabs {
+body[data-active-tab="experience"] .tabs ,
+body[data-active-tab="projects"] .tabs {
   border-color: rgba(32, 33, 36, 0.18);
   background: rgba(255, 255, 255, 0.9);
 }
 
-body[data-active-tab="experience"] .tab-button {
+body[data-active-tab="experience"] .tab-button ,
+body[data-active-tab="projects"] .tab-button {
   color: #3c4043;
 }
 
-body[data-active-tab="experience"] .tab-button.is-active {
+body[data-active-tab="experience"] .tab-button.is-active ,
+body[data-active-tab="projects"] .tab-button.is-active {
   background: var(--accent);
   color: var(--white);
 }
 
-body[data-active-tab="experience"] .header-socials {
+body[data-active-tab="experience"] .header-socials ,
+body[data-active-tab="projects"] .header-socials {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
 }
 
-body[data-active-tab="experience"] .header-socials a {
+body[data-active-tab="experience"] .header-socials a ,
+body[data-active-tab="projects"] .header-socials a {
   border-color: rgba(32, 33, 36, 0.14);
   background: rgba(255, 255, 255, 0.84);
   color: var(--ink);
 }
 
-body[data-active-tab="experience"] .header-socials .email-link {
+body[data-active-tab="experience"] .header-socials .email-link ,
+body[data-active-tab="projects"] .header-socials .email-link {
   color: #b7791f;
 }
 
-body[data-active-tab="experience"] .header-socials .linkedin-link {
+body[data-active-tab="experience"] .header-socials .linkedin-link ,
+body[data-active-tab="projects"] .header-socials .linkedin-link {
   color: #0a66c2;
 }
 
@@ -2214,7 +2225,8 @@ h4,
     min-height: 96px;
   }
 
-  body[data-active-tab="experience"] .content-shell {
+  body[data-active-tab="experience"] .content-shell ,
+body[data-active-tab="projects"] .content-shell {
     padding-top: 250px;
   }
 
@@ -2228,4 +2240,1269 @@ h4,
     word-break: break-all;
     overflow-wrap: anywhere;
   }
+}
+
+/* Editorial influence on the original homepage; retain its visual identity. */
+.editorial-home {
+  --surface: #f7f4ed;
+  --surface-strong: #fbf9f4;
+  --ink: #30312e;
+  --muted: #73766e;
+  --line: #deded4;
+  --accent: #596d60;
+  --accent-dark: #46584c;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.editorial-home h1,
+.editorial-home h2,
+.editorial-home h3,
+.editorial-home h4,
+.editorial-home .section-heading h2,
+.editorial-home .intro-block p,
+.editorial-home .coursework-card p,
+.editorial-home .project-card p,
+.editorial-home .experience-card p,
+.editorial-home .section-note,
+.editorial-home .experience-tools,
+.editorial-home .experience-card-header span,
+.editorial-home .experience-date,
+.editorial-home .skill-chip,
+.editorial-home .tag-list li,
+.editorial-home .project-tags span {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.editorial-home h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.editorial-home h3,
+.editorial-home h4,
+.editorial-home .section-heading h2 {
+  font-weight: 600;
+}
+
+.editorial-home .hero-copy {
+  max-width: 560px;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.editorial-home .about-text {
+  max-width: 650px;
+}
+
+.editorial-home .content-shell {
+  padding-bottom: 64px;
+}
+
+.editorial-home .intro-block p,
+.editorial-home .project-card p,
+.editorial-home .experience-card p {
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+.editorial-home .section-note a,
+.editorial-home .experience-card-header a,
+.editorial-home .experience-tools a,
+.editorial-home .experience-card p a {
+  background: transparent;
+  font-weight: 500;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.editorial-home .eyebrow,
+.editorial-home .project-meta {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.editorial-home .skill-chip,
+.editorial-home .tag-list li,
+.editorial-home .project-tags span {
+  border-color: var(--line);
+  background: #f1f0e9;
+  color: #5c635b;
+  font-weight: 400;
+}
+
+.editorial-home .project-card,
+.editorial-home .experience-card {
+  border-color: var(--line);
+}
+
+@media (max-width: 700px) {
+  .editorial-home .content-shell {
+    padding-bottom: 40px;
+  }
+}
+
+
+.editorial-home .intro-block .company-highlight {
+  background: transparent;
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.editorial-home .intro-block .company-highlight:hover,
+.editorial-home .intro-block .company-highlight:focus-visible {
+  background: transparent;
+  color: var(--accent);
+}
+
+
+.editorial-home .about-text {
+  margin-inline: auto;
+}
+
+.editorial-home[data-active-tab="about"] .hero {
+  background: #272e2a;
+}
+
+.editorial-home[data-active-tab="about"] .hero-overlay {
+  background: linear-gradient(90deg, rgba(22, 28, 24, 0.82), rgba(22, 28, 24, 0.18) 70%);
+}
+
+
+/* Projects opens as a quiet directory rather than a second landing page. */
+.editorial-home[data-active-tab="projects"] .site-header {
+  background: var(--surface);
+}
+
+.editorial-home #projects-panel .section-heading .eyebrow {
+  display: none;
+}
+
+.editorial-home #projects-panel .project-card {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.editorial-home #projects-panel .project-grid {
+  gap: 48px 32px;
+}
+
+.editorial-home #projects-panel .project-card:hover,
+.editorial-home #projects-panel .project-card:hover .project-image {
+  transform: none;
+  box-shadow: none;
+}
+
+.editorial-home #projects-panel .project-image {
+  border: 0;
+}
+
+.editorial-home #projects-panel .project-tags span,
+.editorial-home #projects-panel .project-badge,
+.editorial-home #projects-panel .project-link {
+  border: 0;
+  background: transparent;
+  padding-inline: 0;
+}
+
+.editorial-home #projects-panel .project-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* Light definition around work, with plain text navigation. */
+.editorial-home #projects-panel .project-card {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 20px;
+  background: transparent;
+}
+
+.editorial-home[data-active-tab] .tabs {
+  display: flex;
+  width: auto;
+  gap: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  overflow: visible;
+}
+
+.editorial-home[data-active-tab] .tab-button {
+  width: auto;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.editorial-home[data-active-tab] .tab-button.is-active,
+.editorial-home[data-active-tab] .tab-button:hover {
+  background: transparent;
+  color: inherit;
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+}
+
+.editorial-home[data-active-tab] .tab-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  .editorial-home .site-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .editorial-home[data-active-tab] .tabs {
+    margin-left: auto;
+    gap: 16px;
+  }
+
+  .editorial-home[data-active-tab] .tab-button {
+    font-size: 0.85rem;
+  }
+
+  .editorial-home[data-active-tab="experience"] .content-shell,
+  .editorial-home[data-active-tab="projects"] .content-shell {
+    padding-top: 156px;
+  }
+
+  .editorial-home #projects-panel .project-card {
+    padding: 16px;
+  }
+}
+
+/* Shared row tracks keep project headings and previews aligned naturally. */
+.editorial-home #projects-panel .project-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 6;
+  row-gap: 0;
+  min-width: 0;
+}
+
+.editorial-home #projects-panel .project-meta {
+  margin: 0 0 16px;
+  align-self: start;
+}
+
+.editorial-home #projects-panel .project-card h3 {
+  margin: 0 0 20px;
+  line-height: 1.35;
+  align-self: start;
+}
+
+.editorial-home #projects-panel .project-image {
+  display: block;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 20px;
+  align-self: start;
+}
+
+.editorial-home #projects-panel .project-card > p {
+  margin: 0 0 20px;
+  align-self: start;
+}
+
+.editorial-home #projects-panel .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  gap: 4px 0;
+  margin: 0 0 20px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.editorial-home #projects-panel .project-tags span {
+  display: inline-flex;
+  align-items: baseline;
+  min-height: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.editorial-home #projects-panel .project-tags span:not(:last-child)::after {
+  content: "·";
+  margin-inline: 8px;
+  color: #969d91;
+}
+
+.editorial-home #projects-panel .project-link {
+  justify-self: start;
+  align-self: end;
+}
+
+/* A still photographic introduction, continuous with the biography below. */
+.editorial-home[data-active-tab] .site-header {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.editorial-home .site-header .brand img {
+  filter: none;
+}
+
+.editorial-home .header-socials {
+  display: none;
+}
+
+.editorial-home[data-active-tab="about"] .portrait-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  width: min(920px, calc(100% - 40px));
+  min-height: 0;
+  margin: 0 auto;
+  padding: 156px 0 56px;
+  background: transparent;
+  overflow: visible;
+}
+
+.editorial-home .portrait-intro .hero-content {
+  width: auto;
+  max-width: none;
+  padding: 0;
+  color: var(--ink);
+}
+
+.editorial-home .portrait-intro h1 {
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.editorial-home .portrait-intro .hero-copy {
+  max-width: none;
+  color: var(--ink);
+  margin-top: 24px;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.intro-kicker {
+  margin: 0 0 20px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.intro-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 28px;
+  font-size: 0.95rem;
+}
+
+.intro-links a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.photography {
+  min-width: 0;
+  margin: 0;
+}
+
+.photography-image-link {
+  display: block;
+  background: #eeece4;
+}
+
+.photography-image {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+}
+
+.photography figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding-top: 14px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.photography-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.photography-controls button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent);
+  padding: 8px 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.photography-controls [data-photo-counter] {
+  font-variant-numeric: tabular-nums;
+}
+
+.editorial-home[data-active-tab="about"] .content-shell {
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.intro-links a:focus-visible,
+.photography a:focus-visible,
+.photography button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+@media (max-width: 700px) {
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-top: 120px;
+    padding-bottom: 36px;
+  }
+
+  .photography-image {
+    height: clamp(260px, 75vw, 400px);
+  }
+
+  .editorial-home .portrait-intro .hero-copy {
+    max-width: none;
+  }
+}
+
+/* Quiet type paired with a tactile, manually browsed stack of photographs. */
+.editorial-home .portrait-intro .hero-content,
+.editorial-home .portrait-intro h1,
+.editorial-home .portrait-intro p {
+  text-shadow: none;
+}
+
+.editorial-home .portrait-intro .hero-copy {
+  margin-top: 28px;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.editorial-home .portrait-intro .hero-copy a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.intro-note {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.photo-stack {
+  position: relative;
+  height: 360px;
+  margin: 20px 12px 28px;
+  isolation: isolate;
+}
+
+.photo-print {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 9px;
+  border: 1px solid #e0ddd3;
+  border-radius: 0;
+  background: #fcfaf4;
+  box-shadow: 0 3px 10px rgba(48, 49, 46, 0.08);
+  cursor: pointer;
+  transform-origin: 50% 85%;
+  transition: transform 220ms ease;
+}
+
+.photo-print img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #f0eee7;
+}
+
+.photo-print[data-stack-offset="2"] {
+  z-index: 1;
+  transform: translate(-10px, 4px) rotate(-5deg);
+}
+
+.photo-print[data-stack-offset="1"] {
+  z-index: 2;
+  transform: translate(10px, 1px) rotate(4deg);
+}
+
+.photo-print.is-front {
+  z-index: 3;
+  transform: rotate(-1deg);
+}
+
+.photo-stack:focus-within .photo-print[data-stack-offset="2"] {
+  transform: translate(-32px, -4px) rotate(-10deg);
+}
+
+.photo-stack:focus-within .photo-print[data-stack-offset="1"] {
+  transform: translate(30px, -8px) rotate(9deg);
+}
+
+.photo-stack:focus-within .photo-print.is-front {
+  transform: translateY(-12px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .photo-stack:hover .photo-print[data-stack-offset="2"] {
+    transform: translate(-32px, -4px) rotate(-10deg);
+  }
+  .photo-stack:hover .photo-print[data-stack-offset="1"] {
+    transform: translate(30px, -8px) rotate(9deg);
+  }
+  .photo-stack:hover .photo-print.is-front {
+    transform: translateY(-12px);
+  }
+}
+
+.photo-print:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.photo-full-size {
+  color: var(--accent);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+@media (max-width: 700px) {
+  .photo-stack {
+    height: clamp(260px, 70vw, 380px);
+    margin-inline: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-print {
+    transition: none;
+  }
+}
+
+/* A miniature contact sheet adds color without a moving background. */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px 0;
+}
+
+.photo-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: #eeece4;
+  cursor: zoom-in;
+  transition: transform 250ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 250ms ease;
+}
+
+.photo-tile[hidden] { display: none; }
+
+.photo-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .photo-tile:hover {
+    z-index: 2;
+    transform: translateY(-8px) scale(1.12);
+    box-shadow: 0 12px 24px rgba(48, 49, 46, 0.16);
+  }
+}
+
+.photo-tile:focus-visible {
+  z-index: 2;
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  transform: translateY(-4px);
+}
+
+.editorial-home[data-active-tab="about"] .content-shell {
+  border-top: 0;
+  padding-top: 12px;
+}
+
+.photo-viewer-open { overflow: hidden; }
+
+.photo-dialog {
+  width: fit-content;
+  max-width: min(960px, calc(100vw - 40px));
+  max-height: calc(100dvh - 40px);
+  padding: 16px;
+  border: 0;
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 24px 80px rgba(25, 30, 26, 0.22);
+}
+
+.photo-dialog::backdrop {
+  background: rgba(35, 41, 36, 0.65);
+}
+
+.photo-dialog-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.photo-dialog-toolbar button {
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.enlarged-photo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100dvh - 125px);
+  margin: auto;
+  object-fit: contain;
+}
+
+.photo-dialog button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .photo-tile { transition: none; }
+  .photo-tile:hover, .photo-tile:focus-visible { transform: none; }
+}
+
+/* A larger contact sheet, with sixteen photographs per page. */
+.editorial-home[data-active-tab="about"] .portrait-intro {
+  width: min(1040px, calc(100% - 40px));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.photo-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 700px) {
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid { gap: 8px; }
+}
+
+/* Centered introduction, followed by photography and the full biography. */
+.editorial-home .site-header {
+  justify-content: flex-end;
+}
+
+.editorial-home[data-active-tab="about"] .portrait-intro {
+  grid-template-columns: 1fr;
+  width: min(920px, calc(100% - 40px));
+  gap: 48px;
+  padding-top: 132px;
+  padding-bottom: 32px;
+}
+
+.editorial-home .portrait-intro .hero-content {
+  width: 100%;
+  max-width: 650px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.editorial-home .portrait-intro .intro-links {
+  justify-content: center;
+}
+
+.editorial-home .portrait-intro .photography {
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+@media (max-width: 700px) {
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    padding-top: 108px;
+    gap: 32px;
+  }
+}
+
+/* Compact desktop composition: introduction, contact sheet, biography. */
+.editorial-home[data-active-tab="about"] .portrait-intro {
+  padding-top: 88px;
+  padding-bottom: 16px;
+  gap: 20px;
+}
+
+.editorial-home .portrait-intro h1 {
+  font-size: clamp(2.25rem, 3.4vw, 2.75rem);
+}
+
+.editorial-home .portrait-intro .hero-copy {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.editorial-home .portrait-intro .intro-links {
+  margin-top: 12px;
+  font-size: 0.875rem;
+}
+
+.editorial-home .portrait-intro .photography {
+  max-width: 700px;
+}
+
+.photo-grid {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+}
+
+.photography figcaption {
+  padding-top: 6px;
+  gap: 6px 16px;
+  font-size: 0.7rem;
+}
+
+.editorial-home[data-active-tab="about"] .content-shell {
+  padding-top: 10px;
+  padding-bottom: 16px;
+}
+
+.editorial-home .about-text {
+  max-width: 740px;
+  font-size: 0.9375rem;
+}
+
+.editorial-home .about-text h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+}
+
+.editorial-home .about-text .intro-block p {
+  margin: 0 0 12px;
+  line-height: 1.65;
+}
+
+.editorial-home .site-footer {
+  padding-top: 8px;
+  padding-bottom: 18px;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 700px) {
+  .photo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .editorial-home .portrait-intro .photography {
+    max-width: 400px;
+  }
+
+  .editorial-home .about-text {
+    font-size: 1rem;
+  }
+
+  .editorial-home .about-text .intro-block p {
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+}
+
+/* Keep the introduction visible and use the viewport without an overlay header. */
+.editorial-home[data-active-tab] .site-header {
+  position: relative;
+  padding: 12px clamp(20px, 4vw, 52px);
+  background: transparent;
+}
+
+.editorial-home[data-active-tab="about"] .portrait-intro {
+  width: min(1120px, calc(100% - 48px));
+  padding-top: 14px;
+  padding-bottom: 18px;
+  gap: 24px;
+}
+
+.editorial-home .portrait-intro h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.editorial-home .portrait-intro .photography {
+  max-width: 880px;
+}
+
+.editorial-home[data-active-tab="about"] .content-shell {
+  width: min(1000px, calc(100% - 48px));
+  padding-top: 12px;
+}
+
+.editorial-home .about-text {
+  max-width: 880px;
+  font-size: 1rem;
+}
+
+.editorial-home .about-text .intro-block p {
+  line-height: 1.65;
+}
+
+.editorial-home[data-active-tab="experience"] .content-shell,
+.editorial-home[data-active-tab="projects"] .content-shell {
+  padding-top: 40px;
+}
+
+@media (max-width: 700px) {
+  .editorial-home .portrait-intro .photography {
+    max-width: 440px;
+  }
+
+  .editorial-home .about-text .intro-block p {
+    line-height: 1.75;
+  }
+}
+
+/* Keep biography lines comfortable while letting the photography span wider. */
+.editorial-home .about-text {
+  max-width: 680px;
+}
+
+/* Eighteen photographs per page, in a six-by-three desktop contact sheet. */
+.photo-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+#photo-gallery-hint {
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 700px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Preserve the smaller thumbnail size within the six-column gallery. */
+.editorial-home .portrait-intro .photography {
+  max-width: 660px;
+}
+
+@media (max-width: 700px) {
+  .editorial-home .portrait-intro .photography {
+    max-width: 330px;
+  }
+}
+
+/* Separate project metadata clearly, including the Baltimore role and badge. */
+.editorial-home #projects-panel .project-meta {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  line-height: 1.5;
+}
+
+.editorial-home #projects-panel .project-meta > span:first-child {
+  flex: 1 1 150px;
+}
+
+/* Compact the cover vertically without widening the biography. */
+@media (min-width: 701px) {
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    padding-top: 4px;
+    padding-bottom: 8px;
+    gap: 14px;
+  }
+
+  .editorial-home .portrait-intro h1 {
+    font-size: 2.75rem;
+  }
+
+  .editorial-home .portrait-intro .intro-links {
+    margin-top: 8px;
+  }
+
+  .editorial-home .portrait-intro .photography {
+    max-width: 540px;
+  }
+
+  .editorial-home[data-active-tab="about"] .content-shell {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .editorial-home .about-text {
+    font-size: 0.9375rem;
+  }
+
+  .editorial-home .about-text .intro-block p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .editorial-home .about-text h3 {
+    margin-bottom: 8px;
+  }
+}
+
+@media (min-width: 701px) and (max-height: 800px) {
+  .editorial-home .portrait-intro .photography {
+    max-width: 450px;
+  }
+
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    gap: 10px;
+  }
+}
+
+/* Fit the homepage's full biography into typical laptop-height viewports. */
+@media (min-width: 701px) {
+  .editorial-home[data-active-tab="about"] .site-header {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    padding-top: 0;
+    padding-bottom: 4px;
+    gap: 8px;
+  }
+
+  .editorial-home .portrait-intro h1 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .editorial-home .portrait-intro .intro-links {
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .editorial-home .portrait-intro .photography {
+    max-width: clamp(300px, 48vh, 420px);
+  }
+
+  .photo-grid {
+    gap: 6px;
+  }
+
+  .photography figcaption {
+    padding-top: 4px;
+    line-height: 1.4;
+  }
+
+  .photography-controls button {
+    padding: 4px 0;
+  }
+
+  .editorial-home .about-text h3 {
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+  }
+
+  .editorial-home .about-text .intro-block p {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .editorial-home .about-text .intro-block,
+  .editorial-home .about-text .intro-block p:last-child {
+    margin-bottom: 0;
+  }
+
+  .editorial-home[data-active-tab="about"] .site-footer {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    line-height: 1.4;
+  }
+}
+
+/* Match the contact sheet to the biography; trade thumbnail height for breathing room. */
+@media (min-width: 701px) {
+  .editorial-home .portrait-intro .photography {
+    max-width: 680px;
+  }
+
+  .photo-grid {
+    gap: 8px;
+  }
+
+  .photo-tile {
+    aspect-ratio: auto;
+    height: clamp(36px, 7.2vh, 68px);
+  }
+
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    gap: 16px;
+    padding-bottom: 10px;
+  }
+
+  .editorial-home .about-text .intro-block p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .editorial-home .about-text .intro-block p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Give the wide contact sheet a little more separation without adding height. */
+@media (min-width: 701px) {
+  .photo-grid {
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .photo-tile {
+    height: clamp(34px, 6.5vh, 60px);
+  }
+
+  .editorial-home[data-active-tab="about"] .portrait-intro {
+    gap: 20px;
+    padding-bottom: 14px;
+  }
+}
+
+/* Twelve square thumbnails: six columns by two rows on desktop. */
+@media (min-width: 701px) {
+  .photo-tile {
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+/* An editorial project directory: one horizontal entry per row. */
+.editorial-home #projects-panel .project-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.editorial-home #projects-panel .project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+  grid-template-rows: auto auto auto auto auto;
+  grid-row: auto;
+  column-gap: 36px;
+  row-gap: 0;
+  min-height: 0;
+  padding: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.editorial-home #projects-panel .project-card .project-image {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: 0;
+  align-self: start;
+  border-radius: 3px;
+}
+
+.editorial-home #projects-panel .project-card > .project-meta {
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 12px;
+}
+
+.editorial-home #projects-panel .project-card > h3 {
+  grid-column: 2;
+  grid-row: 2;
+  margin-bottom: 14px;
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  line-height: 1.3;
+}
+
+.editorial-home #projects-panel .project-card > p {
+  grid-column: 2;
+  grid-row: 3;
+  margin-bottom: 16px;
+}
+
+.editorial-home #projects-panel .project-card > .project-tags {
+  grid-column: 2;
+  grid-row: 4;
+  border-top: 0;
+  padding-top: 0;
+  margin-bottom: 14px;
+}
+
+.editorial-home #projects-panel .project-card > .project-link {
+  grid-column: 2;
+  grid-row: 5;
+  align-self: start;
+}
+
+@media (max-width: 700px) {
+  .editorial-home #projects-panel .project-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(6, auto);
+    padding-block: 26px;
+  }
+
+  .editorial-home #projects-panel .project-card .project-image {
+    grid-column: 1;
+    grid-row: 1;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 20px;
+  }
+
+  .editorial-home #projects-panel .project-card > .project-meta {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .editorial-home #projects-panel .project-card > h3 {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .editorial-home #projects-panel .project-card > p {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .editorial-home #projects-panel .project-card > .project-tags {
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  .editorial-home #projects-panel .project-card > .project-link {
+    grid-column: 1;
+    grid-row: 6;
+  }
+}
+
+/* Compact, left-aligned project entries. */
+.editorial-home[data-active-tab="projects"] .content-shell {
+  width: calc(100% - 2 * clamp(20px, 4vw, 52px));
+  margin-inline: clamp(20px, 4vw, 52px);
+}
+
+.editorial-home #projects-panel {
+  width: min(900px, 100%);
+  margin-inline: 0;
+}
+
+.editorial-home #projects-panel .project-card {
+  grid-template-columns: 200px minmax(0, 1fr);
+  column-gap: 26px;
+  padding-block: 22px;
+}
+
+.editorial-home #projects-panel .project-card .project-image {
+  aspect-ratio: 16 / 10;
+}
+
+.editorial-home #projects-panel .project-card > .project-meta {
+  margin-bottom: 8px;
+  font-size: 0.7rem;
+}
+
+.editorial-home #projects-panel .project-card > h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.editorial-home #projects-panel .project-card > p {
+  margin-bottom: 10px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.editorial-home #projects-panel .project-card > .project-tags {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 700px) {
+  .editorial-home #projects-panel .project-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .editorial-home #projects-panel .project-card .project-image {
+    width: min(280px, 100%);
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Center the compact directory while keeping its writing left-aligned. */
+.editorial-home[data-active-tab="projects"] .content-shell {
+  width: min(900px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.editorial-home #projects-panel {
+  width: 100%;
+  margin-inline: auto;
+  text-align: left;
 }

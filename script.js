@@ -70,7 +70,7 @@ function updateScrollCue(tabName) {
     return;
   }
 
-  if (tabName === "experience") {
+  if (tabName === "experience" || tabName === "projects") {
     scrollCue.href = "#experience-panel";
     scrollCue.setAttribute("aria-label", "Scroll to experience");
     return;
@@ -97,6 +97,8 @@ function activateTab(tabName) {
 
   updateHero(tabName);
   updateScrollCue(tabName);
+  updateHeaderSocials();
+  window.dispatchEvent(new Event("portfolio-tab-change"));
 }
 
 function activateTabFromHash() {
@@ -110,7 +112,7 @@ function activateTabFromHash() {
   if (tabName === "projects" || tabName === "about" || tabName === "experience") {
     activateTab(tabName);
 
-    if (tabName === "experience") {
+    if (tabName === "experience" || tabName === "projects") {
       requestAnimationFrame(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       });
@@ -119,7 +121,7 @@ function activateTabFromHash() {
     if (requestedTab === "projects-panel" || requestedTab === "experience-panel") {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          if (requestedTab === "experience-panel") {
+          if (requestedTab === "experience-panel" || requestedTab === "projects-panel") {
             window.scrollTo({ top: 0, left: 0, behavior: "auto" });
             return;
           }
@@ -141,7 +143,7 @@ tabButtons.forEach((button) => {
     const hash = button.dataset.tab;
     window.history.replaceState(null, "", `#${hash}`);
 
-    if (button.dataset.tab === "experience") {
+    if (button.dataset.tab === "experience" || button.dataset.tab === "projects") {
       requestAnimationFrame(() => {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       });
@@ -204,7 +206,7 @@ function updateHeaderSocials() {
     return;
   }
 
-  const showHeaderSocials = window.scrollY > heroSection.offsetHeight - 120;
+  const showHeaderSocials = document.body.classList.contains("editorial-home") || window.scrollY > heroSection.offsetHeight - 120;
   document.body.classList.toggle("is-past-hero", showHeaderSocials);
 }
 
@@ -218,7 +220,7 @@ function startHeroNetwork(canvas) {
     { length: 37 },
     (_, index) => `assets/hero-photo-nodes/node-${String(index + 1).padStart(2, "0")}.jpg`
   );
-  const colors = ["#8a99c9", "#c05f9e", "#6f83b9", "#aeb8dc", "#7e8fb5"];
+  const colors = ["#98a79a", "#b1b5a9", "#82958b", "#c0c5b8", "#94a39b"];
   const pointer = { active: false, x: 0, y: 0 };
   const photos = photoSources.map((source) => {
     const image = new Image();
@@ -241,7 +243,8 @@ function startHeroNetwork(canvas) {
   }
 
   function getMotionScale() {
-    return reduceMotion.matches ? 0.35 : 1;
+    if (reduceMotion.matches) return 0;
+    return getHeroMode() === "projects" ? 1 : 0.4;
   }
 
   function createScene() {
@@ -267,7 +270,7 @@ function startHeroNetwork(canvas) {
 
     nodes.forEach((_, index) => {
       edges.push([index, (index + 1) % nodes.length]);
-      edges.push([index, (index + 5) % nodes.length]);
+      if (index % 2 === 0) edges.push([index, (index + 5) % nodes.length]);
 
       if (index % 3 === 0) {
         edges.push([index, (index + 13) % nodes.length]);
@@ -323,7 +326,7 @@ function startHeroNetwork(canvas) {
   function drawGrid(time) {
     context.save();
     context.lineWidth = 1;
-    context.strokeStyle = "rgba(152, 162, 201, 0.12)";
+    context.strokeStyle = "rgba(156, 170, 158, 0.12)";
 
     for (let ring = 0; ring < 4; ring += 1) {
       const radius = 0.42 + ring * 0.22;
@@ -353,7 +356,7 @@ function startHeroNetwork(canvas) {
       const start = projectPoint(Math.cos(angle) * 0.18, 0, Math.sin(angle) * 0.18, time);
       const end = projectPoint(Math.cos(angle) * 1.12, 0, Math.sin(angle) * 1.12, time);
 
-      context.strokeStyle = "rgba(152, 162, 201, 0.07)";
+      context.strokeStyle = "rgba(156, 170, 158, 0.07)";
       context.beginPath();
       context.moveTo(start.x, start.y);
       context.lineTo(end.x, end.y);
@@ -366,7 +369,7 @@ function startHeroNetwork(canvas) {
   function drawMicroNetwork(time) {
     context.save();
 
-    for (let index = 0; index < 260; index += 1) {
+    for (let index = 0; index < 150; index += 1) {
       const angle = index * 2.399 + time * 0.000035 * getMotionScale();
       const radius = 0.12 + ((index * 37) % 100) / 112;
       const y = Math.sin(index * 1.23 + time * 0.00045 * getMotionScale()) * 0.44;
@@ -384,8 +387,8 @@ function startHeroNetwork(canvas) {
 
       if (index % 3 !== 0) {
         context.strokeStyle = isAccent
-          ? `rgba(192, 95, 158, ${alpha * 0.36})`
-          : `rgba(126, 143, 181, ${alpha * 0.26})`;
+          ? `rgba(160, 177, 159, ${alpha * 0.36})`
+          : `rgba(137, 157, 146, ${alpha * 0.26})`;
         context.lineWidth = 0.75;
         context.beginPath();
         context.moveTo(point.x, point.y);
@@ -394,8 +397,8 @@ function startHeroNetwork(canvas) {
       }
 
       context.fillStyle = isAccent
-        ? `rgba(210, 111, 174, ${alpha})`
-        : `rgba(152, 162, 201, ${alpha * 0.9})`;
+        ? `rgba(185, 197, 176, ${alpha})`
+        : `rgba(156, 170, 158, ${alpha * 0.9})`;
       context.beginPath();
       context.arc(point.x, point.y, isAccent ? 1.55 : 1.05, 0, Math.PI * 2);
       context.fill();
@@ -446,11 +449,11 @@ function startHeroNetwork(canvas) {
       const source = nodes[sourceIndex];
       const target = nodes[targetIndex];
       const depth = 1 - Math.min(1, Math.max(0, (source.screen.z + target.screen.z) / 1100 + 0.5));
-      const alpha = 0.07 + depth * 0.24;
+      const alpha = 0.04 + depth * 0.13;
       context.strokeStyle =
         edgeIndex % 6 === 0
-        ? `rgba(192, 95, 158, ${alpha})`
-        : `rgba(139, 154, 199, ${alpha})`;
+        ? `rgba(160, 177, 159, ${alpha})`
+        : `rgba(150, 168, 156, ${alpha})`;
       context.lineWidth = Math.max(0.45, source.screen.scale * 0.72);
       context.beginPath();
       context.moveTo(source.screen.x, source.screen.y);
@@ -465,7 +468,7 @@ function startHeroNetwork(canvas) {
     context.fillStyle =
       node === hoveredNode || node === selectedNode
         ? "rgba(230, 235, 247, 0.22)"
-        : "rgba(126, 143, 181, 0.08)";
+        : "rgba(137, 157, 146, 0.025)";
     context.beginPath();
     context.arc(x, y, haloRadius, 0, Math.PI * 2);
     context.fill();
@@ -1506,6 +1509,8 @@ function startHeroNetwork(canvas) {
       cancelAnimationFrame(animationFrame);
     }
 
+    if (document.body.dataset.activeTab !== "about") return;
+
     resizeCanvas();
     lastTime = performance.now();
     animationFrame = requestAnimationFrame(render);
@@ -1534,6 +1539,7 @@ function startHeroNetwork(canvas) {
 
     selectedNode = selectedNode === hoveredNode ? null : hoveredNode;
   });
+  window.addEventListener("portfolio-tab-change", restart);
   window.addEventListener("resize", restart);
   reduceMotion.addEventListener("change", restart);
   restart();
@@ -1550,3 +1556,89 @@ window.addEventListener("pageshow", () => {
   activateTabFromHash();
   updateHeaderSocials();
 });
+
+
+// A contact sheet with manual paging and an accessible full-size viewer.
+const photoGrid = document.querySelector(".photo-grid");
+if (photoGrid) {
+  const tiles = [...photoGrid.querySelectorAll(".photo-tile")];
+  const counter = document.querySelector("[data-photo-counter]");
+  const fullSize = document.querySelector(".photo-full-size");
+  const dialog = document.querySelector(".photo-dialog");
+  const enlarged = dialog.querySelector(".enlarged-photo");
+  const caption = dialog.querySelector("[data-enlarged-caption]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const photoCount = 37;
+  let page = 0;
+  let selectedIndex = 0;
+  let closing = false;
+  const source = (index) => `assets/hero-photo-nodes/node-${String(index + 1).padStart(2, "0")}.jpg`;
+
+  function select(index) {
+    selectedIndex = index;
+    fullSize.href = source(index);
+  }
+
+  function showPage(direction) {
+    page = (page + direction + Math.ceil(photoCount / tiles.length)) % Math.ceil(photoCount / tiles.length);
+    const start = page * tiles.length;
+    tiles.forEach((tile, position) => {
+      const index = start + position;
+      tile.hidden = index >= photoCount;
+      if (tile.hidden) return;
+      tile.dataset.photoIndex = index;
+      tile.setAttribute("aria-label", `Enlarge photograph ${index + 1}`);
+      tile.querySelector("img").src = source(index);
+      tile.querySelector("img").alt = `Photograph ${index + 1} from James Burnard’s personal collection`;
+    });
+    select(start);
+    counter.textContent = `${String(start + 1).padStart(2, "0")}–${String(Math.min(start + tiles.length, photoCount)).padStart(2, "0")} / ${photoCount}`;
+  }
+
+  function openPhoto(index) {
+    if (dialog.open || closing) return;
+    select(index);
+    enlarged.src = source(index);
+    enlarged.alt = `Photograph ${index + 1} from James Burnard’s personal collection`;
+    caption.textContent = `Photography · ${String(index + 1).padStart(2, "0")} / ${photoCount}`;
+    dialog.showModal();
+    document.body.classList.add("photo-viewer-open");
+    if (!reducedMotion.matches) dialog.animate([
+      { opacity: 0, transform: "translateY(12px) scale(0.95)" },
+      { opacity: 1, transform: "translateY(0) scale(1)" }
+    ], { duration: 280, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)" });
+  }
+
+  async function closePhoto() {
+    if (!dialog.open || closing) return;
+    closing = true;
+    if (!reducedMotion.matches) {
+      await dialog.animate([
+        { opacity: 1, transform: "scale(1)" },
+        { opacity: 0, transform: "scale(0.97)" }
+      ], { duration: 160, easing: "ease-in", fill: "forwards" }).finished;
+    }
+    dialog.close();
+    dialog.getAnimations().forEach((animation) => animation.cancel());
+    closing = false;
+  }
+
+  tiles.forEach((tile) => {
+    tile.addEventListener("pointerenter", () => select(Number(tile.dataset.photoIndex)));
+    tile.addEventListener("focus", () => select(Number(tile.dataset.photoIndex)));
+    tile.addEventListener("click", () => openPhoto(Number(tile.dataset.photoIndex)));
+  });
+  fullSize.addEventListener("click", (event) => {
+    event.preventDefault();
+    openPhoto(selectedIndex);
+  });
+  document.querySelector("[data-photo-previous]").addEventListener("click", () => showPage(-1));
+  document.querySelector("[data-photo-next]").addEventListener("click", () => showPage(1));
+  dialog.querySelector("[data-close-photo]").addEventListener("click", closePhoto);
+  dialog.addEventListener("cancel", (event) => { event.preventDefault(); closePhoto(); });
+  dialog.addEventListener("click", (event) => {
+    const rect = dialog.getBoundingClientRect();
+    if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closePhoto();
+  });
+  dialog.addEventListener("close", () => document.body.classList.remove("photo-viewer-open"));
+}
