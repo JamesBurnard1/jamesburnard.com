@@ -3506,3 +3506,21 @@ body[data-active-tab="projects"] .content-shell {
   margin-inline: auto;
   text-align: left;
 }
+
+/* Keep navigation geometry identical across tabs and reserve scrollbar space. */
+html {
+  scrollbar-gutter: stable;
+}
+
+.editorial-home[data-active-tab] .site-header {
+  padding: 12px clamp(20px, 4vw, 52px);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+@media (min-width: 701px) {
+  .editorial-home[data-active-tab] .site-header {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
