@@ -17,75 +17,204 @@
     />
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="../../project-theme.css?v=20261005-statistics-spacing" />
+    <link rel="stylesheet" href="../../research-project.css?v=20261006-visible-related-projects" />
 </head>
-  <body class="project-detail-page">
-    <header class="site-header detail-header">
-      <nav class="detail-nav" aria-label="Project navigation">
-        <a href="../../index.html#projects-panel">Back to Projects</a>
-        <a href="#plot">3D Plot</a>
-        <a href="#writeup">Writeup</a>
+  <body class="project-detail-page research-detail">
+    <a class="project-back-link" href="../../index.html#projects-panel">← Back to projects</a>
+    <aside class="project-contents" aria-label="Project contents">
+      <p class="contents-label">Contents</p>
+      <nav aria-label="Industry Power Shifts sections">
+        <a href="#project-title">Overview</a>
+        <a href="#scale">Project scope</a>
+        <a href="#network">Interactive plot</a>
+        <details class="writeup-contents">
+          <summary><span>Write-up</span></summary>
+          <div class="writeup-contents-links">
+            <a href="#writeup">Write-up overview</a>
+            <a href="#context-and-motivation">Context and motivation</a>
+            <a href="#introduction">Introduction</a>
+            <a href="#the-data">The data</a>
+            <a href="#clustering">Clustering</a>
+            <a href="#initial-plotly-version">Initial Plotly version</a>
+            <a href="#switch-to-threejs">Switch to Three.js</a>
+            <a href="#findings">Findings</a>
+          </div>
+        </details>
       </nav>
-    </header>
-
+    </aside>
     <main class="detail-shell wide-detail">
-      <section class="detail-hero" aria-labelledby="project-title">
-        <p class="eyebrow">Undergraduate Economics Research Assistant · 2025</p>
+      <section class="detail-hero">
         <h1 id="project-title">Industry Power Shifts</h1>
-        <p>
-          A WebGL-powered 3D clustering analysis of union decline, domestic
-          shareholder dividends, and taxes paid across industries over time.
-        </p>
-        <div class="project-tags detail-tags">
-          <span>Python</span>
-          <span>Pandas</span>
-          <span>Scikit-learn</span>
-          <span>K-Means</span>
-          <span>Three.js</span>
-          <span>Time Series</span>
-          <span>WebGL</span>
-        </div>
-        <a class="project-scroll-indicator" href="#plot" aria-label="Scroll to 3D plot">
-          <span aria-hidden="true"></span>
-          Explore the plot
-        </a>
+        <p class="project-summary">Tracing union decline, shareholder dividends, and taxes across industries through animated 3D clustering.</p>
       </section>
-
-      <section class="detail-section full-screen-panel" id="plot">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Interactive Plot</p>
-          <h2>3D K-Means industry clusters over time.</h2>
+      <section class="detail-section project-scope" id="scale" aria-labelledby="scope-title">
+        <h2 id="scope-title" class="scope-accessible-title">Project scope</h2>
+        <div class="project-metrics">
+          <div class="project-metric"><strong>886</strong><span>industry-year observations</span></div>
+          <div class="project-metric"><strong>44</strong><span>industries</span></div>
+          <div class="project-metric"><strong>27</strong><span>years, 1982–2008</span></div>
+          <div class="project-metric"><strong>3</strong><span>clustering variables</span></div>
+          <div class="project-metric"><strong>3</strong><span>K-Means clusters</span></div>
         </div>
-        <div class="interaction-hint" aria-hidden="true">
-          <span class="rotate-mark">⟳</span>
-          <span>Click + drag to rotate</span>
-        </div>
+      </section>
+      <section class="detail-section full-screen-panel" id="network" aria-label="Interactive industry cluster analysis">
+        <span id="plot" aria-hidden="true"></span>
         <div class="interactive-frame tall-frame">
-          <iframe
-            src="3d_dividends_clusters.html"
-            title="Interactive 3D industry cluster analysis"
-          ></iframe>
+          <iframe src="3d_dividends_clusters.html?v=20261006-aligned-dashboard" title="Interactive 3D industry cluster analysis"></iframe>
         </div>
+        <p class="network-open-link"><a href="3d_dividends_clusters.html?v=20261006-aligned-dashboard" target="_blank" rel="noopener noreferrer">Open the explorer in a full window ↗</a></p>
       </section>
+      <section class="detail-section native-writeup" id="writeup" aria-labelledby="writeup-title">
+        <header class="writeup-heading">
+          <p class="eyebrow">Project Write-up</p>
+          <h2 id="writeup-title">Industry Power Shifts: A 3D Clustering Analysis of Union Decline, Dividends, and Taxes</h2>
+          <p class="writeup-byline">James Burnard</p>
+        </header>
+        <article class="writeup-prose" aria-label="Industry Power Shifts research write-up">
+<h3 id="context-and-motivation">Context and motivation</h3>
+<p>In 2025, I took a class called Survey Design and Analysis with
+Professor Nathan Meyers, who I really bonded with. I would frequently
+talk to him after class about Economics and his dissertation that was in
+progress. Eventually he offered an opportunity to explore some of the
+data he was working with.</p>
+<p>We met weekly over Zoom and shared conversations about the state of
+his work, any interesting articles he would recommend, as well as any
+updates on the exploratory analysis I was doing. Overall, this
+experience was fantastic. I was able to work with one of the largest
+datasets I’ve ever worked with and have frequent conversations with a
+very kind professor whom I learned a lot from.</p>
+<p>The final output is an interactive HTML report that includes a
+WebGL-powered 3D animation, hoverable industry points, rotatable axes,
+playback controls, a year timeline, speed control, cluster legend, and a
+cluster membership table.</p>
+<h3 id="introduction">Introduction</h3>
+<p>Nathan Meyers’s study, <em>The Effect of Privatization on U.S.
+Employment and Industry Earnings Distributions, 2000-2018,</em> argues
+that privatization should be understood as a structural shift in
+employment from the public sector toward the private sector. This shift
+has consequences for worker earnings across industries and income
+levels. The project builds on this by visualizing how industries move
+through a related economic space defined by three key variables: union
+decline, shareholder dividends, and taxes paid. I used 3D clustering as
+my visualization to explore whether industries with different labor,
+capital, and tax profiles separate into distinct patterns over time.</p>
+<p>Inspired by Meyers’s industry-level approach to employment
+privatization, this project asks how broader transformations in labor
+power and firm behavior can be made visible. While Meyers focuses on
+public-private employment composition and earnings effects, this
+visualization examines adjacent indicators of institutional change:
+declining union density, shareholder dividend distributions, and taxes
+paid. By animating industry clusters over time, the project turns a
+static clustering analysis into an interactive map of changing industry
+power.</p>
+<h3 id="the-data">The data</h3>
+<p>This project starts with the numeric union decline dataset, which
+Meyers shared with me. I developed a Python script to load the dataset,
+filter it to the relevant year range, and keep the variables needed for
+clustering and visualization.</p>
+<p>The following key variables were extracted for analysis:</p>
+<p><strong>Year:</strong><br />
+The observation year for each industry row. In the visualization, this
+is what drives the animation over time.</p>
+<p><strong>Uniondens:</strong><br />
+Union density. This measures the share or proportion of workers in an
+industry who are union members or covered by unions, depending on the
+dataset definition. In this project, it is used to calculate union
+decline.</p>
+<p><strong>Dividendsdom:</strong><br />
+Domestic dividends. This represents shareholder dividend payments
+associated with domestic activity. In the project, it acts as a proxy
+for shareholder payouts / capital returns by industry.</p>
+<p><strong>Taxespaid:</strong><br />
+Taxes paid by the industry. In the visualization, this is one of the
+three standardized clustering dimensions and represents the tax-payment
+side of the industry profile.</p>
+<p><strong>Indcat</strong>:<br />
+Industry category code. This is the numeric industry identifier used to
+group observations by industry. The script maps these codes to readable
+names like mining, utilities, construction, retail, health care,
+etc.</p>
 
-      <section class="detail-section full-screen-panel" id="writeup">
-        <div class="section-heading compact-heading">
-          <p class="eyebrow">Project Writeup</p>
-          <h2>Industry Power Shifts: Union Decline, Dividends, and Taxes.</h2>
-        </div>
-        <div class="interactive-frame document-frame">
-          <iframe
-            src="documents/industry-power-shifts-writeup.html"
-            title="Industry Power Shifts writeup"
-          ></iframe>
-        </div>
-        <div class="document-actions">
-          <a href="documents/industry-power-shifts-writeup.docx">Open original .docx file</a>
-        </div>
+<p>Industry codes are mapped to readable industry names using a custom
+lookup dictionary. Union decline is calculated by taking each industry’s
+baseline union density and subtracting its union density in each year.
+This produces a time-varying union decline measure for each
+industry.</p>
+<p>The three clustering variables—union decline, domestic shareholder dividends, and taxes paid—are then standardized. Standardization was important
+because the variables operate on very different scales. Without scaling,
+larger numeric variables like dividends or taxes could dominate the
+clustering model.</p>
+<p>The final visualization dataset contains <strong>886 industry-year
+observations</strong>, covering <strong>44 industries</strong> across
+<strong>27 years (1982-2008)</strong> and grouped into <strong>3 K-Means
+clusters</strong>.</p>
+<h3 id="clustering">Clustering</h3>
+<p>I used K-Means clustering on the standardized variables. Rather than
+hard-coding a cluster count immediately, the script tests multiple
+values of k, from 3 to 8, and evaluates each one using silhouette score.
+The best silhouette score selected k = 3. The resulting clusters were
+then described based on the strongest standardized features in each
+cluster center. The resulting cluster labels were High Taxes Paid / High Dividends; Low Union Decline / Low Taxes Paid; High Union Decline / Low Taxes Paid.</p>
+<p>Each industry-year observation was assigned to one of these
+clusters.</p>
+<h3 id="initial-plotly-version">Initial Plotly version</h3>
+<p>The first version used Plotly’s Scatter3d and animation frames, with colored cluster points; industry path lines; hover labels; a year slider; play/pause controls; basic camera rotation.</p>
+<p>However, Plotly’s 3D animation system still behaved like frame
+playback. Even with more frames, the motion felt slightly like
+stop-motion because Plotly was swapping between discrete animation
+frames.</p>
+<h3 id="switch-to-threejs">Switch to Three.js</h3>
+<p>To make the animation genuinely smoother, I replaced the Plotly
+animation layer with a custom Three.js/WebGL visualization. This was the
+biggest architectural change in the project. Instead of pre-generating
+hundreds of Plotly frames, the Python script now exports compact
+structured data into the HTML page. Three.js then renders the 3D scene
+in the browser using a continuous requestAnimationFrame loop.</p>
+<p>This means point positions are recalculated every rendered frame,
+producing much smoother animation.</p>
+<p><strong>Three.js Scene Construction</strong><br />
+The Three.js version creates a full 3D scene with a WebGL renderer; perspective camera; orbit controls; lighting; 3D point meshes; historical industry path lines; grid lines; colored axis lines; hover detection with raycasting.</p>
+<p>Each industry is represented as a sphere. Each sphere moves through
+the standardized 3D feature space over time.</p>
+<p>The axes represent X: Union Decline; Y: Shareholder Dividends; Z: Taxes Paid.</p>
+<p>The industry path lines show each industry’s trajectory through the
+clustering space across years.</p>
+<p><strong>Smooth Animation</strong><br />
+The animation is driven by browser time rather than fixed pre-rendered
+frames.</p>
+<p>For each animation frame, The current year advances based on elapsed time and playback
+speed.; The script finds the two real data years surrounding the current
+animated year.; It interpolates between those two observations.; It applies cubic easing for smoother movement.; It updates every industry sphere’s position.; It updates cluster color transitions.; It renders the scene..</p>
+<p>This creates fluid, continuous movement instead of stepping from
+frame to frame.</p>
+<h3 id="findings">Findings</h3>
+<p>The resulting animated plot is very much telling of the economic
+space. Cluster two represents the high union decline/ low taxes paid
+category, any industry in this cluster is colored red. In the early
+years, there are hardly any industries that fall within this category.
+In the last year that is modeled however, multiple industries turn red,
+and if you rotate the plot to only pay attention to the union decline
+axis, you’ll notice there is a steady progression of dots moving left
+along that axis. The dots moving left means that union decline is
+increasing steadily as the years progress.</p>
+<p>This all suggests that declining union density is not confined to a
+few sectors but is a broader structural trend. In this visualization,
+that movement represents a weakening of organized labor’s institutional
+presence across industries. By plotting union decline alongside
+shareholder dividends and taxes paid, the project situates labor decline
+within a much wider economic transformation.</p>
+
+        </article>
+        <div class="document-actions"><a href="documents/industry-power-shifts-writeup.docx" download>Download the original write-up (.docx)</a></div>
       </section>
+      <nav class="related-project" aria-label="Related project">
+        <span>Related project</span>
+        <a href="../baltimore/index.html">The Social Geography of Baltimore’s Elite <span aria-hidden="true">→</span></a>
+      </nav>
     </main>
-
     <footer class="site-footer">
       <p>© 2026 James Burnard. Built as a personal portfolio.</p>
     </footer>
+    <script src="../baltimore/baltimore-contents.js?v=20261006-matched-research"></script>
   </body>
 </html>

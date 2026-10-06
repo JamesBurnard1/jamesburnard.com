@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 875" role="img" aria-labelledby="title desc"><title id="title">Selected county–race subgroups at opposite ends of the credit relationship</title><desc id="desc">Two tables preserve the notebook’s five low-score/high-delinquency and five high-score/low-delinquency observations, including county names, race labels, credit scores, and raw delinquency values. These are selected subgroups, not overall county rankings.</desc><rect width="100%" height="100%" fill="#fbfaf6"/><g font-family="Georgia, Times New Roman, serif" fill="#30312e">
+<text x="32" y="45" font-size="25" fill="#30312e" text-anchor="start" >Contrasting county–race credit outcomes</text>
+<text x="32" y="75" font-size="16" fill="#646963" text-anchor="start" >Five observations selected at each end of the score–delinquency relationship</text>
+<text x="32" y="124" font-size="22" fill="#687e92" text-anchor="start" >Lower credit scores · higher delinquency</text>
+<text x="32" y="164" font-size="15" fill="#646963" text-anchor="start" >County</text>
+<text x="420" y="164" font-size="15" fill="#646963" text-anchor="start" >Race subgroup</text>
+<text x="672" y="164" font-size="15" fill="#646963" text-anchor="end" >Credit score</text>
+<text x="868" y="164" font-size="15" fill="#646963" text-anchor="end" >Delinquency rate</text>
+<path d="M32 178H868" stroke="#d9ddd6"/>
+<text x="32" y="211" font-size="18" fill="#30312e" text-anchor="start" >Castro</text>
+<text x="420" y="211" font-size="18" fill="#30312e" text-anchor="start" >Black</text>
+<text x="672" y="211" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">559.450000</text>
+<text x="868" y="211" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.859850</text>
+<path d="M32 225H868" stroke="#d9ddd6"/>
+<text x="32" y="254" font-size="18" fill="#30312e" text-anchor="start" >Dickens</text>
+<text x="420" y="254" font-size="18" fill="#30312e" text-anchor="start" >Black</text>
+<text x="672" y="254" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">566.050000</text>
+<text x="868" y="254" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.925850</text>
+<path d="M32 268H868" stroke="#d9ddd6"/>
+<text x="32" y="297" font-size="18" fill="#30312e" text-anchor="start" >Wheeler</text>
+<text x="420" y="297" font-size="18" fill="#30312e" text-anchor="start" >Black</text>
+<text x="672" y="297" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">569.300000</text>
+<text x="868" y="297" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">1.049250</text>
+<path d="M32 311H868" stroke="#d9ddd6"/>
+<text x="32" y="340" font-size="18" fill="#30312e" text-anchor="start" >Dixie</text>
+<text x="420" y="340" font-size="18" fill="#30312e" text-anchor="start" >Black</text>
+<text x="672" y="340" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">572.150000</text>
+<text x="868" y="340" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.867250</text>
+<path d="M32 354H868" stroke="#d9ddd6"/>
+<text x="32" y="383" font-size="18" fill="#30312e" text-anchor="start" >Graham</text>
+<text x="420" y="383" font-size="18" fill="#30312e" text-anchor="start" >AIAN</text>
+<text x="672" y="383" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">577.717857</text>
+<text x="868" y="383" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.712482</text>
+<path d="M32 397H868" stroke="#d9ddd6"/>
+<text x="32" y="448" font-size="22" fill="#526d5e" text-anchor="start" >Higher credit scores · lower delinquency</text>
+<text x="32" y="488" font-size="15" fill="#646963" text-anchor="start" >County</text>
+<text x="420" y="488" font-size="15" fill="#646963" text-anchor="start" >Race subgroup</text>
+<text x="672" y="488" font-size="15" fill="#646963" text-anchor="end" >Credit score</text>
+<text x="868" y="488" font-size="15" fill="#646963" text-anchor="end" >Delinquency rate</text>
+<path d="M32 502H868" stroke="#d9ddd6"/>
+<text x="32" y="535" font-size="18" fill="#30312e" text-anchor="start" >New York</text>
+<text x="420" y="535" font-size="18" fill="#30312e" text-anchor="start" >Asian</text>
+<text x="672" y="535" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">769.823810</text>
+<text x="868" y="535" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.129559</text>
+<path d="M32 549H868" stroke="#d9ddd6"/>
+<text x="32" y="578" font-size="18" fill="#30312e" text-anchor="start" >Orange</text>
+<text x="420" y="578" font-size="18" fill="#30312e" text-anchor="start" >Asian</text>
+<text x="672" y="578" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">767.550379</text>
+<text x="868" y="578" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.172131</text>
+<path d="M32 592H868" stroke="#d9ddd6"/>
+<text x="32" y="621" font-size="18" fill="#30312e" text-anchor="start" >Charlottesville City</text>
+<text x="420" y="621" font-size="18" fill="#30312e" text-anchor="start" >Asian</text>
+<text x="672" y="621" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">767.500000</text>
+<text x="868" y="621" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.105205</text>
+<path d="M32 635H868" stroke="#d9ddd6"/>
+<text x="32" y="664" font-size="18" fill="#30312e" text-anchor="start" >Norfolk</text>
+<text x="420" y="664" font-size="18" fill="#30312e" text-anchor="start" >Asian</text>
+<text x="672" y="664" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">766.448188</text>
+<text x="868" y="664" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.147567</text>
+<path d="M32 678H868" stroke="#d9ddd6"/>
+<text x="32" y="707" font-size="18" fill="#30312e" text-anchor="start" >Brazos</text>
+<text x="420" y="707" font-size="18" fill="#30312e" text-anchor="start" >Asian</text>
+<text x="672" y="707" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">764.193382</text>
+<text x="868" y="707" font-size="18" fill="#30312e" text-anchor="end" font-variant-numeric="tabular-nums">0.160055</text>
+<path d="M32 721H868" stroke="#d9ddd6"/>
+<text x="32" y="787" font-size="15" fill="#646963" text-anchor="start" >Selection: five nearest observations to each extreme, using the notebook’s squared-distance rule.</text>
+<text x="32" y="815" font-size="15" fill="#646963" text-anchor="start" >Values are reproduced as reported; delinquency is shown on its original scale, not as a percentage.</text>
+<text x="32" y="843" font-size="15" fill="#646963" text-anchor="start" >AIAN = American Indian / Alaska Native. Each row describes a county–race subgroup, not a county overall.</text>
+</g></svg>

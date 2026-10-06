@@ -10,17 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="../../project-theme.css?v=20261005-statistics-spacing" />
+    <link rel="stylesheet" href="../../research-project.css?v=20261006-credit-research">
 </head>
-  <body class="project-detail-page">
-    <header class="site-header detail-header">
-      <nav class="detail-nav" aria-label="Project navigation">
-        <a href="../../index.html?return=onlyup#projects-panel">Back to Projects</a>
-      </nav>
-    </header>
+  <body class="project-detail-page research-detail">
+    <a class="project-back-link" href="../../index.html#projects-panel">← Back to projects</a>
+<aside class="project-contents" aria-label="Project contents"><p class="contents-label">Contents</p><nav aria-label="Project sections"><a href="#project-title">Overview</a><a href="#demo">App preview</a><a href="#details">Project details</a></nav></aside>
     <main class="detail-shell">
       <section class="detail-hero">
         <p class="eyebrow">Personal Project · 2026</p>
-        <h1>OnlyUp: A Goal Tracker App</h1>
+        <h1 id="project-title">OnlyUp: A Goal Tracker App</h1>
         <p>
           A Python/Tkinter desktop app for adding goals, tracking progress,
           logging work sessions, and writing active recall notes after focused
@@ -36,7 +34,7 @@
         </div>
       </section>
 
-      <section class="detail-section">
+      <section class="detail-section" id="demo">
         <div class="section-heading compact-heading">
           <p class="eyebrow">Live Demo</p>
           <h2>OnlyUp browser version with sample data.</h2>
@@ -141,7 +139,7 @@
         </p>
       </section>
 
-      <section class="detail-section detail-grid">
+      <section class="detail-section detail-grid" id="details">
         <article>
           <h2>What I Built</h2>
           <p>
@@ -165,5 +163,6 @@
       <p>© 2026 James Burnard. Built as a personal portfolio.</p>
     </footer>
     <script src="static-demo.js"></script>
+  <script src="../baltimore/baltimore-contents.js?v=20261006-credit-research"></script>
   </body>
 </html>

@@ -231,6 +231,7 @@
       }
     }
   </style>
+<link rel="stylesheet" href="union-network-ui.css?v=20261006-aligned-dashboard" />
 </head>
 <body>
   <div class="wrap">
@@ -240,25 +241,38 @@
         <div class="title-block">
           <h1>3D K-Means Cluster Movement by Year</h1>
           <p class="subtitle">Standardized feature space for union decline, shareholder dividends, and taxes paid.</p>
-          <p class="interaction-hint">Hover dots for industry details. Click and hold to rotate the axes. Scroll down for cluster membership.</p>
+          <p class="interaction-hint">Hover for details. Drag to rotate. Hold Ctrl or ⌘ while scrolling to zoom.</p>
         </div>
-        <div class="legend">
-          <p class="legend-title">Clusters</p>
-          <div class="legend-row"><span class="swatch" style="background:#2563eb"></span><span>Cluster 0: High Taxes Paid / High Dividends</span></div>
-<div class="legend-row"><span class="swatch" style="background:#f97316"></span><span>Cluster 1: Low Union Decline / Low Taxes Paid</span></div>
-<div class="legend-row"><span class="swatch" style="background:#dc2626"></span><span>Cluster 2: High Union Decline / Low Taxes Paid</span></div>
-        </div>
+
       </div>
       <div class="controls">
+        <div class="dashboard-views" role="group" aria-label="Dashboard view">
+          <button type="button" id="plotView" aria-pressed="true">Plot</button>
+          <button type="button" id="tableView" aria-pressed="false">Data table</button>
+        </div>
         <button id="play" type="button" class="active">Pause</button>
         <input id="timeline" type="range" min="1982" max="2008" value="1982" step="0.001" aria-label="Year">
         <div id="yearReadout" class="readout">1982</div>
         <label class="speed">Speed <input id="speed" type="range" min="0.12" max="2.4" value="0.55" step="0.01"></label>
       </div>
-      <div id="tooltip" class="tooltip"></div>
-    </div>
-
-    <section class="table-section">
+      <aside class="plot-sidebar">        <div class="legend">
+          <p class="legend-title">Clusters</p>
+          <div class="legend-row"><span class="swatch" style="background:#2563eb"></span><span>Cluster 0: High Taxes Paid / High Dividends</span></div>
+<div class="legend-row"><span class="swatch" style="background:#f97316"></span><span>Cluster 1: Low Union Decline / Low Taxes Paid</span></div>
+<div class="legend-row"><span class="swatch" style="background:#dc2626"></span><span>Cluster 2: High Union Decline / Low Taxes Paid</span></div>
+        </div><section class="year-values">
+          <div class="year-values-heading"><h2>Values by industry</h2><span id="valuesYear"></span></div>
+          <p>Current-year values. Scroll to compare industries.</p>
+          <div class="year-values-scroll">
+            <table class="year-values-table">
+              <thead><tr><th>Industry</th><th title="Union decline">Union Δ</th><th>Dividends</th><th>Taxes</th></tr></thead>
+              <tbody id="yearValuesBody"></tbody>
+            </table>
+          </div>
+        </section></aside>
+      <div class="membership-panel" hidden>
+        <p class="table-description">Cluster membership across 1982–2008. Scroll the table to explore all industries.</p>
+<section class="table-section">
       <h2>Cluster Membership By Industry</h2>
       <table border="1" class="dataframe data-table">
   <thead>
@@ -843,6 +857,11 @@
   </tbody>
 </table>
     </section>
+      </div>
+      <div id="tooltip" class="tooltip"></div>
+    </div>
+
+
   </div>
 
   <script type="importmap">
@@ -867,8 +886,8 @@
     const tooltip = document.getElementById("tooltip");
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color("#f8fafc");
-    scene.fog = new THREE.Fog("#f8fafc", 12, 28);
+    scene.background = new THREE.Color("#fbfaf6");
+    scene.fog = new THREE.Fog("#fbfaf6", 12, 28);
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -877,11 +896,33 @@
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
     camera.position.set(10.2, 9.0, 7.3);
 
+    const plotView = document.getElementById('plotView');
+    const tableView = document.getElementById('tableView');
+    const tablePanel = document.querySelector('.membership-panel');
+    function setDashboardView(showTable) {
+      tablePanel.hidden = !showTable;
+      shell.classList.toggle('show-table', showTable);
+      plotView.setAttribute('aria-pressed', String(!showTable));
+      tableView.setAttribute('aria-pressed', String(showTable));
+      if (!showTable) requestAnimationFrame(resize);
+    }
+    plotView.addEventListener('click', () => setDashboardView(false));
+    tableView.addEventListener('click', () => setDashboardView(true));
     const controls = new OrbitControls(camera, renderer.domElement);
+    renderer.domElement.addEventListener('wheel', event => {
+      const intentionalZoom = event.ctrlKey || event.metaKey;
+      controls.enableZoom = intentionalZoom;
+      if (!intentionalZoom && window.parent !== window) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? window.innerHeight : 1;
+        window.parent.postMessage({ type: 'baltimore-page-scroll', deltaY: event.deltaY * unit }, window.location.origin);
+      }
+    }, { capture: true, passive: false });
     controls.enableDamping = true;
     controls.dampingFactor = 0.07;
     controls.rotateSpeed = 0.58;
-    controls.zoomSpeed = 0.72;
+    controls.zoomSpeed = 0.35;
     controls.panSpeed = 0.52;
     controls.target.set(0, 0, 0);
     controls.minDistance = 6.0;
@@ -1088,6 +1129,38 @@
       }
     }
 
+    let lastValuesUpdate = -Infinity;
+    const yearValueCells = new Map();
+    function updateYearValues(year) {
+      const now = performance.now();
+      if (now - lastValuesUpdate < 200) return;
+      lastValuesUpdate = now;
+      const body = document.getElementById('yearValuesBody');
+      if (!yearValueCells.size) {
+        [...pointMeshes].sort((a, b) => a.userData.industry.name.localeCompare(b.userData.industry.name)).forEach(mesh => {
+          const row = document.createElement('tr');
+          const name = document.createElement('th');
+          name.scope = 'row';
+          name.textContent = mesh.userData.industry.name;
+          row.append(name);
+          const cells = Array.from({ length: 3 }, () => {
+            const cell = document.createElement('td');
+            row.append(cell);
+            return cell;
+          });
+          body.append(row);
+          yearValueCells.set(mesh, cells);
+        });
+      }
+      document.getElementById('valuesYear').textContent = year.toFixed(1);
+      yearValueCells.forEach((cells, mesh) => {
+        const current = mesh.userData.current;
+        cells[0].textContent = current.uniondecline.toFixed(3);
+        cells[1].textContent = current.dividendsdom.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        cells[2].textContent = current.taxespaid.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      });
+    }
+
     function updatePoints(year) {
       for (const mesh of pointMeshes) {
         const current = interpolatePoint(mesh.userData.industry, year);
@@ -1097,6 +1170,7 @@
         mesh.material.color.lerp(reusableColor, 0.18);
         mesh.material.emissive.lerp(reusableColor, 0.18);
       }
+      updateYearValues(year);
       yearReadout.textContent = year.toFixed(2);
       timeline.value = String(year);
     }
@@ -1115,8 +1189,8 @@
       const industry = mesh.userData.industry;
       const current = mesh.userData.current;
       tooltip.style.display = "block";
-      tooltip.style.left = `${Math.min(pointerPixel.x + 16, shell.clientWidth - 330)}px`;
-      tooltip.style.top = `${Math.max(12, pointerPixel.y + 16)}px`;
+      tooltip.style.left = `${Math.max(8, Math.min(pointerPixel.x + 12, canvas.clientWidth - tooltip.offsetWidth - 8))}px`;
+      tooltip.style.top = `${canvas.offsetTop + Math.max(8, Math.min(pointerPixel.y + 12, canvas.clientHeight - tooltip.offsetHeight - 8))}px`;
       tooltip.innerHTML = `
         <strong>${industry.indcat} · ${industry.name}</strong>
         Year: ${current.year.toFixed(2)}<br>
@@ -1125,10 +1199,11 @@
         Dividends: ${current.dividendsdom.toLocaleString(undefined, { maximumFractionDigits: 0 })}<br>
         Taxes paid: ${current.taxespaid.toLocaleString(undefined, { maximumFractionDigits: 0 })}
       `;
+
     }
 
     function resize() {
-      const width = shell.clientWidth;
+      const width = canvas.clientWidth;
       const height = canvas.clientHeight;
       camera.aspect = width / height;
       camera.updateProjectionMatrix();

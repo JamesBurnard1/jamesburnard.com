@@ -57,7 +57,7 @@
     }
     main {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 390px;
+      grid-template-columns: minmax(0, 1fr) 280px;
       min-height: 0;
       overflow: hidden;
     }
@@ -180,7 +180,7 @@
       display: none;
       z-index: 5;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 650px) {
       html, body { overflow: auto; }
       .app { height: auto; min-height: 100vh; overflow: visible; }
       header { grid-template-columns: 1fr; }
@@ -189,7 +189,23 @@
       aside { border-left: 0; border-top: 1px solid #dbe3ee; overflow: visible; }
     }
 
+    /* The year stays four characters wide throughout playback. */
+    #yearLabel {
+      display: inline-block;
+      width: 4ch;
+      flex: 0 0 4ch;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    #playPause { min-width: 62px; }
+    .tooltip {
+      transform: none;
+      box-sizing: border-box;
+      max-width: min(260px, calc(100% - 16px));
+      overflow-wrap: anywhere;
+    }
   </style>
+  <link rel="stylesheet" href="network-ui.css?v=20261006-minimal-dashboard" />
 </head>
 <body>
   <div class="app">
@@ -200,7 +216,7 @@
       <div class="controls">
         <label>Year <b id="yearLabel"></b><input id="yearSlider" type="range" min="0" max="0" value="0"></label>
         <label>Min shared <b id="thresholdLabel">5</b><input id="thresholdSlider" type="range" min="2" max="25" value="5"></label>
-        <label class="check"><input id="labelsToggle" type="checkbox" checked> Labels</label>
+        <label class="check"><input id="labelsToggle" type="checkbox" checked> Top 5 labels</label>
         <input id="search" type="search" placeholder="Search organization" />
         <button id="playPause">Play</button>
         <button id="reset">Reset</button>
@@ -210,7 +226,7 @@
       <section class="stage">
         <canvas id="canvas"></canvas>
         <div class="tooltip" id="tooltip"></div>
-        <div class="hint">Hover for details. Click a node to pin its connections. Drag to pan; wheel to zoom.</div>
+        <div class="hint">Hover for details. Click a node to pin its connections. Drag to pan. Hold Ctrl or ⌘ while scrolling to zoom.</div>
       </section>
       <aside>
         <div class="statgrid">
@@ -222,7 +238,7 @@
           <div class="stat"><b id="avgDegree">0</b><span>avg degree</span></div>
         </div>
         <div class="legend" id="legend"></div>
-        <details class="guide" open>
+        <details class="guide">
           <summary>Panel Guide</summary>
           <dl>
             <div>
@@ -309,15 +325,70 @@
       holdDuration: 650,
     };
 
+    const reduceZoomMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const allNodes = Object.values(DATA.graph).flatMap(g => g.nodes);
+    const graphBounds = {
+      left: Math.min(...allNodes.map(n => n.x - n.r)),
+      right: Math.max(...allNodes.map(n => n.x + n.r)),
+      top: Math.min(...allNodes.map(n => n.y - n.r)),
+      bottom: Math.max(...allNodes.map(n => n.y + n.r)),
+    };
+    let fitScale = 1;
+    let userAdjustedView = false;
+    let zoomFrame = null;
+    let zoomTarget = null;
+    let zoomTime = 0;
+
+    function stopZoom() {
+      if (zoomFrame !== null) cancelAnimationFrame(zoomFrame);
+      zoomFrame = null;
+      zoomTarget = null;
+    }
+
+    function fitGraph() {
+      stopZoom();
+      const width = canvas.width / devicePixelRatio;
+      const height = canvas.height / devicePixelRatio;
+      const padding = Math.min(48, Math.min(width, height) * 0.1);
+      fitScale = Math.min(
+        (width - padding * 2) / (graphBounds.right - graphBounds.left),
+        (height - padding * 2) / (graphBounds.bottom - graphBounds.top)
+      );
+      state.scale = fitScale;
+      state.ox = (700 - (graphBounds.left + graphBounds.right) / 2) * fitScale;
+      state.oy = (450 - (graphBounds.top + graphBounds.bottom) / 2) * fitScale;
+    }
+
+    function animateZoom(time) {
+      if (!zoomTarget) return;
+      const elapsed = Math.min(64, time - zoomTime || 16);
+      zoomTime = time;
+      const blend = 1 - Math.exp(-elapsed / 180);
+      state.scale += (zoomTarget.scale - state.scale) * blend;
+      state.ox += (zoomTarget.ox - state.ox) * blend;
+      state.oy += (zoomTarget.oy - state.oy) * blend;
+      if (Math.abs(zoomTarget.scale - state.scale) < 0.0001 &&
+          Math.abs(zoomTarget.ox - state.ox) < 0.1 && Math.abs(zoomTarget.oy - state.oy) < 0.1) {
+        Object.assign(state, zoomTarget);
+        stopZoom();
+        draw();
+        return;
+      }
+      draw();
+      zoomFrame = requestAnimationFrame(animateZoom);
+    }
+
+    yearSlider.step = "any";
     yearSlider.max = String(DATA.years.length - 1);
     yearSlider.value = String(state.yearIndex);
 
     function resize() {
       const rect = canvas.parentElement.getBoundingClientRect();
-      canvas.width = Math.max(600, Math.floor(rect.width * devicePixelRatio));
-      canvas.height = Math.max(420, Math.floor(rect.height * devicePixelRatio));
+      canvas.width = Math.max(1, Math.floor(rect.width * devicePixelRatio));
+      canvas.height = Math.max(1, Math.floor(rect.height * devicePixelRatio));
       canvas.style.width = rect.width + 'px';
       canvas.style.height = rect.height + 'px';
+      if (!userAdjustedView) fitGraph();
       draw();
       updateScrollCue();
     }
@@ -336,7 +407,7 @@
     function edgeKey(edge) { return `${edge.source}|${edge.target}`; }
     function displayYearLabel() {
       if (!state.transition) return currentYear();
-      return `${DATA.years[state.transition.from]} -> ${DATA.years[state.transition.to]}`;
+      return DATA.years[transitionProgress() < 0.5 ? state.transition.from : state.transition.to];
     }
     function transitionProgress() {
       if (!state.transition) return 1;
@@ -488,6 +559,10 @@
     }
 
     function draw() {
+      const sliderPosition = state.transition
+        ? lerp(state.transition.from, state.transition.to, easeInOut(transitionProgress()))
+        : state.yearIndex;
+      yearSlider.value = String(sliderPosition);
       const dpr = devicePixelRatio;
       const w = canvas.width / dpr, h = canvas.height / dpr;
       ctx.save();
@@ -540,7 +615,7 @@
       if (state.labels) {
         const labelNodes = [...nodes]
           .sort((a, b) => (b.weightedDegree - a.weightedDegree) || (b.memberRows - a.memberRows))
-          .slice(0, 18);
+          .slice(0, 5);
         ctx.font = '12px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -574,7 +649,14 @@
       const edges = visibleEdges();
       const stats = graph().stats;
       const visibleEdgeCount = edges.reduce((sum, edge) => sum + (edge.opacity ?? 1), 0);
-      yearLabel.textContent = displayYearLabel();
+      const shownYear = displayYearLabel();
+      if (yearLabel.textContent !== shownYear) {
+        yearLabel.textContent = shownYear;
+        if (!reduceZoomMotion.matches) {
+          yearLabel.getAnimations().forEach(animation => animation.cancel());
+          yearLabel.animate([{ opacity: 0.35 }, { opacity: 1 }], { duration: 300, easing: 'ease-out' });
+        }
+      }
       thresholdLabel.textContent = state.threshold;
       document.getElementById('nodeCount').textContent = wholeNumber(stats.nodeCount ?? nodes.length);
       document.getElementById('edgeCount').textContent = wholeNumber(visibleEdgeCount);
@@ -636,10 +718,19 @@
 
     function showTooltip(n, x, y) {
       if (!n) { tooltip.style.display = 'none'; return; }
-      tooltip.style.display = 'block';
-      tooltip.style.left = x + 'px';
-      tooltip.style.top = y + 'px';
       tooltip.innerHTML = `<b>${n.name}</b><br>Code ${n.id}<br>${Math.round(n.memberRows)} member rows<br>${n.category}`;
+      tooltip.style.display = 'block';
+      const bounds = canvas.parentElement.getBoundingClientRect();
+      const localX = x - bounds.left;
+      const localY = y - bounds.top;
+      const width = tooltip.offsetWidth;
+      const height = tooltip.offsetHeight;
+      let left = localX + 12;
+      let top = localY + 12;
+      if (left + width > bounds.width - 8) left = localX - width - 12;
+      if (top + height > bounds.height - 8) top = localY - height - 12;
+      tooltip.style.left = Math.max(8, Math.min(left, bounds.width - width - 8)) + 'px';
+      tooltip.style.top = Math.max(8, Math.min(top, bounds.height - height - 8)) + 'px';
     }
 
     function updatePlayButton() {
@@ -689,7 +780,6 @@
         start: performance.now(),
         duration: state.transitionDuration,
       };
-      yearSlider.value = String(target);
       state.selected = null;
       state.hover = null;
       tooltip.style.display = 'none';
@@ -735,7 +825,7 @@
       showTooltip(n, e.clientX, e.clientY);
       draw();
     });
-    canvas.addEventListener('mousedown', e => { state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY; });
+    canvas.addEventListener('mousedown', e => { stopZoom(); userAdjustedView = true; state.dragging = true; state.lastX = e.clientX; state.lastY = e.clientY; });
     window.addEventListener('mouseup', () => { state.dragging = false; });
     canvas.addEventListener('click', e => {
       const n = hitTest(e.clientX, e.clientY);
@@ -743,20 +833,65 @@
       draw();
     });
     canvas.addEventListener('wheel', e => {
+      if (!e.ctrlKey && !e.metaKey) {
+        // The explorer is an iframe: explicitly pass ordinary scrolling to its page.
+        if (window.parent !== window) {
+          e.preventDefault();
+          const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1;
+          window.parent.postMessage({ type: 'baltimore-page-scroll', deltaY: e.deltaY * unit }, window.location.origin);
+        }
+        return;
+      }
       e.preventDefault();
-      const factor = e.deltaY < 0 ? 1.08 : 0.925;
-      state.scale = Math.max(0.45, Math.min(3.2, state.scale * factor));
-      draw();
+      userAdjustedView = true;
+      const deltaPixels = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? canvas.clientHeight : 1);
+      const delta = Math.max(-80, Math.min(80, deltaPixels));
+      const previous = zoomTarget || { scale: state.scale, ox: state.ox, oy: state.oy };
+      const nextScale = Math.max(Math.min(0.25, fitScale * 0.6), Math.min(3.2, previous.scale * Math.exp(-delta * 0.0007)));
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left - canvas.width / devicePixelRatio / 2;
+      const y = e.clientY - rect.top - canvas.height / devicePixelRatio / 2;
+      const ratio = nextScale / previous.scale;
+      zoomTarget = {
+        scale: nextScale,
+        ox: x - (x - previous.ox) * ratio,
+        oy: y - (y - previous.oy) * ratio,
+      };
+      tooltip.style.display = 'none';
+      state.hover = null;
+      if (reduceZoomMotion.matches) {
+        Object.assign(state, zoomTarget);
+        stopZoom();
+        draw();
+      } else if (zoomFrame === null) {
+        zoomTime = performance.now();
+        zoomFrame = requestAnimationFrame(animateZoom);
+      }
+    }, { passive: false });
+
+    if (sidebar) sidebar.addEventListener('wheel', e => {
+      if (window.parent === window || e.ctrlKey || e.metaKey) return;
+      const atTop = sidebar.scrollTop <= 0;
+      const atBottom = sidebar.scrollTop + sidebar.clientHeight >= sidebar.scrollHeight - 1;
+      if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
+        e.preventDefault();
+        const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1;
+        window.parent.postMessage({ type: 'baltimore-page-scroll', deltaY: e.deltaY * unit }, window.location.origin);
+      }
     }, { passive: false });
 
     playButton.addEventListener('click', () => { state.playing ? pausePlayback() : startPlayback(); });
-    yearSlider.addEventListener('input', e => { pausePlayback(); animateToYear(Number(e.target.value)); });
+    yearSlider.addEventListener('input', e => {
+      const requestedYear = Math.round(Number(e.target.value));
+      pausePlayback();
+      animateToYear(requestedYear);
+    });
     thresholdSlider.addEventListener('input', e => { state.threshold = Number(e.target.value); draw(); });
     labelsToggle.addEventListener('change', e => { state.labels = e.target.checked; draw(); });
     searchInput.addEventListener('input', e => { state.search = e.target.value.trim(); draw(); });
     document.getElementById('reset').addEventListener('click', () => {
       pausePlayback();
-      state.scale = 1; state.ox = 0; state.oy = 0; state.selected = null; state.hover = null; state.search = ''; searchInput.value = ''; draw();
+      userAdjustedView = false; fitGraph(); state.selected = null; state.hover = null; state.search = ''; searchInput.value = ''; draw();
     });
 
     document.getElementById('legend').innerHTML = DATA.categories.map(c => `<div><span class="swatch" style="background:${DATA.colors[c]}"></span>${c}</div>`).join('');
