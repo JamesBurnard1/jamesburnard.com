@@ -567,3 +567,17 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Credit access has one title and a continuous opening into the article. */
+.credit-detail .detail-hero > .writeup-byline {
+  margin: 12px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.credit-detail #writeup.native-writeup {
+  margin-top: 32px;
+  padding-top: 0;
+}
+@media (max-width: 700px) {
+  .credit-detail #writeup.native-writeup { margin-top: 24px; }
+}
