@@ -158,3 +158,22 @@
     margin-top: 32px;
   }
 }
+/* Keep the opening heading and resume note in the same quiet editorial rhythm. */
+#experience-panel .section-heading h2 {
+  margin-bottom: 8px;
+  font-size: 1.65rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+#experience-panel .section-note a,
+#experience-panel .section-note a:hover,
+#experience-panel .section-note a:focus-visible {
+  text-decoration: none;
+  background: transparent;
+  border-bottom: 0;
+  box-shadow: none;
+}
+@media (max-width: 700px) {
+  #experience-panel .section-heading h2 { font-size: 1.5rem; }
+}
