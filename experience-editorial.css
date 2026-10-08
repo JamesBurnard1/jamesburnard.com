@@ -197,7 +197,7 @@
 .editorial-home :is(#experience-panel, #projects-panel) > .section-heading h2 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.025em;
 }
