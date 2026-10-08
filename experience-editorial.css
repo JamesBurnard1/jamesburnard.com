@@ -177,3 +177,18 @@
 @media (max-width: 700px) {
   #experience-panel .section-heading h2 { font-size: 1.5rem; }
 }
+/* One shared heading treatment for the Experience and Projects tabs. */
+.editorial-home :is(#experience-panel, #projects-panel) > .section-heading {
+  display: block;
+  max-width: 760px;
+  margin: 0 0 30px;
+}
+.editorial-home :is(#experience-panel, #projects-panel) > .section-heading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+#experience-panel .section-heading .section-note { margin-top: 16px; }
