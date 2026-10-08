@@ -192,3 +192,19 @@
   letter-spacing: 0;
 }
 #experience-panel .section-heading .section-note { margin-top: 16px; }
+/* Homepage name and tab titles share the same typography at every breakpoint. */
+.editorial-home #page-title,
+.editorial-home :is(#experience-panel, #projects-panel) > .section-heading h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+@media (min-width: 701px) {
+  .editorial-home #page-title,
+  .editorial-home :is(#experience-panel, #projects-panel) > .section-heading h2 {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+}
