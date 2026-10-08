@@ -1,0 +1,12 @@
+/* EB Garamond is served locally; body text retains the existing editorial serif. */
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/eb-garamond-latin.woff2") format("woff2");
+}
+/* Override legacy heading selectors consistently without changing their size or weight. */
+:is(.editorial-home, .project-detail-page) :is(h1, h2, h3, h4, h5, h6) {
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif !important;
+}
