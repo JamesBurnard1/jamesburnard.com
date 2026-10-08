@@ -1568,15 +1568,18 @@ if (photoGrid) {
   const enlarged = dialog.querySelector(".enlarged-photo");
   const caption = dialog.querySelector("[data-enlarged-caption]");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const photoCount = 37;
+  // Curated opening grid, followed by the rest of the complete photo collection.
+  const photoOrder = [37, 17, 28, 15, 26, 35, 32, 27, 16, 8, 21, 23, 4, 3, 7, 10, 19, 30, 36, 9, 14, 22, 29, 31, 1, 2, 13, 18, 20, 34, 11, 33, 25, 24, 12, 5, 6];
+  const photoCount = photoOrder.length;
   let page = 0;
   let selectedIndex = 0;
   let closing = false;
-  const source = (index) => `assets/hero-photo-nodes/node-${String(index + 1).padStart(2, "0")}.jpg`;
+  const source = (index) => `assets/hero-photo-nodes/node-${String(photoOrder[index]).padStart(2, "0")}.jpg`;
 
   function select(index) {
     selectedIndex = index;
-    fullSize.href = source(index);
+    const visibleTile = tiles.find(tile => !tile.hidden && Number(tile.dataset.photoIndex) === index);
+    fullSize.href = visibleTile ? visibleTile.querySelector("img").src : source(index);
   }
 
   function showPage(direction) {
@@ -1598,7 +1601,7 @@ if (photoGrid) {
   function openPhoto(index) {
     if (dialog.open || closing) return;
     select(index);
-    enlarged.src = source(index);
+    enlarged.src = fullSize.href;
     enlarged.alt = `Photograph ${index + 1} from James Burnard’s personal collection`;
     caption.textContent = `Photography · ${String(index + 1).padStart(2, "0")} / ${photoCount}`;
     dialog.showModal();
@@ -1641,4 +1644,5 @@ if (photoGrid) {
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closePhoto();
   });
   dialog.addEventListener("close", () => document.body.classList.remove("photo-viewer-open"));
+  showPage(0);
 }

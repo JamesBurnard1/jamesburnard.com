@@ -1,0 +1,160 @@
+/* A continuous CV-style page using the same measure as the project directory. */
+.editorial-home[data-active-tab="experience"] .content-shell {
+  width: min(900px, calc(100% - 40px));
+  margin-inline: auto;
+}
+#experience-panel .section-heading {
+  display: block;
+  margin: 0 0 40px;
+}
+#experience-panel .section-heading h2 {
+  margin: 0 0 12px;
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+#experience-panel .section-note { margin: 0; font-size: 0.875rem; line-height: 1.6; }
+#experience-panel .experience-layout { display: flex; flex-direction: column; gap: 48px; }
+#experience-panel .experience-list,
+#experience-panel .education-section,
+#experience-panel .skills-directory { display: block; margin: 0; }
+#experience-panel .experience-layout > section > h3 {
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+#experience-panel .experience-card {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 24px;
+  margin: 0;
+  padding: 28px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+#experience-panel .experience-card:first-of-type { padding-top: 0; border-top: 0; }
+#experience-panel .experience-card:last-child { padding-bottom: 0; }
+#experience-panel .experience-card .experience-logo {
+  width: 100px;
+  height: 76px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+#experience-panel .experience-logo img { max-height: 76px; max-width: 100px; object-fit: contain; }
+#experience-panel .experience-card-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; margin: 0 0 6px; }
+#experience-panel .experience-card-header h4 { margin: 0; font-size: 1.125rem; font-weight: 500; line-height: 1.5; }
+#experience-panel .experience-card-header span { font-family: inherit; font-size: 0.8rem; font-weight: 400; color: var(--muted); line-height: 1.6; }
+#experience-panel .experience-card p { font-family: inherit; font-size: 0.9375rem; line-height: 1.8; }
+#experience-panel .experience-card .experience-tools { margin: 0 0 12px; color: var(--muted); font-weight: 400; font-style: normal; font-size: 0.875rem; }
+#experience-panel .experience-card p + p { margin-top: 0; }
+#experience-panel .coursework-card { border: 0; border-radius: 0; padding: 32px 0 0; background: transparent; box-shadow: none; }
+#experience-panel .coursework-card > h3 { margin: 0 0 12px; font-size: 1.125rem; font-weight: 500; }
+#experience-panel .coursework-card > p { margin: 0 0 24px; color: var(--muted); font-size: 0.9375rem; line-height: 1.8; max-width: none; }
+#experience-panel .coursework-groups { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+#experience-panel .coursework-group { padding: 0; border: 0; background: transparent; }
+#experience-panel .coursework-group h4 { margin: 0 0 12px; font-size: 0.9375rem; font-weight: 500; }
+#experience-panel .tag-list { display: block; margin: 0; padding: 0; list-style: none; }
+#experience-panel .tag-list li { display: block; min-height: 0; padding: 2px 0; border: 0; border-radius: 0; background: transparent; font-family: inherit; font-size: 0.875rem; line-height: 1.65; font-weight: 400; color: var(--muted); }
+#experience-panel .skill-category { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 24px; padding: 14px 0; border: 0; border-top: 1px solid var(--line); }
+#experience-panel .skill-category h4 { margin: 0; font-size: 0.9375rem; line-height: 1.8; font-weight: 500; }
+#experience-panel .skill-row { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+#experience-panel .skill-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 0; padding: 0; margin: 0; border: 0; border-radius: 0; background: transparent; color: var(--muted); font-family: inherit; font-size: 0.9375rem; font-weight: 400; line-height: 1.8; }
+#experience-panel .skill-chip b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent);
+}
+#experience-panel .skill-chip b img,
+#experience-panel .skill-chip b svg { display: block; width: 16px; height: 16px; object-fit: contain; }
+#experience-panel .skill-chip::after { content: none; }
+@media (max-width: 700px) {
+  #experience-panel .section-heading { margin-bottom: 32px; }
+  #experience-panel .section-heading h2 { font-size: 1.6rem; }
+  #experience-panel .experience-layout { gap: 36px; }
+  #experience-panel .experience-card { grid-template-columns: 76px minmax(0, 1fr); gap: 16px; padding-block: 24px; }
+  #experience-panel .experience-card .experience-logo { width: 76px; height: 64px; }
+  #experience-panel .experience-logo img { max-width: 76px; max-height: 64px; }
+  #experience-panel .experience-card-header { display: block; }
+  #experience-panel .experience-card-header span { display: block; margin-top: 4px; }
+  #experience-panel .coursework-groups { grid-template-columns: 1fr; gap: 24px; }
+  #experience-panel .skill-category { grid-template-columns: 1fr; gap: 6px; }
+}
+/* Concept icons use one consistent stroke treatment rather than filled silhouettes. */
+#experience-panel .skill-chip b .skill-concept-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* White baked into logo images blends into the ivory page; transparent artwork stays clear. */
+#experience-panel .experience-card .experience-logo,
+#experience-panel .skill-chip b {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+#experience-panel .experience-logo img,
+#experience-panel .skill-chip b img,
+#experience-panel .skill-chip b svg {
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+/* Supply the ivory backdrop inside main's stacking context for image blending. */
+.editorial-home[data-active-tab="experience"] > main { background: var(--surface); }
+/* Restrained color distinguishes analytical concepts without adding badges. */
+#experience-panel .skill-chip.xgb b { color: #386b91; }
+#experience-panel .skill-chip.stats b { color: #7a5d91; }
+#experience-panel .skill-chip.wrangle b { color: #367c78; }
+#experience-panel .skill-chip.forecast b { color: #b07736; }
+#experience-panel .skill-chip.cluster b { color: #aa5d62; }
+#experience-panel .skill-chip.ocr b { color: #647ba1; }
+/* Separate skill categories with whitespace rather than rules. */
+#experience-panel .skills-directory > h3 { margin-bottom: 20px; }
+#experience-panel .skill-category {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  column-gap: 28px;
+}
+#experience-panel .skill-category + .skill-category { margin-top: 22px; }
+#experience-panel .skill-row { gap: 8px 20px; }
+@media (max-width: 700px) {
+  #experience-panel .skill-category { row-gap: 8px; }
+  #experience-panel .skill-category + .skill-category { margin-top: 24px; }
+}
+/* Work history flows as distinct editorial entries, separated only by whitespace. */
+#experience-panel .experience-list .experience-card {
+  border: 0;
+  padding: 0;
+}
+#experience-panel .experience-list .experience-card + .experience-card {
+  margin-top: 40px;
+}
+#experience-panel .experience-list .experience-card-header {
+  margin-bottom: 8px;
+}
+#experience-panel .experience-list .experience-tools {
+  margin-bottom: 14px;
+}
+@media (max-width: 700px) {
+  #experience-panel .experience-list .experience-card + .experience-card {
+    margin-top: 32px;
+  }
+}
