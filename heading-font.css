@@ -46,3 +46,18 @@
 .project-detail-page .detail-grid article > p {
   color: #30312e;
 }
+
+/* Project pages share Helvetica across prose, headings, navigation and controls. */
+body.project-detail-page,
+.project-detail-page :is(h1, h2, h3, h4, h5, h6, p, a, span, button, label, li, summary, figcaption, th, td, input, select, textarea, code) {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+/* A consistent reading size for project write-ups. */
+.project-detail-page .writeup-prose,
+.project-detail-page .writeup-prose > p,
+.project-detail-page .writeup-prose > ul,
+.project-detail-page .writeup-prose > ol,
+.project-detail-page .detail-section p:not(.eyebrow):not(.writeup-byline):not(.network-open-link):not(.plot-instructions) {
+  font-size: 17.5px;
+  line-height: 1.6;
+}

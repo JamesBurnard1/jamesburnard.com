@@ -2244,7 +2244,7 @@ body[data-active-tab="projects"] .content-shell {
 
 /* Editorial influence on the original homepage; retain its visual identity. */
 .editorial-home {
-  --surface: #f7f4ed;
+  --surface: #fdfcf9;
   --surface-strong: #fbf9f4;
   --ink: #30312e;
   --muted: #73766e;

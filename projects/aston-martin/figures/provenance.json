@@ -1,0 +1,14 @@
+{
+  "source_notebook": "Pitwall-F1/exploration.ipynb, cells 3\u20139",
+  "fastf1_version": "3.8.3",
+  "event": "2024 British Grand Prix, race",
+  "race_laps": 960,
+  "screened_laps": 868,
+  "iqr_retained_laps": 867,
+  "q1_seconds": 91.62575000000001,
+  "q3_seconds": 99.95224999999999,
+  "iqr_seconds": 8.326499999999982,
+  "lower_seconds": 79.13600000000004,
+  "upper_seconds": 112.44199999999996,
+  "hamilton_laps": 48
+}

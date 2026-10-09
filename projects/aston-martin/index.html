@@ -9,54 +9,77 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="../../project-theme.css?v=20261005-statistics-spacing" />
+    <link rel="stylesheet" href="../../project-theme.css?v=20261009-brighter-ivory" />
     <link rel="stylesheet" href="../../research-project.css?v=20261006-credit-research">
-    <link rel="stylesheet" href="../../heading-font.css?v=20261008-charcoal-prose-preview" />
+    <link rel="stylesheet" href="../../heading-font.css?v=20261009-writeups-17-5" />
+    <link rel="stylesheet" href="pitwall-editorial.css?v=20261009-ivory-compact" />
 </head>
-  <body class="project-detail-page research-detail">
+  <body class="project-detail-page research-detail pitwall-detail">
     <a class="project-back-link" href="../../index.html#projects-panel">← Back to projects</a>
-<aside class="project-contents" aria-label="Project contents"><p class="contents-label">Contents</p><nav aria-label="Project sections"><a href="#project-title">Overview</a><a href="#artwork">Artwork</a><a href="#details">Project details</a></nav></aside>
+    <aside class="project-contents" aria-label="Project contents">
+      <p class="contents-label">Contents</p>
+      <nav aria-label="Project sections">
+        <a href="#project-title">Overview</a>
+        <a href="#lap-screening">Lap screening</a>
+        <a href="#tyre-age">Tyre age</a>
+        <a href="#weather-context">Weather</a>
+        <a href="#next-steps">Next steps</a>
+      </nav>
+    </aside>
     <main class="detail-shell">
-      <section class="detail-hero">
-        <p class="eyebrow">Experiment · In Progress</p>
-        <h1 id="project-title">Pitwall F1</h1>
-        <p>
-          Given the state of a race, can we evaluate whether a driver should stay out or pit, and which strategy offers the best expected outcome? This project is in progress.
-        </p>
-        <div class="project-tags detail-tags">
-          <span>Prototype</span>
-          <span>Prediction</span>
-          <span>Data Analysis</span>
-          <span>Learning</span>
+      <section class="detail-hero pitwall-header" aria-labelledby="project-title">
+        <div class="pitwall-header-copy">
+          <h1 id="project-title">Pitwall F1</h1>
+          <a class="pitwall-progress-link" href="https://github.com/JamesBurnard1/Pitwall-F1" target="_blank" rel="noopener noreferrer">
+            Follow the project on GitHub <span aria-hidden="true">↗</span>
+          </a>
         </div>
-      </section>
-      <section class="detail-section" id="artwork">
-        <figure class="detail-image-figure">
-          <img class="detail-wide-image" src="../../assets/pitwall-f1-cover.jpg" alt="Painting of a red Formula 1 race car" />
-          <figcaption class="image-credit">
-            Artwork: <a href="https://www.artmajeur.com/alexandra-roberts/en/artworks/16069144/formula-one" target="_blank" rel="noopener noreferrer">Formula One by Alexandra Roberts, via Artmajeur</a>.
-          </figcaption>
+        <figure class="pitwall-header-artwork">
+          <img src="../../assets/pitwall-f1-cover.jpg" alt="Painting of a red Formula 1 race car" />
+          <figcaption><a href="https://www.artmajeur.com/alexandra-roberts/en/artworks/16069144/formula-one" target="_blank" rel="noopener noreferrer">Artwork: Alexandra Roberts, via Artmajeur</a></figcaption>
         </figure>
       </section>
-      <section class="detail-section detail-grid" id="details">
-        <article>
-          <h2>Project Idea</h2>
-          <p>
-            This project explores Formula 1 race strategy, evaluating whether a driver should stay out or pit given the current state of a race.
-          </p>
-        </article>
-        <article>
-          <h2>Next Steps</h2>
-          <p>
-            The next version of this page will include the dataset, model
-            features, evaluation metrics, and prediction outputs.
-          </p>
+      <section class="detail-section native-writeup" id="writeup" aria-labelledby="starting-point">
+        <article class="writeup-prose">
+          <p>Formula 1 has always seemed like the final destination for someone who loves cars. Growing up, I binged the entirety of <em>Top Gear</em>’s Jeremy Clarkson, Richard Hammond, and James May era with my father. Spellbound by the automotive world, he took me to far-flung hypercar dealerships where I could get up close to what I believed, at the time, was the only reason people worked jobs. To me, sports cars were the ultimate achievement for anyone, anywhere.</p>
+          <p>Even though I had the same blindly materialistic, car-oriented mindset as a man in a midlife crisis (admittedly, some of this still lingers today), F1 never really appealed to me. This project is my attempt to engage with F1 so that I can tell people I still know my stuff when it comes to cars, without actually having to watch a single race—because, let’s be honest, who <em>really</em> wants to do that? Jokes aside, I really do see the appeal. The data generated from races is also incredibly interesting, as my preliminary dive into this project shows below.</p>
+          <h3 id="starting-point">The starting point</h3>
+          <p>Pitwall begins with a practical question: when does the time gained on a different set of tyres outweigh the time lost making a pit stop? Before comparing strategies, I need to understand what observed lap times can tell me about pace, tyre age, and changing race conditions.</p>
+          <p>This first exploration uses the 2024 British Grand Prix at Silverstone. I loaded all five weekend sessions with FastF1 and combined their lap records in a working dataset. The figures below use the race session only, with Lewis Hamilton’s laps providing a focused example of how pace changes across stints. The current notebook prepares and explores the data; a strategy model and its evaluation are still to come.</p>
+          <h3 id="lap-screening">Separating pit laps from racing laps</h3>
+          <p>The race dataset contains 960 driver-lap records. I flag a lap if it contains either a pit-in or a pit-out timestamp, then retain laps with no pit activity and a track-status value of exactly “1,” meaning the track is all clear under green-flag conditions. This leaves 868 records. The screen separates pit-related timing from the initial pace analysis, but does not by itself isolate tyre degradation: race starts, traffic, weather, and other influences can still affect the remaining laps.</p>
+          <p>After excluding pit laps and laps with other track-status codes, the upper boxplot in Figure 1 shows that the distribution is already relatively clean in terms of extreme lap-time outliers. Most observations sit within the whiskers, with one high outlier remaining.</p>
+          <figure class="writeup-figure"><a href="figures/lap-screening.svg" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 1 at full size"><img src="figures/lap-screening.svg" alt="Two horizontal boxplots comparing 868 pit/status-screened laps with 867 IQR-retained laps; the distributions are nearly identical." /></a><figcaption>Figure 1. Race-lap distributions before and after the IQR screen. Boxes show the interquartile range, the center line shows the median, and whiskers extend to the most extreme observations within 1.5 IQR. The single high outlier is excluded in the second distribution.</figcaption></figure>
+          <p>As an additional check, I apply an interquartile-range (IQR) screen to the retained field. This checks for unusually extreme lap times before proceeding with the pace analysis. With Q₁ and Q₃ denoting the 25th and 75th percentiles, the rule is:</p>
+          <div class="pitwall-equation" aria-label="IQR equals Q3 minus Q1. Retain lap times between Q1 minus 1.5 IQR and Q3 plus 1.5 IQR.">
+            <math display="block"><mrow><mi>IQR</mi><mo>=</mo><msub><mi>Q</mi><mn>3</mn></msub><mo>−</mo><msub><mi>Q</mi><mn>1</mn></msub></mrow></math>
+            <math display="block"><mrow><msub><mi>Q</mi><mn>1</mn></msub><mo>−</mo><mn>1.5</mn><mi>IQR</mi><mo>≤</mo><msub><mi>t</mi><mi>lap</mi></msub><mo>≤</mo><msub><mi>Q</mi><mn>3</mn></msub><mo>+</mo><mn>1.5</mn><mi>IQR</mi></mrow></math>
+          </div>
+          <p>The resulting bounds are approximately 79.136–112.442 seconds. Only one lap is removed, leaving 867 records; none of Hamilton’s 48 screened laps are excluded. This is a light outlier screen rather than evidence that the remaining observations represent a single, stable pace regime.</p>
+
+          <h3 id="tyre-age">Tyre age needs context</h3>
+          <p>Hamilton’s retained laps span three stints on medium, intermediate, and soft tyres. Plotting lap time against tyre age keeps the stint structure visible instead of pooling every observation into one trend. Each point is an observed lap; no degradation curve has been fitted.</p>
+          <figure class="writeup-figure"><a href="figures/hamilton-tyre-age.svg" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 2 at full size"><img src="figures/hamilton-tyre-age.svg" alt="Hamilton lap times plotted against tyre age, with separate colors for medium, intermediate, and soft tyre stints." /></a><figcaption>Figure 2. Hamilton’s lap times by tyre age and stint, using the notebook’s screened observations. Tyre age is measured in laps. Colors distinguish stints and compounds; differences between them also reflect when those laps occurred in the race.</figcaption></figure>
+          <p>The plot motivates a more careful approach to estimating pace. Tyre age advances alongside race time, while compound changes coincide with different conditions. A relationship between tyre age and lap time therefore cannot be interpreted as a tyre-wear effect alone. The next modeling stage needs to account for conditions and separate those influences as far as the data allow.</p>
+          <h3 id="weather-context">Putting weather on the same timeline</h3>
+          <p>To add context, I match each retained lap’s start time to the nearest weather observation using an as-of merge. The notebook includes track and air temperature, humidity, pressure, wind, and a Boolean rainfall report. The figure below aligns Hamilton’s pace with the two temperatures and rainfall on the same race-lap axis.</p>
+          <figure class="writeup-figure"><a href="figures/hamilton-weather.svg" target="_blank" rel="noopener noreferrer" aria-label="Open Figure 3 at full size"><img src="figures/hamilton-weather.svg" alt="Three aligned panels showing Hamilton’s lap times by stint, track and air temperatures on one Celsius scale, and whether rainfall was reported at the nearest matched observation." /></a><figcaption>Figure 3. Hamilton’s retained laps and their matched weather observations. Both temperatures share one scale. Blue squares indicate a rainfall report; gray squares indicate no report. Rainfall is not an intensity measurement, and omitted pit/status-screened laps are not interpolated into the pace panel.</figcaption></figure>
+          <p>Viewing the race chronologically preserves information that a tyre-age plot alone hides: pace, tyre choice, and weather evolve together. This is descriptive evidence for including weather in the analysis, rather than an estimate of how much any single weather variable changes lap time.</p>
+          <h3 id="next-steps">Toward a strategy comparison</h3>
+          <p>The next step is to move from describing laps to predicting pace under explicit assumptions. I plan to refine the lap-quality checks, distinguish race-condition regimes, and estimate pace while accounting for tyre age, compound, and weather. A strategy comparison will also need a pit-loss estimate and a way to represent uncertainty.</p>
+          <p>A useful starting objective is expected remaining race time. For a proposed strategy π and the information available at lap ℓ, the conceptual comparison is:</p>
+          <div class="pitwall-equation" aria-label="Choose the strategy pi that minimizes the expected sum of future lap times plus pit-stop time losses, conditional on information available at lap ell.">
+            <math display="block"><mrow><msup><mi>π</mi><mo>*</mo></msup><mo>=</mo><munder><mtext>arg min</mtext><mi>π</mi></munder><mi>𝔼</mi><mo>[</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mi>ℓ</mi><mo>+</mo><mn>1</mn></mrow><mi>L</mi></munderover><msub><mi>t</mi><mrow><mi>k</mi><mo>,</mo><mi>π</mi></mrow></msub><mo>+</mo><munder><mo>∑</mo><mrow><mi>j</mi><mo>∈</mo><mi>π</mi></mrow></munder><msub><mi>p</mi><mi>j</mi></msub><mo>∣</mo><msub><mi>𝓘</mi><mi>ℓ</mi></msub><mo>]</mo></mrow></math>
+          </div>
+          <p>Here, L is the final lap, t is a predicted racing lap time excluding the separately modeled pit loss, p is the time loss associated with a pit stop, and 𝓘 is the information available when making the decision. This expression frames the intended next stage; it is not a fitted or validated result from the current notebook.</p>
+          <p>Two details matter before that comparison becomes predictive. The current filter does not explicitly require FastF1’s lap-accuracy flag, and the nearest weather match can select a reading recorded after a lap starts. A model intended to make decisions in real time should use only information available at that moment, with validation organized to avoid leaking later race information.</p>
+          <p class="pitwall-closing">Stay tuned.</p>
         </article>
       </section>
     </main>
     <footer class="site-footer">
       <p>© 2026 James Burnard. Built as a personal portfolio.</p>
     </footer>
-  <script src="../baltimore/baltimore-contents.js?v=20261006-credit-research"></script>
+    <script src="../baltimore/baltimore-contents.js?v=20261006-credit-research"></script>
   </body>
 </html>

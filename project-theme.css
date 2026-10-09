@@ -1,9 +1,9 @@
 /* Shared editorial framing for project pages; embedded work keeps its own UI. */
 body.project-detail-page,
 body.credit-theme {
-  --surface: #f7f4ed;
+  --surface: #fdfcf9;
   --surface-strong: #fbf9f4;
-  --paper: #f7f4ed;
+  --paper: #fdfcf9;
   --panel: #fbf9f4;
   --ink: #30312e;
   --muted: #73766e;
