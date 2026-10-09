@@ -18,11 +18,14 @@
 #experience-panel .experience-list,
 #experience-panel .education-section,
 #experience-panel .skills-directory { display: block; margin: 0; }
-#experience-panel .experience-layout > section > h3 {
+#experience-panel .experience-layout > section > h3,
+#experience-panel .coursework-card > h3 {
   margin: 0 0 24px;
   padding: 0;
   font-size: 1.4rem;
   font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: normal;
 }
 #experience-panel .experience-card {
   display: grid;
@@ -55,7 +58,6 @@
 #experience-panel .experience-card .experience-tools { margin: 0 0 12px; color: var(--muted); font-weight: 400; font-style: normal; font-size: 0.875rem; }
 #experience-panel .experience-card p + p { margin-top: 0; }
 #experience-panel .coursework-card { border: 0; border-radius: 0; padding: 32px 0 0; background: transparent; box-shadow: none; }
-#experience-panel .coursework-card > h3 { margin: 0 0 12px; font-size: 1.125rem; font-weight: 500; }
 #experience-panel .coursework-card > p { margin: 0 0 24px; color: var(--muted); font-size: 0.9375rem; line-height: 1.8; max-width: none; }
 #experience-panel .coursework-groups { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
 #experience-panel .coursework-group { padding: 0; border: 0; background: transparent; }
@@ -207,4 +209,83 @@
     font-size: 2.5rem;
     line-height: 1.1;
   }
+}
+/* A small persistent contents menu for the longer Experience page. */
+#experience-panel .experience-contents {
+  position: fixed;
+  top: 116px;
+  left: max(24px, calc((100vw - 1260px) / 2));
+  width: 144px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.experience-contents-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+#experience-panel .experience-contents a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+#experience-panel .experience-layout > section > h3 { scroll-margin-top: 84px; }
+@media (max-width: 1280px) {
+  #experience-panel .experience-contents {
+    position: sticky;
+    top: 58px;
+    z-index: 5;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    padding: 10px 0;
+    margin: 0 0 24px;
+    background: var(--surface);
+  }
+  #experience-panel .experience-layout > section > h3 { scroll-margin-top: 124px; }
+}
+@media (max-width: 500px) {
+  #experience-panel .experience-contents { gap: 8px 16px; }
+  .experience-contents-label { flex-basis: 100%; }
+  #experience-panel .experience-layout > section > h3 { scroll-margin-top: 150px; }
+}
+/* Match the research pages' restrained contents typography and vertical link markers. */
+#experience-panel .experience-contents {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  gap: 10px;
+}
+#experience-panel .experience-contents-label {
+  margin: 0 0 4px;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+#experience-panel .experience-contents a {
+  padding-left: 12px;
+  border-left: 1px solid var(--line);
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 400;
+}
+#experience-panel .experience-contents a:hover,
+#experience-panel .experience-contents a[aria-current="location"] {
+  color: var(--accent-dark);
+  border-left-color: var(--accent);
+}
+@media (max-width: 900px) {
+  #experience-panel .experience-contents { font-size: 0.8rem; }
+}
+@media (max-width: 600px) {
+  #experience-panel .experience-contents-label { display: none; }
+  #experience-panel .experience-contents a { padding-left: 0; border-left: 0; white-space: nowrap; }
 }

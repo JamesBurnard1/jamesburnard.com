@@ -1,12 +1,48 @@
-/* EB Garamond is served locally; body text retains the existing editorial serif. */
+/* Local typography trial: the Newsreader pairing used by the reference homepage. */
 @font-face {
-  font-family: "EB Garamond";
+  font-family: "Newsreader";
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url("assets/fonts/eb-garamond-latin.woff2") format("woff2");
+  src: url("assets/fonts/newsreader-normal-latin.woff2") format("woff2");
 }
-/* Override legacy heading selectors consistently without changing their size or weight. */
-:is(.editorial-home, .project-detail-page) :is(h1, h2, h3, h4, h5, h6) {
-  font-family: "EB Garamond", Georgia, "Times New Roman", serif !important;
+@font-face {
+  font-family: "Newsreader";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/newsreader-italic-latin.woff2") format("woff2");
+}
+:is(body.editorial-home, body.project-detail-page),
+:is(.editorial-home, .project-detail-page) :is(h1, h2, h3, h4, h5, h6, p, a, span, button, label, li, summary, figcaption, th, td, input, select, textarea) {
+  font-family: "Newsreader", Georgia, serif !important;
+  font-optical-sizing: auto;
+}
+:is(body.editorial-home, body.project-detail-page) {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.editorial-home #page-title,
+.editorial-home :is(#experience-panel, #projects-panel) > .section-heading h2 {
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.05;
+}
+/* Local comparison: the same 19.5px reading size across portfolio prose. */
+.editorial-home #experience-panel .experience-card p:not(.experience-tools),
+.editorial-home #experience-panel .coursework-card > p,
+.editorial-home #projects-panel .project-card > p,
+.project-detail-page .detail-hero > p:not(.eyebrow):not(.writeup-byline),
+.project-detail-page .detail-section p:not(.eyebrow):not(.writeup-byline):not(.network-open-link):not(.plot-instructions),
+.project-detail-page .writeup-prose > p {
+  font-size: 19.5px;
+  line-height: 1.6;
+}
+/* Research prose shares the About biography's charcoal; captions retain their muted tone. */
+.project-detail-page .writeup-prose,
+.project-detail-page .writeup-prose > p,
+.project-detail-page .writeup-prose > ul,
+.project-detail-page .writeup-prose > ol,
+.project-detail-page .detail-grid article > p {
+  color: #30312e;
 }

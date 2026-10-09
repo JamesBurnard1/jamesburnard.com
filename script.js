@@ -103,6 +103,14 @@ function activateTab(tabName) {
 
 function activateTabFromHash() {
   const requestedTab = window.location.hash.replace("#", "");
+  if (["education-heading", "technical-skills-heading", "industry-heading"].includes(requestedTab)) {
+    activateTab("experience");
+    requestAnimationFrame(() => {
+      document.getElementById(requestedTab)?.scrollIntoView({ behavior: "auto", block: "start" });
+    });
+    return;
+  }
+
   const panelMap = {
     "projects-panel": "projects",
     "experience-panel": "experience",
@@ -1571,6 +1579,13 @@ if (photoGrid) {
   // Curated opening grid, followed by the rest of the complete photo collection.
   const photoOrder = [37, 17, 28, 15, 26, 35, 32, 27, 16, 8, 21, 23, 4, 3, 7, 10, 19, 30, 36, 9, 14, 22, 29, 31, 1, 2, 13, 18, 20, 34, 11, 33, 25, 24, 12, 5, 6];
   const photoCount = photoOrder.length;
+  const pageSizeForViewport = () => {
+    if (window.innerWidth <= 700) return 12;
+    if (window.innerHeight <= 740) return 12;
+    if (window.innerHeight <= 800) return 8;
+    return 6;
+  };
+  let pageSize = pageSizeForViewport();
   let page = 0;
   let selectedIndex = 0;
   let closing = false;
@@ -1583,11 +1598,11 @@ if (photoGrid) {
   }
 
   function showPage(direction) {
-    page = (page + direction + Math.ceil(photoCount / tiles.length)) % Math.ceil(photoCount / tiles.length);
-    const start = page * tiles.length;
+    page = (page + direction + Math.ceil(photoCount / pageSize)) % Math.ceil(photoCount / pageSize);
+    const start = page * pageSize;
     tiles.forEach((tile, position) => {
       const index = start + position;
-      tile.hidden = index >= photoCount;
+      tile.hidden = position >= pageSize || index >= photoCount;
       if (tile.hidden) return;
       tile.dataset.photoIndex = index;
       tile.setAttribute("aria-label", `Enlarge photograph ${index + 1}`);
@@ -1595,7 +1610,7 @@ if (photoGrid) {
       tile.querySelector("img").alt = `Photograph ${index + 1} from James Burnard’s personal collection`;
     });
     select(start);
-    counter.textContent = `${String(start + 1).padStart(2, "0")}–${String(Math.min(start + tiles.length, photoCount)).padStart(2, "0")} / ${photoCount}`;
+    counter.textContent = `${String(start + 1).padStart(2, "0")}–${String(Math.min(start + pageSize, photoCount)).padStart(2, "0")} / ${photoCount}`;
   }
 
   function openPhoto(index) {
@@ -1644,5 +1659,13 @@ if (photoGrid) {
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) closePhoto();
   });
   dialog.addEventListener("close", () => document.body.classList.remove("photo-viewer-open"));
+  window.addEventListener("resize", () => {
+    const nextSize = pageSizeForViewport();
+    if (nextSize === pageSize) return;
+    const firstIndex = page * pageSize;
+    pageSize = nextSize;
+    page = Math.floor(firstIndex / pageSize);
+    showPage(0);
+  });
   showPage(0);
 }

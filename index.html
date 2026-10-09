@@ -22,8 +22,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css?v=20261005-consistent-navigation" />
-    <link rel="stylesheet" href="experience-editorial.css?v=20261008-bold-serif-headings" />
-      <link rel="stylesheet" href="heading-font.css?v=20261008-eb-garamond" />
+    <link rel="stylesheet" href="experience-editorial.css?v=20261008-unified-section-headings" />
+      <link rel="stylesheet" href="heading-font.css?v=20261008-charcoal-prose-preview" />
+    <link rel="stylesheet" href="about-editorial.css?v=20261008-clean-photo-grid" />
 </head>
   <body class="editorial-home">
     <header class="site-header">
@@ -174,6 +175,13 @@
             </p>
           </div>
 
+          <nav class="experience-contents" aria-label="Experience contents">
+            <span class="experience-contents-label">Contents</span>
+            <a href="#education-heading">Education</a>
+            <a href="#technical-skills-heading">Technical skills</a>
+            <a href="#industry-heading">Experience</a>
+          </nav>
+
           <div class="experience-layout">
             <section class="education-section" aria-labelledby="education-heading">
               <h3 id="education-heading">Education</h3>
@@ -186,20 +194,13 @@
                     <h4>
                       <a href="https://www.umass.edu/" target="_blank" rel="noopener noreferrer">University of Massachusetts Amherst</a>
                     </h4>
-                    <span>Recent Graduate</span>
                   </header>
                   <p class="experience-tools">BS Informatics, data science track | BA Economics</p>
-                  <p>
-                    Coursework focused on data science, economics, statistics, databases, predictive analytics, and applied research methods.
-                  </p>
                 </div>
               </article>
 
               <article class="coursework-card">
                 <h3>Notable Coursework</h3>
-                <p>
-                  Here are some of the classes I took as an undergrad that I found interesting. I'd say these are the classes that had the biggest impact on how I think about technology, data, and problem solving.
-                </p>
                 <div class="coursework-groups">
                   <section class="coursework-group cs-data">
                     <h4>Computer Science &amp; Data Science</h4>
@@ -677,6 +678,6 @@
       <p>© 2026 James Burnard. Built as a personal portfolio.</p>
     </footer>
 
-    <script src="script.js?v=20261008-curated-photo-viewer"></script>
+    <script src="script.js?v=20261008-experience-contents"></script>
   </body>
 </html>
