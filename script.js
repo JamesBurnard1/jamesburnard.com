@@ -1580,10 +1580,7 @@ if (photoGrid) {
   const photoOrder = [37, 17, 28, 15, 26, 35, 32, 27, 16, 8, 21, 23, 4, 3, 7, 10, 19, 30, 36, 9, 14, 22, 29, 31, 1, 2, 13, 18, 20, 34, 11, 33, 25, 24, 12, 5, 6];
   const photoCount = photoOrder.length;
   const pageSizeForViewport = () => {
-    if (window.innerWidth <= 700) return 12;
-    if (window.innerHeight <= 740) return 12;
-    if (window.innerHeight <= 800) return 8;
-    return 6;
+    return window.innerWidth <= 900 ? 12 : 6;
   };
   let pageSize = pageSizeForViewport();
   let page = 0;
